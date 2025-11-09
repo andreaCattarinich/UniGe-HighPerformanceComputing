@@ -31,20 +31,14 @@ Come scrivere il report:
 
 ## Studio
 - Architettura dei calcolatori (pipeling, cache, memoria)
-- Compilatori **gcc**, **icc**, **nvcc**
+- Compilatori **gcc**/**g++**, **icc**/**icpc** (Intel), **nvcc** (Invidia CUDA)
 - Parallel computing
 
-### Performance Metrics
-T(n,p) è il tempo per risolvere un problema di dimensione *n* utilizzando *p* processors.
+### Performance Metrics & Amdahl's Law
+Done
 
-**Speedup**:    S(n,p) = T(n,1)/T(n,p)
+### Parallel concepts
+TODO
 
-**Efficiency**: E(n,p) = S(n,p)/p
-
-**Amdahl's Law**: TODO: studiarla
-Maximal Speedup = 1/(1-P) 
-Speedup = 1 / ( (P/N) + S)
-
-Dove: N=numero dei processori, S=serial portion of code
-
-
+### Vectorization
+TODO

@@ -1,0 +1,68 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{csvsimple}
+\usepackage{booktabs}
+\usepackage{caption}
+
+\title{Hotspot Analysis}
+\author{Andrea Cattarinich S5137057}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Hotspot Analysis}
+
+The goal of this analysis is to identify the parts of the program that consume the most execution time.  
+The measurements were performed using two methods: 
+\begin{itemize}
+    \item \textbf{Manually}: using \texttt{omp\_get\_wtime()} 
+    \item \textbf{Profiler}: using \texttt{Intel VTune}
+\end{itemize}
+Either two methods have been used with with [$N = 10000$] on [WSL2-workstation] and produced [similar results].
+
+
+\begin{center}
+    \begin{minipage}{0.48\textwidth}
+    \centering
+    \captionof{table}{Manually}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lrr}
+        \toprule
+        Function & Time (s) & Percentage (\%) \\
+        \midrule
+        \csvreader[late after line=\\]{hotspots_10000_manually.csv}{}
+        {\csvcoli & \csvcolii & \csvcoliii} 
+        \bottomrule
+    \end{tabular}%
+    }
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+    \centering
+    \captionof{table}{Intel VTune Profiler}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lrr}
+        \toprule
+        Function & Time (s) & Percentage (\%) \\
+        \midrule
+        \csvreader[late after line=\\]{hotspots_10000_intel_profiler.csv}{}
+        {\csvcoli & \csvcolii & \csvcoliii} 
+        \bottomrule
+    \end{tabular}%
+    }
+    \end{minipage}
+\end{center}
+
+
+
+
+\subsection{Conclusion}
+The main hotspot is the DFT() function and its inverse IDFT(), which together account for over 99\% of the total execution time. All other functions have negligible impact. This indicates that \textbf{parallelization and vectorization efforts should focus on the double loop inside DFT()}.
+
+\end{document}
