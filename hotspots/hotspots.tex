@@ -58,14 +58,18 @@ Either two methods have been used with with [$N = 40000$] on a Room-210 Workstat
     \end{minipage}
 \end{center}
 
-\includegraphics[width=0.8\textwidth]{top-hotspots.png}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{top-hotspots-border.png}
+\end{center}
 
 \subsection{Conclusion}
-The main hotspot is the DFT() function and its inverse IDFT(), which together account for over 99\% of the total execution time. All other functions have negligible impact. This indicates that \textbf{parallelization and vectorization efforts should focus on the double loop inside DFT()}.\\
+The main hotspot is the DFT() function and its inverse IDFT(), which together account for over 99\% of the total execution time. All other functions have negligible impact. This indicates that \textbf{parallelization and vectorization efforts should focus on the double loop inside DFT()}.
 
-\noindent
-In particular, the main hotspot is the loop line contained in lines 103-112, as shown in the following screenshot.
-
-\includegraphics[width=\textwidth]{vtune_biggest_hotspot_screen.png}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{vtune_biggest_hotspot_screen.png}
+    \caption{The main hotspot is the loop contained in lines 103-112.}
+    \label{fig:vtune_biggest_hotspot_screen}
+\end{figure}
 
 \end{document}
