@@ -1,0 +1,29 @@
+
+		   OS Processor <-> Physical/Logical Mapping
+		   -----------------------------------------
+	  OS Processor	  Phys. Package	      Core	Logical Processor	Core Type
+		0		0		0		0		bigcore
+		1		0		0		1		bigcore
+		2		0		4		0		bigcore
+		3		0		4		1		bigcore
+		4		0		8		0		bigcore
+		5		0		8		1		bigcore
+		6		0		12		0		bigcore
+		7		0		12		1		bigcore
+		8		0		16		0		bigcore
+		9		0		16		1		bigcore
+		10		0		20		0		bigcore
+		11		0		20		1		bigcore
+		12		0		24		0		bigcore
+		13		0		24		1		bigcore
+		14		0		28		0		bigcore
+		15		0		28		1		bigcore
+		16		0		32		0		smallcore
+		17		0		33		0		smallcore
+		18		0		34		0		smallcore
+		19		0		35		0		smallcore
+		20		0		36		0		smallcore
+		21		0		37		0		smallcore
+		22		0		38		0		smallcore
+		23		0		39		0		smallcore
+		   -----------------------------------------
