@@ -1,0 +1,8 @@
+"Function","CPU Time: Total","CPU Time: Self","Module","Function (Full)","Source File","Start Address"
+"__libc_start_main_impl","16.0499","0","libc.so.6","__libc_start_main_impl","libc-start.c","0x27280"
+"_start","16.0499","0","omp_homework_hotspots_v2","_start","[Unknown]","0x4011b0"
+"main","16.0499","0","omp_homework_hotspots_v2","main","omp_homework_hotspots_v2.c","0x4012a0"
+"__svml_sincos2","11.708","0.604001","omp_homework_hotspots_v2","__svml_sincos2","[Unknown]","0x403430"
+"__svml_sincos2_l9","11.104","11.104","omp_homework_hotspots_v2","__svml_sincos2_l9","[Unknown]","0x4045e0"
+"DFT","8.02997","2.03998","omp_homework_hotspots_v2","DFT","omp_homework_hotspots_v2.c","0x401a0a"
+"DFT","8.01998","2.302","omp_homework_hotspots_v2","DFT","omp_homework_hotspots_v2.c","0x4016c6"
