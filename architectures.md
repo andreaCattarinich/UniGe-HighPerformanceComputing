@@ -1,14 +1,14 @@
-## Architectures
+# Architectures
 
-### Macbook
+## Macbook
 CPU ARM, [core], [frequenza]
 
-### HP envy 17-ae103nl
+## HP envy 17-ae103nl
 - CPU Intel Core i7-6500U 2.50GHz
 - Cores: 2
 - Logical Processors: 4
 
-### PC Università
+## PC Università
 - Architecture:                    x86_64
 - CPU op-mode(s):                  32-bit, 64-bit
 - Address sizes:                   46 bits physical, 48 bits virtual
@@ -27,3 +27,8 @@ CPU ARM, [core], [frequenza]
 - CPU max MHz:                     4020.0000
 - CPU min MHz:                     800.0000
 - BogoMIPS:                        6374.40
+
+Access Programs: `source /opt/intel/oneapi/setvars.sh`
+
+Percorso delle risorse condivise: `/home/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/3-OpenMP`
+
