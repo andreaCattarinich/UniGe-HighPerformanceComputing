@@ -1,0 +1,5 @@
+"Function / Call Stack","CPU Time","Module","Function (Full)","Source File","Start Address"
+"__svml_sincos2_l9","11.104","omp_homework_hotspots_v2","__svml_sincos2_l9","[Unknown]","0x4045e0"
+"DFT","2.302","omp_homework_hotspots_v2","DFT","omp_homework_hotspots_v2.c","0x4016c6"
+"DFT","2.03998","omp_homework_hotspots_v2","DFT","omp_homework_hotspots_v2.c","0x401a0a"
+"__svml_sincos2","0.604001","omp_homework_hotspots_v2","__svml_sincos2","[Unknown]","0x403430"

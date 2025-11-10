@@ -22,6 +22,9 @@ int main(int argc, char* argv[]){
 
   double start_entire_program;
   double start, end;
+
+  start_entire_program = omp_get_wtime();
+
   
   // -- FILL INPUT --
   double* xr = (double*) malloc (N *sizeof(double));
@@ -87,6 +90,7 @@ int main(int argc, char* argv[]){
   free(xi_check);
 
 
+  end = omp_get_wtime();
   printf("Total time: %.10f seconds\n", end-start_entire_program);
 
   return 1;

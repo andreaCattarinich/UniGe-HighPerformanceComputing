@@ -1,0 +1,20 @@
+-r
+/home/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/r001hs
+--stack-stitching
+--data-limit-mb=1000
+--disk-space-limit=0
+--mrte-type=java,python
+--stack-unwind-limit=8388608
+--itt-config=frame
+--itt-config=task,event,counter
+--stackwalk=offline
+--mrte-mode=auto
+--type=cpu:counters:nostack
+--type=cpu:stack
+--interval=10
+--event-config=CPU_CLK_UNHALTED.THREAD:sa=3200000,CPU_CLK_UNHALTED.REF_TSC:sample:sa=3200000,INST_RETIRED.ANY:sample:sa=3200000,CPU_CLK_UNHALTED.DISTRIBUTED:sa=3200000,FP_ARITH_INST_RETIRED.SCALAR_SINGLE:sa=2000003,FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE:sa=2000003,FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE:sa=2000003,FP_ARITH_INST_RETIRED.SCALAR_DOUBLE:sa=2000003,FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE:sa=2000003,FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE:sa=2000003,UOPS_EXECUTED.X87:sa=2000003,UOPS_RETIRED.SLOTS:sa=2000003,UOPS_EXECUTED.THREAD:sa=2000003,TOPDOWN.SLOTS:perf_metrics:sample:sa=2000003,TOPDOWN_RETIRING.ALL:sample:sa=2000003
+--collector=emon
+--aggregated-counting
+--app-working-dir=/VM/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1
+--
+/VM/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/omp_homework_hotspots_v2
