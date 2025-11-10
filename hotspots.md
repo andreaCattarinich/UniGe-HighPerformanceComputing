@@ -11,7 +11,9 @@ Esistono diversi *profiler*, noi dobbiamo usare [**Intel VTune**](https://www.in
 - Avviare Intel VTune (GUI): `vtune-gui
   
 ### Compilare l'eseguibile
-`gcc -O2 -fopenmp omp_homework_hotspots_v1.c -lm -o omp_homework_hotspots_v1`
+<!-- `gcc -O2 -fopenmp omp_homework_hotspots_v1.c -lm -o omp_homework_hotspots_v1` -->
+
+`icc -O2 -g -fopenmp omp_homework_hotspots_v2.c -lm -o omp_homework_hotspots_v2`
 
 - Creare un nuovo progetto
 - Importare l'eseguibile
