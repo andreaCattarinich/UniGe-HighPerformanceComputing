@@ -58,6 +58,8 @@ Either two methods have been used with with [$N = 40000$] on a Room-210 Workstat
     \end{minipage}
 \end{center}
 
+\includegraphics[width=0.8\textwidth]{top-hotspots.png}
+
 \subsection{Conclusion}
 The main hotspot is the DFT() function and its inverse IDFT(), which together account for over 99\% of the total execution time. All other functions have negligible impact. This indicates that \textbf{parallelization and vectorization efforts should focus on the double loop inside DFT()}.\\
 
