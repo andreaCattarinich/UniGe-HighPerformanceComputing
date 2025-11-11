@@ -41,58 +41,89 @@ icc
 ```
 
 Output in the file `omp_homework_vectorization.optrpt`:
-main() Function:
-```text
-
-LOOP BEGIN at omp_homework_vectorization-report.c(73,7) inlined into omp_homework_vectorization-report.c(43,5)
-   remark #25460: No loop optimizations reported
-
-   LOOP BEGIN at omp_homework_vectorization-report.c(71,3) inlined into omp_homework_vectorization-report.c(43,5)
-   <Peeled loop for vectorization>
-   LOOP END
-
-   LOOP BEGIN at omp_homework_vectorization-report.c(71,3) inlined into omp_homework_vectorization-report.c(43,5)
-      remark #15301: PERMUTED LOOP WAS VECTORIZED
-   LOOP END
-
-   LOOP BEGIN at omp_homework_vectorization-report.c(71,3) inlined into omp_homework_vectorization-report.c(43,5)
-   <Remainder loop for vectorization>
-   LOOP END
-LOOP END
+### main() Function:
 
 LOOP BEGIN at omp_homework_vectorization-report.c(73,7) inlined into omp_homework_vectorization-report.c(46,5)
-   remark #25460: No loop optimizations reported
+   remark #15542: loop was not vectorized: inner loop was already vectorized
 
    LOOP BEGIN at omp_homework_vectorization-report.c(71,3) inlined into omp_homework_vectorization-report.c(46,5)
    <Peeled loop for vectorization>
    LOOP END
 
    LOOP BEGIN at omp_homework_vectorization-report.c(71,3) inlined into omp_homework_vectorization-report.c(46,5)
+      remark #15389: vectorization support: reference xi_check[k] has unaligned access   [ omp_homework_vectorization-report.c(77,11) ]
+      remark #15389: vectorization support: reference xi_check[k] has unaligned access   [ omp_homework_vectorization-report.c(77,11) ]
+      remark #15388: vectorization support: reference xr_check[k] has aligned access   [ omp_homework_vectorization-report.c(75,11) ]
+      remark #15388: vectorization support: reference xr_check[k] has aligned access   [ omp_homework_vectorization-report.c(75,11) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15305: vectorization support: vector length 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.123
       remark #15301: PERMUTED LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15448: unmasked aligned unit stride loads: 1 
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15450: unmasked unaligned unit stride loads: 1 
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 563 
+      remark #15477: vector cost: 130.000 
+      remark #15478: estimated potential speedup: 4.320 
+      remark #15482: vectorized math library calls: 2 
+      remark #15486: divides: 2 
+      remark #15487: type converts: 2 
+      remark #15488: --- end vector cost summary ---
    LOOP END
 
    LOOP BEGIN at omp_homework_vectorization-report.c(71,3) inlined into omp_homework_vectorization-report.c(46,5)
    <Remainder loop for vectorization>
    LOOP END
 LOOP END
-```
 
-DTF() Function:
+### DTF() Function:
+**Importan part of the report!!! Fa riferimento all'hotspot-code**
 ```text
-===========================================================================
-
 Begin optimization report for: DFT(int, double *, double *, double *, double *, int)
 
     Report from: Vector optimizations [vec]
 
 
+LOOP BEGIN at omp_homework_vectorization-report.c(71,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at omp_homework_vectorization-report.c(73,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed OUTPUT dependence between Xr_o[k] (75:11) and Xi_o[k] (77:11)
+      remark #15346: vector dependence: assumed OUTPUT dependence between Xi_o[k] (77:11) and Xr_o[k] (75:11)
+   LOOP END
+LOOP END
+```
+
+
+Meno importante...
+```text
 LOOP BEGIN at omp_homework_vectorization-report.c(84,5)
 <Peeled loop for vectorization, Multiversioned v1>
 LOOP END
 
 LOOP BEGIN at omp_homework_vectorization-report.c(84,5)
 <Multiversioned v1>
+   remark #15388: vectorization support: reference Xr_o[n] has aligned access   [ omp_homework_vectorization-report.c(85,7) ]
+   remark #15388: vectorization support: reference Xr_o[n] has aligned access   [ omp_homework_vectorization-report.c(85,7) ]
+   remark #15388: vectorization support: reference Xi_o[n] has aligned access   [ omp_homework_vectorization-report.c(86,7) ]
+   remark #15388: vectorization support: reference Xi_o[n] has aligned access   [ omp_homework_vectorization-report.c(86,7) ]
+   remark #15305: vectorization support: vector length 2
+   remark #15399: vectorization support: unroll factor set to 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.064
    remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15448: unmasked aligned unit stride loads: 2 
+   remark #15449: unmasked aligned unit stride stores: 2 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 63 
+   remark #15477: vector cost: 35.000 
+   remark #15478: estimated potential speedup: 1.770 
+   remark #15486: divides: 2 
+   remark #15488: --- end vector cost summary ---
 LOOP END
 
 LOOP BEGIN at omp_homework_vectorization-report.c(84,5)
@@ -101,7 +132,15 @@ LOOP END
 
 LOOP BEGIN at omp_homework_vectorization-report.c(84,5)
 <Remainder loop for vectorization, Multiversioned v1>
+   remark #15389: vectorization support: reference Xr_o[n] has unaligned access   [ omp_homework_vectorization-report.c(85,7) ]
+   remark #15389: vectorization support: reference Xr_o[n] has unaligned access   [ omp_homework_vectorization-report.c(85,7) ]
+   remark #15388: vectorization support: reference Xi_o[n] has aligned access   [ omp_homework_vectorization-report.c(86,7) ]
+   remark #15388: vectorization support: reference Xi_o[n] has aligned access   [ omp_homework_vectorization-report.c(86,7) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 2
+   remark #15309: vectorization support: normalized vectorization overhead 0.247
    remark #15301: REMAINDER LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
 LOOP END
 
 LOOP BEGIN at omp_homework_vectorization-report.c(84,5)
@@ -110,6 +149,7 @@ LOOP END
 
 LOOP BEGIN at omp_homework_vectorization-report.c(84,5)
 <Multiversioned v2>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
 LOOP END
 
 LOOP BEGIN at omp_homework_vectorization-report.c(84,5)
