@@ -13,6 +13,7 @@ Esistono diversi *profiler*, noi dobbiamo usare [**Intel VTune**](https://www.in
 ### Compilare l'eseguibile
 <!-- `gcc -O2 -fopenmp omp_homework_hotspots_v1.c -lm -o omp_homework_hotspots_v1` -->
 
+Prima ho usato `icc`. Dato che è deprecato, dovrei usare `icx`.
 `icc -O2 -g -fopenmp omp_homework_hotspots_v2.c -lm -o omp_homework_hotspots_v2`
 
 - Creare un nuovo progetto
