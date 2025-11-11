@@ -53,20 +53,6 @@ for (int i = 0; i < N; i++) {
     }
     ```
 
-## Vectorization Report [2.3.27]:
-The vectorization report is a compiler report that shows which loops are or are not vectorized and why.
-
-Related command: `-qopt-report-phase=vec` or `=openmp` or `par`.
-
-Reports are written to files `.optrpt`
-
-### Usage
-`-qopt-report=\<n>`, with n from 0 to 5:
-- 0: None
-- 1: Lists vectorized loops
-- 2: 1 + Lists loops not vectorized, with explanation
-
-
 
 ---
 ## RAW (Read After Write) - Flow dependency
