@@ -1,0 +1,5197 @@
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 98, Column: 9 }
+Function:        fillInput
+Args:
+  - Callee:          time
+  - String:          ' will not be inlined into '
+  - Caller:          fillInput
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 98, Column: 3 }
+Function:        fillInput
+Args:
+  - Callee:          srand
+  - String:          ' will not be inlined into '
+  - Caller:          fillInput
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 100, Column: 5 }
+Function:        fillInput
+Args:
+  - Callee:          rand
+  - String:          ' will not be inlined into '
+  - Caller:          fillInput
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 98, Column: 9 }
+Function:        fillInput
+Args:
+  - Callee:          time
+  - String:          ' will not be inlined into '
+  - Caller:          fillInput
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 98, Column: 3 }
+Function:        fillInput
+Args:
+  - Callee:          srand
+  - String:          ' will not be inlined into '
+  - Caller:          fillInput
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 100, Column: 5 }
+Function:        fillInput
+Args:
+  - Callee:          rand
+  - String:          ' will not be inlined into '
+  - Caller:          fillInput
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 48 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            sitofp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 48 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 53 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            sitofp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 53 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 11 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 11 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 11 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 11 }
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+Function:        DFT
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 22 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            sub
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 22 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 22 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            sitofp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 22 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 11 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 11 }
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+Function:        DFT
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            PromoteLoopAccessesToScalar
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+Function:        DFT
+Args:
+  - String:          Moving accesses to memory location out of the loop
+...
+--- !Passed
+Pass:            licm
+Name:            PromoteLoopAccessesToScalar
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+Function:        DFT
+Args:
+  - String:          Moving accesses to memory location out of the loop
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 48 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            sitofp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 48 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 53 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            sitofp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 53 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 22 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            sub
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 22 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 22 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            sitofp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 22 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 17 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            sitofp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 17 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 36 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            trunc
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 36 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 23, Column: 3 }
+Function:        main
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 25, Column: 26 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 26, Column: 26 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 30, Column: 32 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 31, Column: 32 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 34, Column: 28 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 35, Column: 28 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 39, Column: 23 }
+Function:        main
+Args:
+  - Callee:          omp_get_wtime
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 49, Column: 21 }
+Function:        main
+Args:
+  - Callee:          omp_get_wtime
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 50, Column: 3 }
+Function:        main
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 61, Column: 3 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 61, Column: 13 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 62, Column: 3 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 62, Column: 15 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 63, Column: 3 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 63, Column: 19 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 23, Column: 3 }
+Function:        main
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 25, Column: 26 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 26, Column: 26 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 30, Column: 32 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 31, Column: 32 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 34, Column: 28 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 35, Column: 28 }
+Function:        main
+Args:
+  - Callee:          malloc
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 39, Column: 23 }
+Function:        main
+Args:
+  - Callee:          omp_get_wtime
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 49, Column: 21 }
+Function:        main
+Args:
+  - Callee:          omp_get_wtime
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 50, Column: 3 }
+Function:        main
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 61, Column: 3 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 61, Column: 13 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 62, Column: 3 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 62, Column: 15 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 63, Column: 3 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 63, Column: 19 }
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Passed
+Pass:            inline
+Name:            Inlined
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 27, Column: 3 }
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          fillInput
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
+  - String:          ''' inlined into '''
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ''''
+  - String:          ' with '
+  - String:          '(cost='
+  - Cost:            '95'
+  - String:          ', threshold='
+  - Threshold:       '225'
+  - String:          ')'
+  - String:          ' at callsite '
+  - String:          main
+  - String:          ':'
+  - Line:            '7'
+  - String:          ':'
+  - Column:          '3'
+  - String:          ';'
+...
+--- !Passed
+Pass:            inline
+Name:            Inlined
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 32, Column: 3 }
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          setOutputZero
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 113, 
+                       Column: 0 }
+  - String:          ''' inlined into '''
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ''''
+  - String:          ' with '
+  - String:          '(cost='
+  - Cost:            '-20'
+  - String:          ', threshold='
+  - Threshold:       '225'
+  - String:          ')'
+  - String:          ' at callsite '
+  - String:          main
+  - String:          ':'
+  - Line:            '12'
+  - String:          ':'
+  - Column:          '3'
+  - String:          ';'
+...
+--- !Passed
+Pass:            inline
+Name:            Inlined
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 36, Column: 3 }
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          setOutputZero
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 113, 
+                       Column: 0 }
+  - String:          ''' inlined into '''
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ''''
+  - String:          ' with '
+  - String:          '(cost='
+  - Cost:            '-20'
+  - String:          ', threshold='
+  - Threshold:       '225'
+  - String:          ')'
+  - String:          ' at callsite '
+  - String:          main
+  - String:          ':'
+  - Line:            '16'
+  - String:          ':'
+  - Column:          '3'
+  - String:          ';'
+...
+--- !Passed
+Pass:            inline
+Name:            Inlined
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 43, Column: 3 }
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          DFT
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 70, Column: 0 }
+  - String:          ''' inlined into '''
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ''''
+  - String:          ' with '
+  - String:          '(cost='
+  - Cost:            '75'
+  - String:          ', threshold='
+  - Threshold:       '225'
+  - String:          ')'
+  - String:          ' at callsite '
+  - String:          main
+  - String:          ':'
+  - Line:            '23'
+  - String:          ':'
+  - Column:          '3'
+  - String:          ';'
+...
+--- !Passed
+Pass:            inline
+Name:            Inlined
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 46, Column: 3 }
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          DFT
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 70, Column: 0 }
+  - String:          ''' inlined into '''
+  - Caller:          main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ''''
+  - String:          ' with '
+  - String:          '(cost='
+  - Cost:            '120'
+  - String:          ', threshold='
+  - Threshold:       '225'
+  - String:          ')'
+  - String:          ' at callsite '
+  - String:          main
+  - String:          ':'
+  - Line:            '26'
+  - String:          ':'
+  - Column:          '3'
+  - String:          ';'
+...
+--- !Passed
+Pass:            loop-idiom
+Name:            ProcessLoopStridedStore
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 107, Column: 12 }
+Function:        main
+Args:
+  - String:          'Transformed loop-strided store in '
+  - Function:        main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' function into a call to '
+  - NewFunction:     llvm.memset.p0.i64
+  - String:          '() intrinsic'
+  - FromBlock:       ''
+  - ToBlock:         ''
+...
+--- !Passed
+Pass:            loop-idiom
+Name:            ProcessLoopStridedStore
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 116, Column: 14 }
+Function:        main
+Args:
+  - String:          'Transformed loop-strided store in '
+  - Function:        main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' function into a call to '
+  - NewFunction:     llvm.memset.p0.i64
+  - String:          '() intrinsic'
+  - FromBlock:       ''
+  - ToBlock:         ''
+...
+--- !Passed
+Pass:            loop-idiom
+Name:            ProcessLoopStridedStore
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 117, Column: 14 }
+Function:        main
+Args:
+  - String:          'Transformed loop-strided store in '
+  - Function:        main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' function into a call to '
+  - NewFunction:     llvm.memset.p0.i64
+  - String:          '() intrinsic'
+  - FromBlock:       ''
+  - ToBlock:         ''
+...
+--- !Passed
+Pass:            loop-delete
+Name:            Invariant
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 3 }
+Function:        main
+Args:
+  - String:          Loop deleted because it is invariant
+...
+--- !Passed
+Pass:            loop-idiom
+Name:            ProcessLoopStridedStore
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 116, Column: 14 }
+Function:        main
+Args:
+  - String:          'Transformed loop-strided store in '
+  - Function:        main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' function into a call to '
+  - NewFunction:     llvm.memset.p0.i64
+  - String:          '() intrinsic'
+  - FromBlock:       ''
+  - ToBlock:         ''
+...
+--- !Passed
+Pass:            loop-idiom
+Name:            ProcessLoopStridedStore
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 117, Column: 14 }
+Function:        main
+Args:
+  - String:          'Transformed loop-strided store in '
+  - Function:        main
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+  - String:          ' function into a call to '
+  - NewFunction:     llvm.memset.p0.i64
+  - String:          '() intrinsic'
+  - FromBlock:       ''
+  - ToBlock:         ''
+...
+--- !Passed
+Pass:            loop-delete
+Name:            Invariant
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 3 }
+Function:        main
+Args:
+  - String:          Loop deleted because it is invariant
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, 
+                       Column: 12 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 58 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, 
+                       Column: 12 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 58 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+Function:        checkResults
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          checkResults
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
+                       Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+Function:        checkResults
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          checkResults
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
+                       Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 132, Column: 5 }
+Function:        checkResults
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          checkResults
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
+                       Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+Function:        checkResults
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          checkResults
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
+                       Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+Function:        checkResults
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          checkResults
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
+                       Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 132, Column: 5 }
+Function:        checkResults
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          checkResults
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
+                       Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+Function:        checkResults
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, 
+                       Column: 7 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 24 }
+Function:        checkResults
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, 
+                       Column: 7 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 132, Column: 29 }
+Function:        checkResults
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, 
+                       Column: 7 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 132, Column: 29 }
+Function:        checkResults
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, 
+                       Column: 7 }
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 140, Column: 7 }
+Function:        printResults
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          printResults
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 137, 
+                       Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 140, Column: 7 }
+Function:        printResults
+Args:
+  - Callee:          printf
+  - String:          ' will not be inlined into '
+  - Caller:          printResults
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 137, 
+                       Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, 
+                       Column: 12 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 58 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, 
+                       Column: 12 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 58 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 86, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'load of type '
+  - Type:            ''
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 87, Column: 15 }
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 19 }
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            PartialUnrolled
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 101, Column: 3 }
+Function:        main
+Args:
+  - String:          'unrolled loop by a factor of '
+  - UnrollCount:     '20'
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 7 }
+Function:        main
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 30 }
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        main
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 30 }
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 7 }
+Function:        main
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 30 }
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        main
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 30 }
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            PartialUnrolled
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 85, Column: 5 }
+Function:        main
+Args:
+  - String:          'unrolled loop by a factor of '
+  - UnrollCount:     '5'
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        main
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 99, Column: 3 }
+Function:        fillInput
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 99, Column: 3 }
+Function:        fillInput
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 99, Column: 3 }
+Function:        fillInput
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 99, Column: 3 }
+Function:        fillInput
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 3 }
+Function:        setOutputZero
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 3 }
+Function:        setOutputZero
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 3 }
+Function:        setOutputZero
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 3 }
+Function:        setOutputZero
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        DFT
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        DFT
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        DFT
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        DFT
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 30 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            and
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 34 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            and
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 19 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 57 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 27 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            insertelement
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            shufflevector
+    DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        DFT
+Args:
+  - String:          'hoisting '
+  - Inst:            fdiv
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+Function:        checkResults
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+Function:        checkResults
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+Function:        checkResults
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+Function:        checkResults
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+Function:        checkResults
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 7 }
+Function:        main
+Args:
+  - NumSpills:       '13'
+  - String:          ' spills '
+  - TotalSpillsCost: '1.331038e+04'
+  - String:          ' total spills cost '
+  - NumReloads:      '13'
+  - String:          ' reloads '
+  - TotalReloadsCost: '1.331038e+04'
+  - String:          ' total reloads cost '
+  - NumFoldedReloads: '8'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '8.191000e+03'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '25'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '2.559688e+04'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        main
+Args:
+  - NumSpills:       '59'
+  - String:          ' spills '
+  - TotalSpillsCost: '1.477662e+04'
+  - String:          ' total spills cost '
+  - NumReloads:      '37'
+  - String:          ' reloads '
+  - TotalReloadsCost: '1.407538e+04'
+  - String:          ' total reloads cost '
+  - NumFoldedReloads: '24'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '8.701000e+03'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '27'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '2.566062e+04'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 7 }
+Function:        main
+Args:
+  - NumSpills:       '13'
+  - String:          ' spills '
+  - TotalSpillsCost: '1.331038e+04'
+  - String:          ' total spills cost '
+  - NumReloads:      '13'
+  - String:          ' reloads '
+  - TotalReloadsCost: '1.331038e+04'
+  - String:          ' total reloads cost '
+  - NumFoldedReloads: '8'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '8.191000e+03'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '25'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '2.559688e+04'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        main
+Args:
+  - NumSpills:       '59'
+  - String:          ' spills '
+  - TotalSpillsCost: '1.477662e+04'
+  - String:          ' total spills cost '
+  - NumReloads:      '36'
+  - String:          ' reloads '
+  - TotalReloadsCost: '1.404350e+04'
+  - String:          ' total reloads cost '
+  - NumFoldedReloads: '24'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '8.701000e+03'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '27'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '2.566062e+04'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            SpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 1 }
+Function:        main
+Args:
+  - NumSpills:       '122'
+  - String:          ' spills '
+  - TotalSpillsCost: '2.955725e+04'
+  - String:          ' total spills cost '
+  - NumReloads:      '76'
+  - String:          ' reloads '
+  - TotalReloadsCost: '2.812188e+04'
+  - String:          ' total reloads cost '
+  - NumFoldedReloads: '49'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '1.740300e+04'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '67'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '5.133425e+04'
+  - String:          ' total copies cost '
+  - String:          generated in function
+...
+--- !Analysis
+Pass:            prologepilog
+Name:            StackSize
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+Function:        main
+Args:
+  - NumStackBytes:   '824'
+  - String:          ' stack bytes in function'
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '25'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 100, Column: 5 }
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '10'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 107, Column: 12 }
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '23'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 30, Column: 32 }
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '23'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 36 }
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '92'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '139'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '123'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 36 }
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '92'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '139'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '124'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 99, Column: 3 }
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '23'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '29'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionCount
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
+Function:        main
+Args:
+  - NumInstructions: '854'
+  - String:          ' instructions in function'
+...
+--- !Missed
+Pass:            regalloc
+Name:            SpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 1 }
+Function:        fillInput
+Args:
+  - NumVRCopies:     '7'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '4.463235e+00'
+  - String:          ' total copies cost '
+  - String:          generated in function
+...
+--- !Analysis
+Pass:            prologepilog
+Name:            StackSize
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
+Function:        fillInput
+Args:
+  - NumStackBytes:   '40'
+  - String:          ' stack bytes in function'
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '13'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 100, Column: 5 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '10'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 101, Column: 14 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 101, Column: 14 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '4'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 107, Column: 6 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 107, Column: 6 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '9'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '4'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 99, Column: 3 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '5'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 99, Column: 3 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '1'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '1'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '5'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '1'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '1'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '5'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 109, Column: 3 }
+Function:        fillInput
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '8'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionCount
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
+Function:        fillInput
+Args:
+  - NumInstructions: '96'
+  - String:          ' instructions in function'
+...
+--- !Missed
+Pass:            regalloc
+Name:            SpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 113, Column: 1 }
+Function:        setOutputZero
+Args:
+  - NumVRCopies:     '4'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '6.176471e-01'
+  - String:          ' total copies cost '
+  - String:          generated in function
+...
+--- !Analysis
+Pass:            prologepilog
+Name:            StackSize
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 113, Column: 0 }
+Function:        setOutputZero
+Args:
+  - NumStackBytes:   '24'
+  - String:          ' stack bytes in function'
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 14 }
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '5'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 14 }
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '4'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 117, Column: 6 }
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '1'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 116, Column: 14 }
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 116, Column: 6 }
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '10'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 116, Column: 14 }
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '5'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 3 }
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '1'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 116, Column: 14 }
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '5'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 119, Column: 3 }
+Function:        setOutputZero
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionCount
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 113, Column: 0 }
+Function:        setOutputZero
+Args:
+  - NumInstructions: '56'
+  - String:          ' instructions in function'
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 7 }
+Function:        DFT
+Args:
+  - NumFoldedReloads: '3'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '6.001319e+02'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '7'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '1.400308e+03'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - NumSpills:       '7'
+  - String:          ' spills '
+  - TotalSpillsCost: '3.785714e+01'
+  - String:          ' total spills cost '
+  - NumReloads:      '8'
+  - String:          ' reloads '
+  - TotalReloadsCost: '4.848352e+01'
+  - String:          ' total reloads cost '
+  - NumFoldedReloads: '8'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '6.318351e+02'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '14'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '1.438033e+03'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 74, Column: 7 }
+Function:        DFT
+Args:
+  - NumSpills:       '16'
+  - String:          ' spills '
+  - TotalSpillsCost: '3.200703e+03'
+  - String:          ' total spills cost '
+  - NumReloads:      '19'
+  - String:          ' reloads '
+  - TotalReloadsCost: '3.800835e+03'
+  - String:          ' total reloads cost '
+  - NumFoldedReloads: '8'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '1.600352e+03'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '24'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '4.801055e+03'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - NumSpills:       '132'
+  - String:          ' spills '
+  - TotalSpillsCost: '3.952539e+03'
+  - String:          ' total spills cost '
+  - NumReloads:      '131'
+  - String:          ' reloads '
+  - TotalReloadsCost: '4.461253e+03'
+  - String:          ' total reloads cost '
+  - NumFoldedReloads: '39'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '1.756626e+03'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '79'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '5.064352e+03'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            SpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 70, Column: 1 }
+Function:        DFT
+Args:
+  - NumSpills:       '158'
+  - String:          ' spills '
+  - TotalSpillsCost: '3.998396e+03'
+  - String:          ' total spills cost '
+  - NumReloads:      '143'
+  - String:          ' reloads '
+  - TotalReloadsCost: '4.511582e+03'
+  - String:          ' total reloads cost '
+  - NumFoldedReloads: '58'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '2.391835e+03'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '98'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '6.505923e+03'
+  - String:          ' total copies cost '
+  - String:          generated in function
+...
+--- !Analysis
+Pass:            prologepilog
+Name:            StackSize
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 70, Column: 0 }
+Function:        DFT
+Args:
+  - NumStackBytes:   '1784'
+  - String:          ' stack bytes in function'
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 15 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '9'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '18'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '5'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '21'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '30'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '12'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 11 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '5'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '8'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '26'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '17'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '1'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '9'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 84, Column: 11 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '4'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '25'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '232'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '126'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '31'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 36 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '64'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '42'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '154'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '121'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '12'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '24'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '17'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '1'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 90, Column: 3 }
+Function:        DFT
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '10'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionCount
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 70, Column: 0 }
+Function:        DFT
+Args:
+  - NumInstructions: '1059'
+  - String:          ' instructions in function'
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 125, Column: 3 }
+Function:        checkResults
+Args:
+  - NumFoldedReloads: '1'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '1.020000e+01'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '4'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '2.032000e+01'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 125, Column: 3 }
+Function:        checkResults
+Args:
+  - NumVRCopies:     '10'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '5.080000e+01'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            SpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, Column: 1 }
+Function:        checkResults
+Args:
+  - NumSpills:       '2'
+  - String:          ' spills '
+  - TotalSpillsCost: '1.280000e+00'
+  - String:          ' total spills cost '
+  - NumReloads:      '3'
+  - String:          ' reloads '
+  - TotalReloadsCost: '1.600000e+00'
+  - String:          ' total reloads cost '
+  - NumFoldedReloads: '1'
+  - String:          ' folded reloads '
+  - TotalFoldedReloadsCost: '1.020000e+01'
+  - String:          ' total folded reloads cost '
+  - NumVRCopies:     '20'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '7.676000e+01'
+  - String:          ' total copies cost '
+  - String:          generated in function
+...
+--- !Analysis
+Pass:            prologepilog
+Name:            StackSize
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, Column: 0 }
+Function:        checkResults
+Args:
+  - NumStackBytes:   '72'
+  - String:          ' stack bytes in function'
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '11'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '9'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 125, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '8'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 132, Column: 29 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '13'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 125, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '6'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+Function:        checkResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '8'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionCount
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, Column: 0 }
+Function:        checkResults
+Args:
+  - NumInstructions: '186'
+  - String:          ' instructions in function'
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 139, Column: 3 }
+Function:        printResults
+Args:
+  - NumVRCopies:     '2'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '2.040000e+01'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            LoopSpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 139, Column: 3 }
+Function:        printResults
+Args:
+  - NumVRCopies:     '9'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '9.180000e+01'
+  - String:          ' total copies cost '
+  - String:          generated in loop
+...
+--- !Missed
+Pass:            regalloc
+Name:            SpillReloadCopies
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 137, Column: 1 }
+Function:        printResults
+Args:
+  - NumVRCopies:     '15'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '1.151600e+02'
+  - String:          ' total copies cost '
+  - String:          generated in function
+...
+--- !Analysis
+Pass:            prologepilog
+Name:            StackSize
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 137, Column: 0 }
+Function:        printResults
+Args:
+  - NumStackBytes:   '40'
+  - String:          ' stack bytes in function'
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 139, Column: 14 }
+Function:        printResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        printResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '5'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        printResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 140, Column: 50 }
+Function:        printResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '59'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        printResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '4'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 140, Column: 50 }
+Function:        printResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '10'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 141, Column: 3 }
+Function:        printResults
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionCount
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 137, Column: 0 }
+Function:        printResults
+Args:
+  - NumInstructions: '95'
+  - String:          ' instructions in function'
+...

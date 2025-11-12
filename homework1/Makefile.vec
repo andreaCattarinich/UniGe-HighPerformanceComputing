@@ -1,0 +1,22 @@
+CC = icx
+BUILD = build
+REPORTS = reports
+SRC_FOLDER = src
+CFLAGS = -fopenmp -vec -qopt-report=max -O2 -xHost
+
+$(shell mkdir -p $(BUILD) $(REPORTS))
+
+all: restrict simd
+
+restrict:
+	$(CC) $(CFLAGS) $(SRC_FOLDER)/omp_homework_restrict.c \
+	-o $(BUILD)/omp_homework_restrict \
+	-qopt-report-file=$(REPORTS)/omp_homework_restrict.optrpt
+
+simd:
+	$(CC) $(CFLAGS) $(SRC_FOLDER)/omp_homework_simd.c \
+	-o $(BUILD)/omp_homework_simd \
+	-qopt-report-file=$(REPORTS)/omp_homework_simd.optrpt
+
+clean:
+	rm -rf $(BUILD) $(REPORTS)

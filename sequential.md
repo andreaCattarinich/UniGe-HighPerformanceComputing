@@ -24,3 +24,6 @@ N = 100000, 37.875294 sec
 
 Provo con O2 -march=native
 N = 100000, 41.325764 sec
+
+---
+

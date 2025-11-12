@@ -13,7 +13,7 @@ $(shell mkdir -p $(BUILD) $(REPORTS))
 CFLAGS = -fopenmp -vec -qopt-report=max
 
 TARGET_O1 = $(BUILD)/$(NAME)_O1
-TARGET_O2 = $(BUILD)/$(NAME)_O2_native
+TARGET_O2 = $(BUILD)/$(NAME)_O2_xHost
 TARGET_O3 = $(BUILD)/$(NAME)_O3
 
 all: O1 O2 O3
@@ -22,7 +22,7 @@ O1:
 	$(CC) -O1 $(CFLAGS) -qopt-report-file=$(REPORTS)/$(NAME)_O1.optrpt $(SRC_FOLDER)/$(SRC_CODE) -o $(TARGET_O1)
 
 O2:
-	$(CC) -O2 -march=native $(CFLAGS) -qopt-report-file=$(REPORTS)/$(NAME)_O2.optrpt $(SRC_FOLDER)/$(SRC_CODE) -o $(TARGET_O2)
+	$(CC) -O2 -xHost $(CFLAGS) -qopt-report-file=$(REPORTS)/$(NAME)_O2.optrpt $(SRC_FOLDER)/$(SRC_CODE) -o $(TARGET_O2)
 
 O3:
 	$(CC) -O3 $(CFLAGS) -qopt-report-file=$(REPORTS)/$(NAME)_O3.optrpt $(SRC_FOLDER)/$(SRC_CODE) -o $(TARGET_O3)

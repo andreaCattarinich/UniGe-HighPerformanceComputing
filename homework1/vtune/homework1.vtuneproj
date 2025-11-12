@@ -29,10 +29,10 @@
        <targetName type="string">launch</targetName>
        <result_directory.path type="string">/home/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/r@@@{at}</result_directory.path>
        <use_app_dir_as_work_dir type="bool">true</use_app_dir_as_work_dir>
-       <launch_app.app_to_launch type="string">/VM/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/omp_homework_hotspots_v2</launch_app.app_to_launch>
+       <launch_app.app_to_launch type="string">/VM/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/build/omp_homework_O2_xHost</launch_app.app_to_launch>
        <launch_app.app_parameters type="string"></launch_app.app_parameters>
        <launch.userappworkdir type="string"></launch.userappworkdir>
-       <launch_app.working_folder type="string">/VM/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1</launch_app.working_folder>
+       <launch_app.working_folder type="string">/VM/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/build</launch_app.working_folder>
        <context>
         <contextValue>
          <id type="string">allowMultipleRuns</id>
@@ -133,7 +133,7 @@
    </workloads>
   </target_settings>
   <analysis_type_settings>
-   <selected_analysis_type_path type="string">/opt/intel/oneapi/vtune/2023.2.0/config/analysis_type/hotspots.cfg</selected_analysis_type_path>
+   <selected_analysis_type_path type="string">/opt/intel/oneapi/vtune/2023.2.0/config/analysis_type/hpc-characterization.cfg</selected_analysis_type_path>
    <localhost>
     <launch>
      <at_start_point>
@@ -215,6 +215,67 @@
        <contextValue>
         <id type="string">stackSizeCollect</id>
         <value type="string">0</value>
+       </contextValue>
+      </knob_values>
+     </at_start_point>
+     <at_start_point>
+      <at_path type="string">/opt/intel/oneapi/vtune/2023.2.0/config/analysis_type/hpc-characterization.cfg</at_path>
+      <knob_values>
+       <contextValue>
+        <id type="string">allowedViewpoints</id>
+        <value type="string">%OpenMPHotspotsViewpointName</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">analyzeOpenMPRegions</id>
+        <value type="bool">true</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">collectAffinity</id>
+        <value type="bool">false</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">collectMemoryBW</id>
+        <value type="bool">true</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">collectMpiTracingData</id>
+        <value type="bool">false</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">collectParallelFs</id>
+        <value type="bool">false</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">dramBandwidthLimitsAT</id>
+        <value type="bool">true</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">enableStackCollect</id>
+        <value type="bool">false</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">groupForCustomControl</id>
+        <value type="null"></value>
+       </contextValue>
+       <contextValue>
+        <id type="string">initialViewpoint</id>
+        <value type="string">%OpenMPHotspotsViewpointName</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">samplingInterval</id>
+        <value type="double">1</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">stackSizeCollect</id>
+        <value type="string">0</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">targetGPUAtk</id>
+        <value type="string">0:0:2.0</value>
+       </contextValue>
+       <contextValue>
+        <id type="string">useHPCCPUUtilizationThresholds</id>
+        <value type="bool">true</value>
        </contextValue>
       </knob_values>
      </at_start_point>
