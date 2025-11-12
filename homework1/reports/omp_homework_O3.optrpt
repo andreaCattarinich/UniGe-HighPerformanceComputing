@@ -1,19 +1,19 @@
 Global optimization report for : main
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (98, 3)
+LOOP BEGIN at src/omp_homework.c (99, 3)
     remark #15527: Loop was not vectorized: function call to  cannot be vectorized
     remark #25438: Loop unrolled without remainder by 8
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (100, 3)
+LOOP BEGIN at src/omp_homework.c (101, 3)
     remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
     remark #25438: Loop unrolled without remainder by 8
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (71, 3)
+LOOP BEGIN at src/omp_homework.c (72, 3)
     remark #15553: loop was not vectorized: outer loop is not an auto-vectorization candidate.
 
-    LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (73, 7)
+    LOOP BEGIN at src/omp_homework.c (74, 7)
         remark #15300: LOOP WAS VECTORIZED
         remark #15305: vectorization support: vector length 2
         remark #15475: --- begin vector loop cost summary ---
@@ -21,7 +21,7 @@ LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (71, 3)
         remark #15477: vector cost: 61.062500 
         remark #15478: estimated potential speedup: 1.765625 
         remark #15309: vectorization support: normalized vectorization overhead 0.093750
-        remark #15570: using scalar loop trip count: 40000
+        remark #15570: using scalar loop trip count: 60000
         remark #15482: vectorized math library calls: 2 
         remark #15484: vector function calls: 0 
         remark #15485: serialized function calls: 0
@@ -46,10 +46,10 @@ LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (71, 3)
     LOOP END
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (71, 3)
+LOOP BEGIN at src/omp_homework.c (72, 3)
     remark #15553: loop was not vectorized: outer loop is not an auto-vectorization candidate.
 
-    LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (73, 7)
+    LOOP BEGIN at src/omp_homework.c (74, 7)
         remark #15300: LOOP WAS VECTORIZED
         remark #15305: vectorization support: vector length 2
         remark #15475: --- begin vector loop cost summary ---
@@ -57,7 +57,7 @@ LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (71, 3)
         remark #15477: vector cost: 61.062500 
         remark #15478: estimated potential speedup: 1.765625 
         remark #15309: vectorization support: normalized vectorization overhead 0.093750
-        remark #15570: using scalar loop trip count: 40000
+        remark #15570: using scalar loop trip count: 60000
         remark #15482: vectorized math library calls: 2 
         remark #15484: vector function calls: 0 
         remark #15485: serialized function calls: 0
@@ -82,7 +82,7 @@ LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (71, 3)
     LOOP END
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (84, 5)
+LOOP BEGIN at src/omp_homework.c (85, 5)
     remark #15300: LOOP WAS VECTORIZED
     remark #15305: vectorization support: vector length 2
     remark #15475: --- begin vector loop cost summary ---
@@ -90,7 +90,7 @@ LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (84, 5)
     remark #15477: vector cost: 8.687500 
     remark #15478: estimated potential speedup: 1.140625 
     remark #15309: vectorization support: normalized vectorization overhead 0.000000
-    remark #15570: using scalar loop trip count: 40000
+    remark #15570: using scalar loop trip count: 60000
     remark #15482: vectorized math library calls: 0 
     remark #15484: vector function calls: 0 
     remark #15485: serialized function calls: 0
@@ -112,31 +112,26 @@ LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (84, 5)
     remark #15498: vector expand: 0 
     remark #15474: --- end vector loop memory reference summary ---
 LOOP END
-
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (124, 3)
-    remark #15527: Loop was not vectorized: function call to  cannot be vectorized
-    remark #25438: Loop unrolled without remainder by 4
-LOOP END
 =================================================================
 
 Global optimization report for : fillInput
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (98, 3)
+LOOP BEGIN at src/omp_homework.c (99, 3)
     remark #15527: Loop was not vectorized: function call to  cannot be vectorized
     remark #25438: Loop unrolled without remainder by 8
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (100, 3)
+LOOP BEGIN at src/omp_homework.c (101, 3)
 <Multiversioned v2>
     remark #15319: Loop was not vectorized: novector directive used
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (100, 3)
+LOOP BEGIN at src/omp_homework.c (101, 3)
 <Multiversioned v2>
     remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (100, 3)
+LOOP BEGIN at src/omp_homework.c (101, 3)
 <Multiversioned v1>
 <Multiversioned v1>
     remark #25228: Loop multiversioned for Data Dependence
@@ -146,7 +141,7 @@ LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (100, 3)
     remark #25439: Loop unrolled with remainder by 8
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (100, 3)
+LOOP BEGIN at src/omp_homework.c (101, 3)
 <Remainder loop>
     remark #25585: Loop converted to switch
 LOOP END
@@ -154,7 +149,7 @@ LOOP END
 
 Global optimization report for : setOutputZero
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (114, 3)
+LOOP BEGIN at src/omp_homework.c (115, 3)
 <Multiversioned v1>
 <Multiversioned v1>
     remark #25228: Loop multiversioned for Data Dependence
@@ -163,12 +158,12 @@ LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (114, 3)
     remark #25562: The loop has been multiversioned for the small trip count
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (114, 3)
+LOOP BEGIN at src/omp_homework.c (115, 3)
 <Multiversioned v2>
     remark #15319: Loop was not vectorized: novector directive used
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (114, 3)
+LOOP BEGIN at src/omp_homework.c (115, 3)
 <Multiversioned v2>
     remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
 LOOP END
@@ -176,10 +171,25 @@ LOOP END
 
 Global optimization report for : DFT
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (71, 3)
+LOOP BEGIN at src/omp_homework.c (72, 3)
+<Multiversioned v2>
+    remark #15319: Loop was not vectorized: novector directive used
+
+    LOOP BEGIN at src/omp_homework.c (74, 7)
+        remark #15319: Loop was not vectorized: novector directive used
+    LOOP END
+LOOP END
+
+LOOP BEGIN at src/omp_homework.c (72, 3)
+<Multiversioned v1>
+    remark #25228: Loop multiversioned for Data Dependence
     remark #15553: loop was not vectorized: outer loop is not an auto-vectorization candidate.
 
-    LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (73, 7)
+    LOOP BEGIN at src/omp_homework.c (74, 7)
+        remark #25528: Load/Store of reduction at line 78 sinked after loop
+        remark #25563: Load hoisted out of the loop
+        remark #25564: Store sinked out of the loop
+        remark #25583: Number of Array Refs Scalar Replaced In Loop: 2
         remark #15300: LOOP WAS VECTORIZED
         remark #15305: vectorization support: vector length 2
         remark #15475: --- begin vector loop cost summary ---
@@ -210,12 +220,19 @@ LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (71, 3)
         remark #25587: Loop has reduction
     LOOP END
 
-    LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (73, 7)
+    LOOP BEGIN at src/omp_homework.c (74, 7)
     <Remainder loop for vectorization>
     LOOP END
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (84, 5)
+LOOP BEGIN at src/omp_homework.c (85, 5)
+<Multiversioned v2>
+    remark #15319: Loop was not vectorized: novector directive used
+LOOP END
+
+LOOP BEGIN at src/omp_homework.c (85, 5)
+<Multiversioned v1>
+    remark #25228: Loop multiversioned for Data Dependence
     remark #15300: LOOP WAS VECTORIZED
     remark #15305: vectorization support: vector length 2
     remark #15475: --- begin vector loop cost summary ---
@@ -245,31 +262,31 @@ LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (84, 5)
     remark #15474: --- end vector loop memory reference summary ---
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (84, 5)
+LOOP BEGIN at src/omp_homework.c (85, 5)
 <Remainder loop for vectorization>
 LOOP END
 =================================================================
 
 Global optimization report for : checkResults
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (124, 3)
+LOOP BEGIN at src/omp_homework.c (125, 3)
     remark #15527: Loop was not vectorized: function call to  cannot be vectorized
     remark #25439: Loop unrolled with remainder by 4
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (124, 3)
+LOOP BEGIN at src/omp_homework.c (125, 3)
 <Remainder loop>
 LOOP END
 =================================================================
 
 Global optimization report for : printResults
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (138, 3)
+LOOP BEGIN at src/omp_homework.c (139, 3)
     remark #15527: Loop was not vectorized: function call to  cannot be vectorized
     remark #25439: Loop unrolled with remainder by 8
 LOOP END
 
-LOOP BEGIN at src/omp_homework_vectorization_report_v1.c (138, 3)
+LOOP BEGIN at src/omp_homework.c (139, 3)
 <Remainder loop>
 LOOP END
 =================================================================
@@ -281,152 +298,128 @@ Option Values:
   inlinecold-threshold: 45
   inlineoptsize-threshold: 15
 
-DEAD STATIC FUNC: llvm.cos.f64
-
-DEAD STATIC FUNC: llvm.sin.f64
-
 COMPILE FUNC: main
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (23,5)
-   -> EXTERN: malloc src/omp_homework_vectorization_report_v1.c (25,28)
-   -> EXTERN: malloc src/omp_homework_vectorization_report_v1.c (26,28)
-   -> INLINE: fillInput src/omp_homework_vectorization_report_v1.c (27,5) (95<=225)
-      -> EXTERN: time src/omp_homework_vectorization_report_v1.c (97,9)
-      -> EXTERN: srand src/omp_homework_vectorization_report_v1.c (97,3)
-      -> DELETE: rand src/omp_homework_vectorization_report_v1.c (99,5)
-      -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-      -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-      -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-      -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-      -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-      -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-      -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-      -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-   -> DELETE: malloc src/omp_homework_vectorization_report_v1.c (30,34)
-   -> DELETE: malloc src/omp_homework_vectorization_report_v1.c (31,34)
-   -> INLINE: setOutputZero src/omp_homework_vectorization_report_v1.c (32,5) (-20<=225)
-   -> DELETE: malloc src/omp_homework_vectorization_report_v1.c (34,30)
-   -> DELETE: malloc src/omp_homework_vectorization_report_v1.c (35,30)
-   -> INLINE: setOutputZero src/omp_homework_vectorization_report_v1.c (36,5) (-20<=225)
-   -> EXTERN: omp_get_wtime src/omp_homework_vectorization_report_v1.c (39,25)
-   -> INLINE: DFT src/omp_homework_vectorization_report_v1.c (43,5) (75<=225)
-      -> DELETE: llvm.cos.f64 src/omp_homework_vectorization_report_v1.c (75,30)
-      -> DELETE: llvm.sin.f64 src/omp_homework_vectorization_report_v1.c (75,64)
-   -> INLINE: DFT src/omp_homework_vectorization_report_v1.c (46,5) (120<=225)
-      -> DELETE: llvm.cos.f64 src/omp_homework_vectorization_report_v1.c (75,30)
-      -> DELETE: llvm.sin.f64 src/omp_homework_vectorization_report_v1.c (75,64)
-   -> EXTERN: omp_get_wtime src/omp_homework_vectorization_report_v1.c (49,23)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (50,5)
-   -> INLINE: checkResults src/omp_homework_vectorization_report_v1.c (53,5) (165<=225)
-      -> DELETE: llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (125,9)
-      -> DELETE: printf src/omp_homework_vectorization_report_v1.c (126,7)
-      -> DELETE: llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (127,11)
-      -> DELETE: printf src/omp_homework_vectorization_report_v1.c (128,7)
-      -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (131,5)
-      -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (125,9)
-      -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (126,7)
-      -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (127,11)
-      -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (128,7)
-      -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (125,9)
-      -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (126,7)
-      -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (127,11)
-      -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (128,7)
-      -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (125,9)
-      -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (126,7)
-      -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (127,11)
-      -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (128,7)
-      -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (125,9)
-      -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (126,7)
-      -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (127,11)
-      -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (128,7)
-   -> EXTERN: free src/omp_homework_vectorization_report_v1.c (60,7)
-   -> EXTERN: free src/omp_homework_vectorization_report_v1.c (60,17)
-   -> EXTERN: free src/omp_homework_vectorization_report_v1.c (61,7)
-   -> EXTERN: free src/omp_homework_vectorization_report_v1.c (61,19)
-   -> EXTERN: free src/omp_homework_vectorization_report_v1.c (62,7)
-   -> EXTERN: free src/omp_homework_vectorization_report_v1.c (62,23)
-   -> llvm.memset.p0.i64 src/omp_homework_vectorization_report_v1.c (106,12)
-   -> EXTERN: calloc src/omp_homework_vectorization_report_v1.c (30,34)
-   -> EXTERN: calloc src/omp_homework_vectorization_report_v1.c (31,34)
-   -> EXTERN: calloc src/omp_homework_vectorization_report_v1.c (34,30)
-   -> EXTERN: calloc src/omp_homework_vectorization_report_v1.c (35,30)
-   -> llvm.experimental.noalias.scope.decl src/omp_homework_vectorization_report_v1.c (43,5)
-   -> llvm.experimental.noalias.scope.decl src/omp_homework_vectorization_report_v1.c (43,5)
-   -> EXTERN: __svml_cos2 src/omp_homework_vectorization_report_v1.c (75,30)
-   -> EXTERN: __svml_sin2 src/omp_homework_vectorization_report_v1.c (75,64)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework_vectorization_report_v1.c (75,19)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework_vectorization_report_v1.c (77,19)
-   -> EXTERN: __svml_cos2 src/omp_homework_vectorization_report_v1.c (75,30)
-   -> EXTERN: __svml_sin2 src/omp_homework_vectorization_report_v1.c (75,64)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework_vectorization_report_v1.c (75,19)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework_vectorization_report_v1.c (77,19)
+   -> EXTERN: printf src/omp_homework.c (23,3)
+   -> EXTERN: malloc src/omp_homework.c (25,26)
+   -> EXTERN: malloc src/omp_homework.c (26,26)
+   -> INLINE: fillInput src/omp_homework.c (27,3) (95<=250)
+      -> EXTERN: time src/omp_homework.c (98,9)
+      -> EXTERN: srand src/omp_homework.c (98,3)
+      -> DELETE: rand src/omp_homework.c (100,5)
+      -> EXTERN: rand src/omp_homework.c (100,5)
+      -> EXTERN: rand src/omp_homework.c (100,5)
+      -> EXTERN: rand src/omp_homework.c (100,5)
+      -> EXTERN: rand src/omp_homework.c (100,5)
+      -> EXTERN: rand src/omp_homework.c (100,5)
+      -> EXTERN: rand src/omp_homework.c (100,5)
+      -> EXTERN: rand src/omp_homework.c (100,5)
+      -> EXTERN: rand src/omp_homework.c (100,5)
+   -> DELETE: malloc src/omp_homework.c (30,32)
+   -> DELETE: malloc src/omp_homework.c (31,32)
+   -> INLINE: setOutputZero src/omp_homework.c (32,3) (-20<=250)
+   -> DELETE: malloc src/omp_homework.c (34,28)
+   -> DELETE: malloc src/omp_homework.c (35,28)
+   -> INLINE: setOutputZero src/omp_homework.c (36,3) (-20<=250)
+   -> EXTERN: omp_get_wtime src/omp_homework.c (39,23)
+   -> INLINE: DFT src/omp_homework.c (43,3) (85<=250)
+      -> DELETE: llvm.cos.f64 src/omp_homework.c (76,30)
+      -> DELETE: llvm.sin.f64 src/omp_homework.c (76,64)
+   -> INLINE: DFT src/omp_homework.c (46,3) (130<=250)
+      -> DELETE: llvm.cos.f64 src/omp_homework.c (76,30)
+      -> DELETE: llvm.sin.f64 src/omp_homework.c (76,64)
+   -> EXTERN: omp_get_wtime src/omp_homework.c (49,21)
+   -> EXTERN: printf src/omp_homework.c (50,3)
+   -> EXTERN: free src/omp_homework.c (61,3)
+   -> EXTERN: free src/omp_homework.c (61,13)
+   -> EXTERN: free src/omp_homework.c (62,3)
+   -> EXTERN: free src/omp_homework.c (62,15)
+   -> EXTERN: free src/omp_homework.c (63,3)
+   -> EXTERN: free src/omp_homework.c (63,19)
+   -> llvm.memset.p0.i64 src/omp_homework.c (107,12)
+   -> EXTERN: calloc src/omp_homework.c (30,32)
+   -> EXTERN: calloc src/omp_homework.c (31,32)
+   -> EXTERN: calloc src/omp_homework.c (34,28)
+   -> EXTERN: calloc src/omp_homework.c (35,28)
+   -> EXTERN: __svml_cos2 src/omp_homework.c (76,30)
+   -> EXTERN: __svml_sin2 src/omp_homework.c (76,64)
+   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (76,19)
+   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (78,19)
+   -> EXTERN: __svml_cos2 src/omp_homework.c (76,30)
+   -> EXTERN: __svml_sin2 src/omp_homework.c (76,64)
+   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (76,19)
+   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (78,19)
 
 COMPILE FUNC: fillInput
-   -> EXTERN: time src/omp_homework_vectorization_report_v1.c (97,9)
-   -> EXTERN: srand src/omp_homework_vectorization_report_v1.c (97,3)
-   -> DELETE: rand src/omp_homework_vectorization_report_v1.c (99,5)
-   -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-   -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-   -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-   -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-   -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-   -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-   -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-   -> EXTERN: rand src/omp_homework_vectorization_report_v1.c (99,5)
-   -> llvm.memset.p0.i64 src/omp_homework_vectorization_report_v1.c (106,6)
+   -> EXTERN: time src/omp_homework.c (98,9)
+   -> EXTERN: srand src/omp_homework.c (98,3)
+   -> DELETE: rand src/omp_homework.c (100,5)
+   -> EXTERN: rand src/omp_homework.c (100,5)
+   -> EXTERN: rand src/omp_homework.c (100,5)
+   -> EXTERN: rand src/omp_homework.c (100,5)
+   -> EXTERN: rand src/omp_homework.c (100,5)
+   -> EXTERN: rand src/omp_homework.c (100,5)
+   -> EXTERN: rand src/omp_homework.c (100,5)
+   -> EXTERN: rand src/omp_homework.c (100,5)
+   -> EXTERN: rand src/omp_homework.c (100,5)
+   -> llvm.memset.p0.i64 src/omp_homework.c (107,6)
 
 COMPILE FUNC: setOutputZero
-   -> llvm.memset.p0.i64 src/omp_homework_vectorization_report_v1.c (115,6)
-   -> llvm.memset.p0.i64 src/omp_homework_vectorization_report_v1.c (116,6)
+   -> llvm.memset.p0.i64 src/omp_homework.c (116,6)
+   -> llvm.memset.p0.i64 src/omp_homework.c (117,6)
 
 COMPILE FUNC: DFT
-   -> DELETE: llvm.cos.f64 src/omp_homework_vectorization_report_v1.c (75,30)
-   -> DELETE: llvm.sin.f64 src/omp_homework_vectorization_report_v1.c (75,64)
-   -> DELETE: llvm.sin.f64 src/omp_homework_vectorization_report_v1.c (77,36)
-   -> DELETE: llvm.cos.f64 src/omp_homework_vectorization_report_v1.c (77,67)
-   -> EXTERN: __svml_cos2 src/omp_homework_vectorization_report_v1.c (75,30)
-   -> EXTERN: __svml_sin2 src/omp_homework_vectorization_report_v1.c (75,64)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework_vectorization_report_v1.c (75,19)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework_vectorization_report_v1.c (77,19)
-   -> EXTERN: __svml_cos1 src/omp_homework_vectorization_report_v1.c (71,3)
-   -> EXTERN: __svml_sin1 src/omp_homework_vectorization_report_v1.c (71,3)
+   -> DELETE: llvm.cos.f64 src/omp_homework.c (76,30)
+   -> DELETE: llvm.sin.f64 src/omp_homework.c (76,64)
+   -> DELETE: llvm.sin.f64 src/omp_homework.c (78,36)
+   -> DELETE: llvm.cos.f64 src/omp_homework.c (78,67)
+   -> DELETE: llvm.cos.f64 src/omp_homework.c (76,30)
+   -> DELETE: llvm.sin.f64 src/omp_homework.c (76,64)
+   -> llvm.cos.f64 src/omp_homework.c (76,30)
+   -> llvm.sin.f64 src/omp_homework.c (76,64)
+   -> EXTERN: __svml_cos2 src/omp_homework.c (76,30)
+   -> EXTERN: __svml_sin2 src/omp_homework.c (76,64)
+   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (72,3)
+   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (72,3)
+   -> EXTERN: __svml_cos1 src/omp_homework.c (72,3)
+   -> EXTERN: __svml_sin1 src/omp_homework.c (72,3)
 
 COMPILE FUNC: checkResults
-   -> DELETE: llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (125,9)
-   -> DELETE: printf src/omp_homework_vectorization_report_v1.c (126,7)
-   -> DELETE: llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (127,11)
-   -> DELETE: printf src/omp_homework_vectorization_report_v1.c (128,7)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (131,5)
-   -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (125,9)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (126,7)
-   -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (127,11)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (128,7)
-   -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (125,9)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (126,7)
-   -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (127,11)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (128,7)
-   -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (125,9)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (126,7)
-   -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (127,11)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (128,7)
-   -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (125,9)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (126,7)
-   -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (127,11)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (128,7)
-   -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (125,9)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (126,7)
-   -> llvm.fabs.f64 src/omp_homework_vectorization_report_v1.c (127,11)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (128,7)
+   -> DELETE: llvm.fabs.f64 src/omp_homework.c (126,9)
+   -> DELETE: printf src/omp_homework.c (127,7)
+   -> DELETE: llvm.fabs.f64 src/omp_homework.c (128,11)
+   -> DELETE: printf src/omp_homework.c (129,7)
+   -> EXTERN: printf src/omp_homework.c (132,5)
+   -> llvm.fabs.f64 src/omp_homework.c (126,9)
+   -> EXTERN: printf src/omp_homework.c (127,7)
+   -> llvm.fabs.f64 src/omp_homework.c (128,11)
+   -> EXTERN: printf src/omp_homework.c (129,7)
+   -> llvm.fabs.f64 src/omp_homework.c (126,9)
+   -> EXTERN: printf src/omp_homework.c (127,7)
+   -> llvm.fabs.f64 src/omp_homework.c (128,11)
+   -> EXTERN: printf src/omp_homework.c (129,7)
+   -> llvm.fabs.f64 src/omp_homework.c (126,9)
+   -> EXTERN: printf src/omp_homework.c (127,7)
+   -> llvm.fabs.f64 src/omp_homework.c (128,11)
+   -> EXTERN: printf src/omp_homework.c (129,7)
+   -> llvm.fabs.f64 src/omp_homework.c (126,9)
+   -> EXTERN: printf src/omp_homework.c (127,7)
+   -> llvm.fabs.f64 src/omp_homework.c (128,11)
+   -> EXTERN: printf src/omp_homework.c (129,7)
+   -> llvm.fabs.f64 src/omp_homework.c (126,9)
+   -> EXTERN: printf src/omp_homework.c (127,7)
+   -> llvm.fabs.f64 src/omp_homework.c (128,11)
+   -> EXTERN: printf src/omp_homework.c (129,7)
 
 COMPILE FUNC: printResults
-   -> DELETE: printf src/omp_homework_vectorization_report_v1.c (139,7)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (139,7)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (139,7)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (139,7)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (139,7)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (139,7)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (139,7)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (139,7)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (139,7)
-   -> EXTERN: printf src/omp_homework_vectorization_report_v1.c (139,7)
+   -> DELETE: printf src/omp_homework.c (140,7)
+   -> EXTERN: printf src/omp_homework.c (140,7)
+   -> EXTERN: printf src/omp_homework.c (140,7)
+   -> EXTERN: printf src/omp_homework.c (140,7)
+   -> EXTERN: printf src/omp_homework.c (140,7)
+   -> EXTERN: printf src/omp_homework.c (140,7)
+   -> EXTERN: printf src/omp_homework.c (140,7)
+   -> EXTERN: printf src/omp_homework.c (140,7)
+   -> EXTERN: printf src/omp_homework.c (140,7)
+   -> EXTERN: printf src/omp_homework.c (140,7)
 
 ---- End Inlining Report ------

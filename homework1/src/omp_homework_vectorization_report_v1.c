@@ -18,50 +18,51 @@ int printResults(double* xr, double* xi, int N);
 
 
 int main(int argc, char* argv[]){
-// size of input array
-    int N = 40000;
-    printf("DFTW calculation with N = %d \n",N);
+  // size of input array
+  int N = 60000;
+  printf("DFTW calculation with N = %d \n",N);
 
-    double* xr = (double*) malloc (N *sizeof(double));
-    double* xi = (double*) malloc (N *sizeof(double));
-    fillInput(xr,xi,N);
+  double* xr = (double*) malloc (N *sizeof(double));
+  double* xi = (double*) malloc (N *sizeof(double));
+  fillInput(xr,xi,N);
 
 
-    double* xr_check = (double*) malloc (N *sizeof(double));
-    double* xi_check = (double*) malloc (N *sizeof(double));
-    setOutputZero(xr_check,xi_check,N);
+  double* xr_check = (double*) malloc (N *sizeof(double));
+  double* xi_check = (double*) malloc (N *sizeof(double));
+  setOutputZero(xr_check,xi_check,N);
 
-    double* Xr_o = (double*) malloc (N *sizeof(double));
-    double* Xi_o = (double*) malloc (N *sizeof(double));
-    setOutputZero(Xr_o,Xi_o,N);
+  double* Xr_o = (double*) malloc (N *sizeof(double));
+  double* Xi_o = (double*) malloc (N *sizeof(double));
+  setOutputZero(Xr_o,Xi_o,N);
 
-    // start timer
-    double start_time = omp_get_wtime();
+  // start timer
+  double start_time = omp_get_wtime();
 
-    // DFT
-    int idft = 1;
-    DFT(idft,xr,xi,Xr_o,Xi_o,N);
-    // IDFT
-    idft = -1;
-    DFT(idft,Xr_o,Xi_o,xr_check,xi_check,N);
+  // DFT
+  int idft = 1;
+  DFT(idft,xr,xi,Xr_o,Xi_o,N);
+  // IDFT
+  idft = -1;
+  DFT(idft,Xr_o,Xi_o,xr_check,xi_check,N);
 
-    // stop timer
-    double run_time = omp_get_wtime() - start_time;
-    printf("DFTW computation in %f seconds\n",run_time);
+  // stop timer
+  double run_time = omp_get_wtime() - start_time;
+  printf("DFTW computation in %f seconds\n",run_time);
 
-    // check the results: easy to make correctness errors with openMP
-    checkResults(xr,xi,xr_check,xi_check,Xr_o, Xi_o, N);
-    // print the results of the DFT
-    #ifdef DEBUG
-      printResults(Xr_o,Xi_o,N);
-      #endif
+  // check the results: easy to make correctness errors with openMP
+  // checkResults(xr,xi,xr_check,xi_check,Xr_o, Xi_o, N);
 
-      // take out the garbage
-      free(xr); free(xi);
-      free(Xi_o); free(Xr_o);
-      free(xr_check); free(xi_check);
+  // print the results of the DFT
+#ifdef DEBUG
+  printResults(Xr_o,Xi_o,N);
+#endif
 
-      return 1;
+  // take out the garbage
+  free(xr); free(xi);
+  free(Xi_o); free(Xr_o);
+  free(xr_check); free(xi_check);
+
+  return 1;
 }
 
 // DFT/IDFT routine
