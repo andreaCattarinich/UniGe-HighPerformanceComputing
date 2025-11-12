@@ -19,7 +19,7 @@ int printResults(double* xr, double* xi, int N);
 
 int main(int argc, char* argv[]){
 // size of input array
-    int N = 10000;
+    int N = 40000;
     printf("DFTW calculation with N = %d \n",N);
 
     double* xr = (double*) malloc (N *sizeof(double));
@@ -66,12 +66,12 @@ int main(int argc, char* argv[]){
 
 // DFT/IDFT routine
 // idft: 1 direct DFT, -1 inverse IDFT (Inverse DFT)
-int DFT(int idft, double* xr, double* xi, double* Xr_o, double* Xi_o, int N){
+int DFT(int idft, double* xr, double* xi, double* restrict Xr_o, double* restrict Xi_o, int N){
   int k, n;
   for (k=0 ; k<N ; k++)
   {
       for (n=0 ; n<N ; n++)  {
-        // Real part of X[k]
+          // Real part of X[k]
           Xr_o[k] += xr[n] * cos(n * k * PI2 / N) + idft*xi[n]*sin(n * k * PI2 / N);
           // Imaginary part of X[k]
           Xi_o[k] += -idft*xr[n] * sin(n * k * PI2 / N) + xi[n] * cos(n * k * PI2 / N);

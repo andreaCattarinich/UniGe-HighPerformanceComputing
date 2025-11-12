@@ -169,12 +169,13 @@ About DFT() function: compilator found a dependence between `Xr_o[k]` and `Xi_o[
 
 <!-- TODO: applicare queste soluzioni possibili: -->
 Possible solutions:
-1. Tell the compiler that the two vectors are independent, using keyword `restric`:
+1. Tell the compiler that the two vectors are independent, using keyword `restrict`:
    ```c
    int DFT(..., double* restrict Xr_o, double* restrict Xi_o) {
       /* CODE */
    }
    ```
+
 2. Add an esplicit directive:
    ```c
    #pragma simd
@@ -183,13 +184,20 @@ Possible solutions:
    ```
    Forza la vectorization anche in presenza di dipendenze presunte (usa con cautela, solo se sei sicuro che non ci siano conflitti)
 
-<!-- TODO:
-Gestire meglio la compilazione!
-- fare un Makefile per la compilazione automatica
-- così posso cambiare i parametri in modo semplice e veloce
-- i risultati della compilazione possono essere salvati automaticamente in diverse cartelle
-- 
- 
--->
 
-<!-- TODO: passare a ICX -->
+
+
+# 12 Novembre
+```bash
+S5137057@wk002:~/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/build$ ./omp_homework_vectorization_report_v0
+DFTW calculation with N = 40000 
+DFTW computation in 14.410565 seconds
+Xre[0] = 40000.000000 
+```
+
+```bash
+S5137057@wk002:~/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/build$ ./omp_homework_vectorization_report_v1
+DFTW calculation with N = 40000 
+DFTW computation in 14.397164 seconds
+Xre[0] = 40000.000000 
+```

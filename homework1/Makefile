@@ -1,8 +1,8 @@
-CC = icc
-CFLAGS = -O2 -qopenmp -qopt-report=5 -qopt-report-phase=vec 
+CC = icx
+CFLAGS = -O2 -fopenmp -qopt-report=max -vec 
 
 SRC_FOLDER = src
-SRC_CODE = omp_homework.c
+SRC_CODE = omp_homework_vectorization_report_v1.c
 
 BUILD = build
 REPORTS = reports
@@ -14,8 +14,9 @@ all:
 	mkdir -p $(BUILD) $(REPORTS)
 	$(CC) $(CFLAGS) $(SRC_FOLDER)/$(SRC_CODE) -o $(TARGET)
 	mv $(BUILD)/$(NAME).optrpt $(REPORTS)/ 2>/dev/null || true
-	@echo "Compiled in $(TARGET)"
-	@echo "Report in $(REPORTS)"
+	mv $(NAME).opt.yaml $(REPORTS)/ 2>/dev/null || true
+	@echo "-- Compiled in $(TARGET)/"
+	@echo "-- Report in $(REPORTS)/"
 
 clean:
 	rm -rf $(BUILD) $(REPORTS)
