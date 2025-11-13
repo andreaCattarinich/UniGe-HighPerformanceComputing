@@ -5,6 +5,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 98, Column: 9 }
 Function:        fillInput
 Args:
   - Callee:          time
+    DebugLoc:        { File: '/usr/include/time.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          fillInput
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
@@ -17,6 +18,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 98, Column: 3 }
 Function:        fillInput
 Args:
   - Callee:          srand
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          fillInput
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
@@ -29,6 +31,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 100, Column: 5 }
 Function:        fillInput
 Args:
   - Callee:          rand
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          fillInput
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
@@ -41,6 +44,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 98, Column: 9 }
 Function:        fillInput
 Args:
   - Callee:          time
+    DebugLoc:        { File: '/usr/include/time.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          fillInput
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
@@ -53,6 +57,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 98, Column: 3 }
 Function:        fillInput
 Args:
   - Callee:          srand
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          fillInput
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
@@ -65,6 +70,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 100, Column: 5 }
 Function:        fillInput
 Args:
   - Callee:          rand
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          fillInput
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 96, Column: 0 }
@@ -377,6 +383,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 23, Column: 3 }
 Function:        main
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -389,6 +396,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 25, Column: 26 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -401,6 +409,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 26, Column: 26 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -413,6 +422,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 30, Column: 32 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -425,6 +435,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 31, Column: 32 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -437,6 +448,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 34, Column: 28 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -449,6 +461,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 35, Column: 28 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -461,6 +474,8 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 39, Column: 23 }
 Function:        main
 Args:
   - Callee:          omp_get_wtime
+    DebugLoc:        { File: '/opt/intel/oneapi/compiler/2023.2.1/linux/bin-llvm/../compiler/include/omp.h', 
+                       Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -473,6 +488,8 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 49, Column: 21 }
 Function:        main
 Args:
   - Callee:          omp_get_wtime
+    DebugLoc:        { File: '/opt/intel/oneapi/compiler/2023.2.1/linux/bin-llvm/../compiler/include/omp.h', 
+                       Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -485,6 +502,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 50, Column: 3 }
 Function:        main
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -497,6 +515,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 61, Column: 3 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -509,6 +528,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 61, Column: 13 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -521,6 +541,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 62, Column: 3 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -533,6 +554,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 62, Column: 15 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -545,6 +567,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 63, Column: 3 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -557,6 +580,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 63, Column: 19 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -569,6 +593,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 23, Column: 3 }
 Function:        main
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -581,6 +606,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 25, Column: 26 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -593,6 +619,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 26, Column: 26 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -605,6 +632,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 30, Column: 32 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -617,6 +645,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 31, Column: 32 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -629,6 +658,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 34, Column: 28 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -641,6 +671,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 35, Column: 28 }
 Function:        main
 Args:
   - Callee:          malloc
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -653,6 +684,8 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 39, Column: 23 }
 Function:        main
 Args:
   - Callee:          omp_get_wtime
+    DebugLoc:        { File: '/opt/intel/oneapi/compiler/2023.2.1/linux/bin-llvm/../compiler/include/omp.h', 
+                       Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -665,6 +698,8 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 49, Column: 21 }
 Function:        main
 Args:
   - Callee:          omp_get_wtime
+    DebugLoc:        { File: '/opt/intel/oneapi/compiler/2023.2.1/linux/bin-llvm/../compiler/include/omp.h', 
+                       Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -677,6 +712,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 50, Column: 3 }
 Function:        main
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -689,6 +725,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 61, Column: 3 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -701,6 +738,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 61, Column: 13 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -713,6 +751,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 62, Column: 3 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -725,6 +764,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 62, Column: 15 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -737,6 +777,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 63, Column: 3 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -749,6 +790,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 63, Column: 19 }
 Function:        main
 Args:
   - Callee:          free
+    DebugLoc:        { File: '/usr/include/stdlib.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          main
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 20, Column: 0 }
@@ -1133,6 +1175,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
 Function:        checkResults
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          checkResults
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
@@ -1146,6 +1189,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
 Function:        checkResults
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          checkResults
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
@@ -1159,6 +1203,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 132, Column: 5 }
 Function:        checkResults
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          checkResults
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
@@ -1172,6 +1217,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
 Function:        checkResults
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          checkResults
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
@@ -1185,6 +1231,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
 Function:        checkResults
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          checkResults
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
@@ -1198,6 +1245,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 132, Column: 5 }
 Function:        checkResults
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          checkResults
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 123, 
@@ -1267,6 +1315,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 140, Column: 7 }
 Function:        printResults
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          printResults
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 137, 
@@ -1280,6 +1329,7 @@ DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 140, Column: 7 }
 Function:        printResults
 Args:
   - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
   - String:          ' will not be inlined into '
   - Caller:          printResults
     DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 137, 
@@ -3226,6 +3276,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3239,7 +3290,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 100, Column: 5 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3253,7 +3304,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 107, Column: 12 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3267,7 +3318,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3281,7 +3332,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 30, Column: 32 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3295,7 +3346,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 36 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3309,7 +3360,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3323,7 +3374,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3337,6 +3388,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3350,7 +3402,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 36 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3364,7 +3416,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3378,7 +3430,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3392,6 +3444,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3405,7 +3458,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 99, Column: 3 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3419,6 +3472,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        main
 Args:
   - String:          'BasicBlock: '
@@ -3462,6 +3516,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3475,7 +3530,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 100, Column: 5 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3489,7 +3544,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 101, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3503,7 +3558,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 101, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3517,7 +3572,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 107, Column: 6 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3531,6 +3586,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3544,7 +3600,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3558,6 +3614,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3571,7 +3628,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 107, Column: 6 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3585,6 +3642,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3598,7 +3656,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3612,7 +3670,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 99, Column: 3 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3626,6 +3684,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3639,6 +3698,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3652,7 +3712,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3666,7 +3726,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 99, Column: 3 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3680,6 +3740,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3693,6 +3754,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3706,7 +3768,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3720,6 +3782,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3733,6 +3796,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3746,7 +3810,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 106, Column: 12 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3760,7 +3824,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 109, Column: 3 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        fillInput
 Args:
   - String:          'BasicBlock: '
@@ -3804,7 +3868,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3818,7 +3882,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3832,7 +3896,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 117, Column: 6 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3846,6 +3910,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3859,7 +3924,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 116, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3873,6 +3938,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3886,7 +3952,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 116, Column: 6 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3900,6 +3966,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3913,6 +3980,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3926,7 +3994,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 116, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3940,7 +4008,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 115, Column: 3 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3954,6 +4022,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3967,7 +4036,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 116, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -3981,7 +4050,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 119, Column: 3 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        setOutputZero
 Args:
   - String:          'BasicBlock: '
@@ -4125,7 +4194,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 15 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4139,6 +4208,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4152,6 +4222,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4165,6 +4236,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4178,7 +4250,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4192,7 +4264,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4206,7 +4278,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4220,7 +4292,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 78, Column: 11 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4234,6 +4306,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4247,7 +4320,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4261,7 +4334,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4275,6 +4348,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4288,7 +4362,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4302,6 +4376,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4315,7 +4390,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 84, Column: 11 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4329,6 +4404,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4342,6 +4418,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4355,6 +4432,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4368,7 +4446,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 72, Column: 3 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4382,6 +4460,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4395,7 +4474,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 22 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4409,7 +4488,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4423,7 +4502,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4437,7 +4516,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 36 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4451,6 +4530,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4464,6 +4544,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4477,7 +4558,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 76, Column: 19 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4491,6 +4572,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4504,6 +4586,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4517,6 +4600,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4530,6 +4614,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4543,6 +4628,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4556,6 +4642,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4569,7 +4656,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 90, Column: 3 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        DFT
 Args:
   - String:          'BasicBlock: '
@@ -4653,6 +4740,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4666,6 +4754,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4679,6 +4768,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4692,6 +4782,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4705,7 +4796,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 125, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4719,7 +4810,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4733,7 +4824,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4747,7 +4838,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4761,7 +4852,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4775,7 +4866,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 132, Column: 29 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4802,7 +4893,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 125, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4816,7 +4907,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4830,7 +4921,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4844,7 +4935,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4858,7 +4949,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4872,7 +4963,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4886,7 +4977,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4900,7 +4991,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4914,7 +5005,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4928,7 +5019,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4942,7 +5033,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4956,7 +5047,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4970,7 +5061,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4984,7 +5075,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 126, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -4998,7 +5089,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 127, Column: 7 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -5012,7 +5103,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 128, Column: 16 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -5026,7 +5117,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 129, Column: 7 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        checkResults
 Args:
   - String:          'BasicBlock: '
@@ -5094,7 +5185,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 139, Column: 14 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        printResults
 Args:
   - String:          'BasicBlock: '
@@ -5108,6 +5199,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        printResults
 Args:
   - String:          'BasicBlock: '
@@ -5121,6 +5213,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        printResults
 Args:
   - String:          'BasicBlock: '
@@ -5134,7 +5227,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 140, Column: 50 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        printResults
 Args:
   - String:          'BasicBlock: '
@@ -5148,6 +5241,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        printResults
 Args:
   - String:          'BasicBlock: '
@@ -5161,7 +5255,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 140, Column: 50 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        printResults
 Args:
   - String:          'BasicBlock: '
@@ -5175,7 +5269,7 @@ Args:
 --- !Analysis
 Pass:            asm-printer
 Name:            InstructionMix
-DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 141, Column: 3 }
+DebugLoc:        { File: 'src/omp_homework_restrict.c', Line: 0, Column: 0 }
 Function:        printResults
 Args:
   - String:          'BasicBlock: '

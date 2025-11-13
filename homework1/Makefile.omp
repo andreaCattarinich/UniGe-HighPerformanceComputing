@@ -1,0 +1,18 @@
+CC = icx
+BUILD = build
+REPORTS = reports
+SRC_FOLDER = src
+NAME = v1
+CFLAGS = -fopenmp -vec -qopt-report=max -g -O2 -xHost
+
+$(shell mkdir -p $(BUILD) $(REPORTS))
+
+all: omp
+
+omp:
+	$(CC) $(CFLAGS) $(SRC_FOLDER)/$(NAME).c \
+	-o $(BUILD)/$(NAME) \
+	-qopt-report-file=$(REPORTS)/$(NAME).optrpt
+
+clean:
+	rm -rf $(BUILD) $(REPORTS)

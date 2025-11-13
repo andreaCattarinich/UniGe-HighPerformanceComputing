@@ -1,0 +1,249 @@
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 10, Column: 9 }
+Function:        .omp_outlined._debug__
+Args:
+  - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
+  - String:          ' will not be inlined into '
+  - Caller:          .omp_outlined._debug__
+    DebugLoc:        { File: 'src/hello.c', Line: 9, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 11, Column: 9 }
+Function:        .omp_outlined._debug__
+Args:
+  - Callee:          puts
+  - String:          ' will not be inlined into '
+  - Caller:          .omp_outlined._debug__
+    DebugLoc:        { File: 'src/hello.c', Line: 9, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 10, Column: 9 }
+Function:        .omp_outlined._debug__
+Args:
+  - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
+  - String:          ' will not be inlined into '
+  - Caller:          .omp_outlined._debug__
+    DebugLoc:        { File: 'src/hello.c', Line: 9, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 11, Column: 9 }
+Function:        .omp_outlined._debug__
+Args:
+  - Callee:          puts
+  - String:          ' will not be inlined into '
+  - Caller:          .omp_outlined._debug__
+    DebugLoc:        { File: 'src/hello.c', Line: 9, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'src/hello.c', Line: 8, Column: 5 }
+Function:        .omp_outlined.
+Args:
+  - String:          ''''
+  - Callee:          .omp_outlined._debug__
+  - String:          ''' inlined into '''
+  - Caller:          .omp_outlined.
+    DebugLoc:        { File: 'src/hello.c', Line: 8, Column: 0 }
+  - String:          ''''
+  - String:          ': always inline attribute'
+  - String:          ' at callsite '
+  - String:          .omp_outlined.
+  - String:          ':'
+  - Line:            '0'
+  - String:          ':'
+  - Column:          '5'
+  - String:          ';'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 10, Column: 9 }
+Function:        .omp_outlined.
+Args:
+  - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
+  - String:          ' will not be inlined into '
+  - Caller:          .omp_outlined.
+    DebugLoc:        { File: 'src/hello.c', Line: 8, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 11, Column: 9 }
+Function:        .omp_outlined.
+Args:
+  - Callee:          puts
+  - String:          ' will not be inlined into '
+  - Caller:          .omp_outlined.
+    DebugLoc:        { File: 'src/hello.c', Line: 8, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 6, Column: 47 }
+Function:        main
+Args:
+  - Callee:          omp_get_max_threads
+    DebugLoc:        { File: '/opt/intel/oneapi/compiler/2023.2.1/linux/bin-llvm/../compiler/include/omp.h', 
+                       Line: 0, Column: 0 }
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/hello.c', Line: 4, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 6, Column: 5 }
+Function:        main
+Args:
+  - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/hello.c', Line: 4, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 8, Column: 5 }
+Function:        main
+Args:
+  - Callee:          __kmpc_fork_call
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/hello.c', Line: 4, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 6, Column: 47 }
+Function:        main
+Args:
+  - Callee:          omp_get_max_threads
+    DebugLoc:        { File: '/opt/intel/oneapi/compiler/2023.2.1/linux/bin-llvm/../compiler/include/omp.h', 
+                       Line: 0, Column: 0 }
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/hello.c', Line: 4, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 6, Column: 5 }
+Function:        main
+Args:
+  - Callee:          printf
+    DebugLoc:        { File: '/usr/include/stdio.h', Line: 0, Column: 0 }
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/hello.c', Line: 4, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: 'src/hello.c', Line: 8, Column: 5 }
+Function:        main
+Args:
+  - Callee:          __kmpc_fork_call
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: 'src/hello.c', Line: 4, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            regalloc
+Name:            SpillReloadCopies
+DebugLoc:        { File: 'src/hello.c', Line: 4, Column: 1 }
+Function:        main
+Args:
+  - NumVRCopies:     '1'
+  - String:          ' virtual registers copies '
+  - TotalCopiesCost: '1.000000e+00'
+  - String:          ' total copies cost '
+  - String:          generated in function
+...
+--- !Analysis
+Pass:            prologepilog
+Name:            StackSize
+DebugLoc:        { File: 'src/hello.c', Line: 4, Column: 0 }
+Function:        main
+Args:
+  - NumStackBytes:   '8'
+  - String:          ' stack bytes in function'
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        main
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '17'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionCount
+DebugLoc:        { File: 'src/hello.c', Line: 4, Column: 0 }
+Function:        main
+Args:
+  - NumInstructions: '17'
+  - String:          ' instructions in function'
+...
+--- !Analysis
+Pass:            prologepilog
+Name:            StackSize
+DebugLoc:        { File: 'src/hello.c', Line: 8, Column: 0 }
+Function:        .omp_outlined.
+Args:
+  - NumStackBytes:   '8'
+  - String:          ' stack bytes in function'
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: 'src/hello.c', Line: 0, Column: 0 }
+Function:        .omp_outlined.
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '7'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionCount
+DebugLoc:        { File: 'src/hello.c', Line: 8, Column: 0 }
+Function:        .omp_outlined.
+Args:
+  - NumInstructions: '7'
+  - String:          ' instructions in function'
+...

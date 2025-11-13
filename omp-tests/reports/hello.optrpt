@@ -1,0 +1,26 @@
+Global optimization report for : main
+=================================================================
+
+Global optimization report for : .omp_outlined.
+=================================================================
+
+---- Begin Inlining Report ----
+Option Values:
+  inline-threshold: 225
+  inlinehint-threshold: 325
+  inlinecold-threshold: 45
+  inlineoptsize-threshold: 15
+
+DEAD STATIC FUNC: .omp_outlined._debug__
+
+COMPILE FUNC: .omp_outlined.
+   -> INLINE: .omp_outlined._debug__ src/hello.c (8,5)
+      -> EXTERN: printf src/hello.c (10,9)
+      -> EXTERN: puts src/hello.c (11,9)
+
+COMPILE FUNC: main
+   -> EXTERN: omp_get_max_threads src/hello.c (6,47)
+   -> EXTERN: printf src/hello.c (6,5)
+   -> EXTERN: __kmpc_fork_call src/hello.c (8,5)
+
+---- End Inlining Report ------

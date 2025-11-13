@@ -40,14 +40,19 @@ int main(int argc, char* argv[]){
 
   // DFT
   int idft = 1;
+
+  double start = omp_get_wtime();
   DFT(idft,xr,xi,Xr_o,Xi_o,N);
+  printf("DFT %f seconds\n", omp_get_wtime()-start);
+
   // IDFT
   idft = -1;
   DFT(idft,Xr_o,Xi_o,xr_check,xi_check,N);
+  printf("DFT and IDFT %f seconds\n", omp_get_wtime()-start);
 
   // stop timer
   double run_time = omp_get_wtime() - start_time;
-  printf("DFTW computation in %f seconds\n",run_time);
+  printf("Total DFTW computation in %f seconds\n",run_time);
 
   // check the results: easy to make correctness errors with openMP
   // checkResults(xr,xi,xr_check,xi_check,Xr_o, Xi_o, N);
@@ -69,14 +74,21 @@ int main(int argc, char* argv[]){
 // idft: 1 direct DFT, -1 inverse IDFT (Inverse DFT)
 int DFT(int idft, double* xr, double* xi, double* Xr_o, double* Xi_o, int N){
   int k, n;
+  #pragma omp parallel for private(n)
   for (k=0 ; k<N ; k++)
   {
+    double Xr_temp = 0.0;
+    double Xi_temp = 0.0;
+
     for (n=0 ; n<N ; n++)  {
       // Real part of X[k]
-      Xr_o[k] += xr[n] * cos(n * k * PI2 / N) + idft*xi[n]*sin(n * k * PI2 / N);
+      Xr_temp += xr[n] * cos(n * k * PI2 / N) + idft*xi[n]*sin(n * k * PI2 / N);
       // Imaginary part of X[k]
-      Xi_o[k] += -idft*xr[n] * sin(n * k * PI2 / N) + xi[n] * cos(n * k * PI2 / N);
+      Xi_temp += -idft*xr[n] * sin(n * k * PI2 / N) + xi[n] * cos(n * k * PI2 / N);
     }
+
+    Xr_o[k] = Xr_temp;
+    Xi_o[k] = Xi_temp;
   }
 
   // normalize if you are doing IDFT
@@ -86,7 +98,7 @@ int DFT(int idft, double* xr, double* xi, double* Xr_o, double* Xi_o, int N){
       Xi_o[n] /=N;
     }
   }
-  
+
   return 1;
 }
 
