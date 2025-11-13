@@ -1,0 +1,10 @@
+
+=== Start: [2025/11/13 17:53:07] === 
+Peak bandwidth measurement started...
+Peak bandwidth measurement finished.
+Analysis started...
+Result file: /home/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/advisor/advisor_analysis_vanilla/e000/trc000/trc000.advixe 
+Application exit code: 1 
+Result file: /home/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/advisor/advisor_analysis_vanilla/e000/trc000/trc000.advixe 
+Analysis completed
+=== End: [2025/11/13 17:54:16] === 
