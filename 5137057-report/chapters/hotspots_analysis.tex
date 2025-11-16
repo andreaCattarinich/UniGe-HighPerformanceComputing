@@ -1,0 +1,59 @@
+\newpage
+\section{Hotspot Analysis}
+The goal of this analysis is to identify the parts of the program that consume the most execution time.
+
+\subsection{Hotspot Identification}
+% TODO: scrivere meglio
+The measurements were performed using two methods: 
+
+\begin{itemize}
+    \item \textbf{Manually}: using \texttt{omp\_get\_wtime()} 
+    \item \textbf{Profiler}: using \texttt{Intel VTune}
+\end{itemize}
+Either two methods have been used with with [$N = 40000$] on a Room-210 Workstation and produced similar results.
+
+\begin{center}
+    \begin{minipage}{0.48\textwidth}
+    \centering
+    \captionof{table}{Manually}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lrr}
+        \toprule
+        Function & Time (s) & Percentage (\%) \\
+        \midrule
+        \csvreader[late after line=\\]{images/hotspots_40000_manually.csv}{}
+        {\csvcoli & \csvcolii & \csvcoliii} 
+        \bottomrule
+    \end{tabular}%
+    }
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+    \centering
+    \captionof{table}{Intel VTune Profiler}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lrr}
+        \toprule
+        Function Stack & CPU Time: Self & Percentage (\%) \\
+        \midrule
+        \csvreader[late after line=\\]{images/top-down-tree.csv}{}
+        {\csvcoli & \csvcolii & \csvcoliii} 
+        \bottomrule
+    \end{tabular}%
+    }
+    \end{minipage}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{images/top-hotspots-border.png}
+\end{center}
+
+\subsection{Conclusion}
+The main hotspot is the DFT() function and its inverse IDFT(), which together account for over 99\% of the total execution time. All other functions have negligible impact. This indicates that \textbf{parallelization and vectorization efforts should focus on the double loop inside DFT()}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/vtune_biggest_hotspot_screen.png}
+    \caption{The main hotspot is the loop contained in lines 103-112.}
+    \label{fig:vtune_biggest_hotspot_screen}
+\end{figure}

@@ -9,6 +9,9 @@
 \usepackage{caption}
 \usepackage{geometry}
 \usepackage{float}
+\usepackage{csvsimple}
+\usepackage{booktabs}
+\usepackage{caption}
 \geometry{margin=2.5cm}
 
 % --- Title info ---
@@ -21,12 +24,13 @@
 \maketitle
 
 \tableofcontents
+
 \newpage
 
 % === Include chapters ===
 \input{chapters/architectures.tex}
 \input{chapters/amdahls_law.tex}
-\input{chapters/omp.tex}
-\input{chapters/cuda.tex}
+\input{chapters/hotspots_analysis.tex}
+
 
 \end{document}
