@@ -25,16 +25,17 @@ where:
     \item $p$: is the number of processors
 \end{itemize}
 
-\subsubsection*{Ideal case ($f_s=0$)}
+\subsubsection*{Ideal case \texorpdfstring{ ($f_s=0$)}{ (fs=0)}}
+\addcontentsline{toc}{subsubsection}{Ideal case}
 Implies that all code is parallelizable. The speedup becomes:
-
 \[
 S(p) = \frac{1}{\frac{1}{p}} = {p}
 \]
 \\
 Maximum speedup equals the number of processors. Each processor contributes fully to the speedup.
 
-\subsubsection*{Theoretical limit case ($p \to \infty $)}
+\subsubsection*{Theoretical limit case \texorpdfstring{ ($p \to \infty $)}{ (p->inf)}}
+\addcontentsline{toc}{subsubsection}{Theoretical limit case}
 By increasing the number of processors to infinity, the speedup reaches its theoretical limit:
 
 \[
@@ -43,7 +44,8 @@ By increasing the number of processors to infinity, the speedup reaches its theo
 \\
 Even tough the number of processors increases indefinitely, the speedup is limited by the sequential portion of the code, encountering a bottleneck.
 
-\subsubsection*{Real case ($f_s=\alpha p$)}
+\subsubsection*{Real case \texorpdfstring{ ($f_s=\alpha p$)}{ (fs=ap)}}
+\addcontentsline{toc}{subsubsection}{Real case}
 Where $\alpha$ is a constant $\alpha <= 0.1$ representing the overhead per processor. The speedup becomes:
 
 \[
@@ -71,7 +73,7 @@ The following examples have been obtained using Matlab scripts are available in 
 \subsubsection*{Classical vs Overhead}
 \begin{itemize}
     \item The proportion of the parallelizable is 95\% of code.\\
-    ($f_s=0.1$, $f_p = 1-f_s = 0.9$)
+    ($f_s=0.05$, $f_p = 1-f_s = 0.95$)
     \item Overhead per processor\\
     $\alpha = 0.01$
 \end{itemize}

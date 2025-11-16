@@ -113,10 +113,11 @@ The compilation flags have the following meaning:
 The measurements were performed using two methods: \textbf{Manually} (using \texttt{omp\_get\_wtime()}) and \textbf{Profiler} (using \texttt{Intel VTune})
 
 % TODO: aggiornare le tabelle
-\begin{center}
-    \begin{minipage}{0.48\textwidth}
+\begin{table}[htbp]
+\centering
+\begin{minipage}{0.48\textwidth}
     \centering
-    \captionof{table}{Manually}
+    \caption{Manually}
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{lrr}
         \toprule
@@ -127,11 +128,11 @@ The measurements were performed using two methods: \textbf{Manually} (using \tex
         \bottomrule
     \end{tabular}%
     }
-    \end{minipage}%
-    \hfill
-    \begin{minipage}{0.48\textwidth}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
     \centering
-    \captionof{table}{Intel VTune Profiler}
+    \caption{Intel VTune Profiler}
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{lrr}
         \toprule
@@ -142,8 +143,8 @@ The measurements were performed using two methods: \textbf{Manually} (using \tex
         \bottomrule
     \end{tabular}%
     }
-    \end{minipage}
-\end{center}
+\end{minipage}
+\end{table}
 
 \begin{center}
     \includegraphics[width=0.8\textwidth]{assets/hotspots/top-hotspots-border.png}
