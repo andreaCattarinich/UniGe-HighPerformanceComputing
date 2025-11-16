@@ -4,32 +4,32 @@
 This section discusses Amdahl's Law, a fundamental principle in parallel computing that helps predict the theoretical speedup in latency when using multiple processors.
 
 \subsection{Performance Metrics}
-Considering $T(p)$ the time to solve a problem using $p$ processors, we define:
+Considering $T_p$ the time to solve a problem using $p$ processors, we define:
 \begin{itemize}
-    \item \textbf{Speedup}: $s(p) = \frac{T(1)}{T(p)},\; 0 < s(p) \le p$
-    \item \textbf{Efficiency}: $e(p) = \frac{s(p)}{p},\; 0 < e(p) \le 1$
+    \item \textbf{Speedup}: $S(p) = \frac{T_1}{T_p},\; 0 < S(p) \le p$
+    \item \textbf{Efficiency}: $E(p) = \frac{S(p)}{p},\; 0 < E(p) \le 1$
 \end{itemize}
 
 \subsection{The Law}
 Amdahl's Law can be expressed as a classical formula:
 
 \[
-s(p) = \frac{1}{S + \frac{(1-S)}{p}}
+S(p) = \frac{1}{f_s + \frac{(1-f_s)}{p}}
 \]
 
 where:
 \begin{itemize}
-    \item $s(p)$: is the theoretical speedup
-    \item $S$: is the proportion of sequential code (non-parallelizable)
-    \item $1-S$: is the proportion of parallelizable code
+    \item $S(p)$: is the theoretical speedup
+    \item $f_s$: is the proportion of sequential code (non-parallelizable)
+    \item $1-f_s$: is the proportion of parallelizable code
     \item $p$: is the number of processors
 \end{itemize}
 
-\subsubsection*{Ideal case ($S=0$)}
+\subsubsection*{Ideal case ($f_s=0$)}
 Implies that all code is parallelizable. The speedup becomes:
 
 \[
-s(p) = \frac{1}{\frac{1}{p}} = {p}
+S(p) = \frac{1}{\frac{1}{p}} = {p}
 \]
 \\
 Maximum speedup equals the number of processors. Each processor contributes fully to the speedup.
@@ -38,32 +38,30 @@ Maximum speedup equals the number of processors. Each processor contributes full
 By increasing the number of processors to infinity, the speedup reaches its theoretical limit:
 
 \[
-\lim_{p \to \infty} s(p) = \frac{1}{S}
+\lim_{p \to \infty} S(p) = \frac{1}{f_s}
 \]
 \\
 Even tough the number of processors increases indefinitely, the speedup is limited by the sequential portion of the code, encountering a bottleneck.
 
-\subsubsection*{Real case ($S=\alpha p$)}
+\subsubsection*{Real case ($f_s=\alpha p$)}
 Where $\alpha$ is a constant $\alpha <= 0.1$ representing the overhead per processor. The speedup becomes:
 
 \[
-s(p) = \frac{1}{\alpha p + \frac{1 - \alpha p}{p}} = \frac{p}{1 - \alpha p + \alpha p^2}
+S(p) = \frac{1}{\alpha p + \frac{1 - \alpha p}{p}} = \frac{p}{1 - \alpha p + \alpha p^2}
 \]
 \\
 There is no free lunch: as we add more processors, the overhead increases linearly, impacting the overall speedup.
 
-\paragraph{For $\alpha$ small}
-When $\alpha$ is small we do not have a significant overhead.
+\paragraph{For $\alpha$ small:} when $\alpha$ is small we do not have a significant overhead.
 
 \[
-s(p) \approx p
+S(p) \approx p
 \]
 
-\paragraph{For $\alpha$ large}
-When $\alpha$ is large, the overhead dominates. The more we add processors, the less benefit we get!
+\paragraph{For $\alpha$ large:} when $\alpha$ is large, the overhead dominates. The more we add processors, the less benefit we get!
 
 \[
-s(p) \approx \frac{p}{\alpha p^2} \approx \frac{1}{\alpha p}
+S(p) \approx \frac{p}{\alpha p^2} \approx \frac{1}{\alpha p}
 \]
 
 
@@ -73,15 +71,15 @@ The following examples have been obtained using Matlab scripts are available in 
 \subsubsection*{Classical vs Overhead}
 \begin{itemize}
     \item The proportion of the parallelizable is 95\% of code.\\
-    ($S=0.1$, $P = 1-S = 0.9$)
+    ($f_s=0.1$, $f_p = 1-f_s = 0.9$)
     \item Overhead per processor\\
     $\alpha = 0.01$
 \end{itemize}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{images/classic_vs_overhead.jpg}
-    \label{fig:classic_vs_overhead}
+    \includegraphics[width=0.7\textwidth]{assets/amdalhs_law/classic_vs_overhead.jpg}
+    \label{fig:classic_vs_overhead_image}
 \end{figure}
 
 \subsubsection*{Parallel speedup comparison}
@@ -89,6 +87,6 @@ It is useful for understanding the limits of parallelization according to Amdahl
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/parallel_comparison.jpg}
+    \includegraphics[width=0.8\textwidth]{assets/amdalhs_law/parallel_comparison.jpg}
     \label{fig:parallel_comparison}
 \end{figure}

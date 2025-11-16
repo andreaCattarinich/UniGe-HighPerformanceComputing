@@ -12,10 +12,33 @@
 \usepackage{csvsimple}
 \usepackage{booktabs}
 \usepackage{caption}
+\usepackage{listings}
+\usepackage{xcolor}  % per i colori
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    frame=single,
+    breaklines=true,
+    captionpos=b
+}
+
 \geometry{margin=2.5cm}
 
 % --- Title info ---
-\title{Report High Performance Computing}
+\title{
+    \includegraphics[width=8cm]{assets/unige.png} \\[1em]
+    Report High Performance Computing
+}
 \author{Andrea Cattarinich 5137057}
 \date{Università degli Studi di Genova}
 
@@ -31,6 +54,5 @@
 \input{chapters/architectures.tex}
 \input{chapters/amdahls_law.tex}
 \input{chapters/hotspots_analysis.tex}
-
 
 \end{document}
