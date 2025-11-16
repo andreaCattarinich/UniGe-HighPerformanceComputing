@@ -1,3 +1,4 @@
+\newpage
 \section{Amdahl's Law}
 
 This section discusses Amdahl's Law, a fundamental principle in parallel computing that helps predict the theoretical speedup in latency when using multiple processors.
@@ -67,7 +68,7 @@ s(p) \approx \frac{p}{\alpha p^2} \approx \frac{1}{\alpha p}
 
 
 \subsection{Results}
-The following examples have been obtained using Matlab scripts available in the repository.
+The following examples have been obtained using Matlab scripts are available in the repository (\texttt{classic\_vs\_overhead.m} and \texttt{parallel\_comparison.m}).
 
 \subsubsection*{Classical vs Overhead}
 \begin{itemize}
@@ -77,18 +78,18 @@ The following examples have been obtained using Matlab scripts available in the 
     $\alpha = 0.01$
 \end{itemize}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{images/classic_vs_overhead.jpg}
+    \includegraphics[width=0.7\textwidth]{images/classic_vs_overhead.jpg}
     \label{fig:classic_vs_overhead}
 \end{figure}
 
 \subsubsection*{Parallel speedup comparison}
 It is useful for understanding the limits of parallelization according to Amdahl's law: it highlights that simply increasing the number of processors is not enough if the sequential portion of the code is significant
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/parallel_comparison.jpg}
+    \includegraphics[width=0.8\textwidth]{images/parallel_comparison.jpg}
     \label{fig:parallel_comparison}
 \end{figure}
 
