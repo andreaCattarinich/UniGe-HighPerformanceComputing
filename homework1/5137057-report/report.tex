@@ -1,0 +1,31 @@
+\documentclass[12pt,a4paper]{article}
+
+% --- Packages (minimal set) ---
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+% --- Title info ---
+\title{Report High Performance Computing}
+\author{Andrea Cattarinich 5137057}
+\date{Università degli Studi di Genova}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+% === Include chapters ===
+\input{chapters/architectures.tex}
+\input{chapters/amdahls_law.tex}
+\input{chapters/omp.tex}
+\input{chapters/cuda.tex}
+
+\end{document}
