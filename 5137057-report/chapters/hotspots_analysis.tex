@@ -1,5 +1,8 @@
 \newpage
 \section{Hotspot Analysis}
+First step for improving the performance of a program is the profiling.\\
+
+\noindent
 The goal of this analysis is to identify the parts of the program that consume the most execution time. To reach this objective, I have considered data size resulting in sequential time $\sim 30$ seconds, setting $N = 100'000$.
 
 \subsection{Code description}
@@ -75,22 +78,39 @@ S(p) = \frac{1}{f_s + \frac{1-f_s}{p}}
 
 
 where $p$ is the number of threads.
-% TODO aggiungere una tabella/grafico di S(p)
+% TODO aggiungere una tabella/grafico di S(p) con Matlab
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{assets/amdalhs_law/classic_vs_overhead.jpg}
+    \includegraphics[width=0.7\textwidth]{assets/hotspots/speedup.png}
     \label{fig:classic_vs_overhead}
 \end{figure}
 
 \paragraph{Note:} the smaller the serial fraction $f_s$, the higher the potential speedup achievable by parallelizing the main loop of the DFT.
 
-\subsection{Hotspot Identification}
-The measurements were performed using two methods: 
+\subsection{Compilation}
+The program was compiled using the Intel compiler \texttt{icx} with the following command (more details are provided in the \texttt{Makefile.seq}):
+\begin{verbatim}
+icx -O2 -vec -g \
+    -qopt-report=max \
+    -qopt-report-file=reports/omp_homework.optrpt \
+    -o build/omp_homework \
+    src/omp_homework.c    
+\end{verbatim}
 
+The compilation flags have the following meaning:
 \begin{itemize}
-    \item \textbf{Manually}: using \texttt{omp\_get\_wtime()} 
-    \item \textbf{Profiler}: using \texttt{Intel VTune}
+    \item \texttt{-O2}: optimizations for better performance;
+    \item \texttt{-vec}: activates automatic vectorization of loops using SIMD instructions;
+    \item \texttt{-g}: includes debugging information in the executable;
+    \item \texttt{-qopt-report=max}: generates a detailed optimization report;
+    \item \texttt{-qopt-report-file=...}: specifies the file where the optimization report is saved;
+    \item \texttt{-o build/omp\_homework}: sets the name and location of the compiled executable;
+    \item \texttt{src/omp\_homework.c}: specifies the source file to compile.
 \end{itemize}
+
+
+\subsection{Hotspot Identification}
+The measurements were performed using two methods: \textbf{Manually} (using \texttt{omp\_get\_wtime()}) and \textbf{Profiler} (using \texttt{Intel VTune})
 
 % TODO: aggiornare le tabelle
 \begin{center}

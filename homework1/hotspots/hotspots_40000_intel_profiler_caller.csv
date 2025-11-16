@@ -1,9 +1,0 @@
-Function,Time (s),Percentage (%)
-\_\_libc\_start\_main\_impl,0,0.00%
-\_start,0,0.00%
-main,0,0.00%
-\_\_svml\_sincos2,0.6,3.76%
-\_\_svml\_sincos2\_l9,11.1,69.18%
-DFT,2.04,12.71%
-DFT,2.3,14.34%
-Total,16.05,100.00%

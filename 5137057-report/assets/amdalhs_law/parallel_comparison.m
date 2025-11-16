@@ -23,7 +23,7 @@ for i = 1:length(S_values)
     
     % Plot
     plot(p_fine, speedup, 'LineWidth', 2, 'Color', colors(i,:), ...
-        'DisplayName', ['P = ' num2str(P*100) '%']);
+        'DisplayName', ['fp = ' num2str(P*100) '%']);
 end
 
 % X-axis

@@ -18,6 +18,7 @@ Esecuzione:
 ```
 
 Aumento N e mantengo l'ottimizzazione O2 xHost
+
 N = 80000, 24.316571 sec
 N = 90000, 30.710730 sec
 N = 100000, 37.875294 sec

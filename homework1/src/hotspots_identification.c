@@ -1,8 +1,10 @@
+
 #include "stdio.h" // printf
 #include "stdlib.h" // malloc and rand for instance. Rand not thread safe!
 #include "time.h"   // time(0) to get random seed
 #include "math.h"  // sine and cosine
 #include "omp.h"   // openmp library like timing
+
 
 // two pi
 #define PI2 6.28318530718
@@ -16,21 +18,22 @@ int printResults(double* xr, double* xi, int N);
 
 
 int main(int argc, char* argv[]){
-  // size of input array
-  int N = 40000;
-  printf("DFTW calculation with N = %d \n",N);
-
   double start_entire_program;
   double start, end;
-  
+
+  start_entire_program = omp_get_wtime();
+
+  // size of input array
+  int N = 100000;
+  printf("DFTW calculation with N = %d \n",N);
+
   // -- FILL INPUT --
   double* xr = (double*) malloc (N *sizeof(double));
   double* xi = (double*) malloc (N *sizeof(double));
   start = omp_get_wtime();
   fillInput(xr,xi,N);
   end = omp_get_wtime();
-  printf("- fillInput() time: %.10f seconds\n", end-start);
-
+  printf("fillInput,%.10f\n", end-start);
 
   // -- SET OUTPUT ZERO 1--
   double* xr_check = (double*) malloc (N *sizeof(double));
@@ -38,7 +41,8 @@ int main(int argc, char* argv[]){
   start = omp_get_wtime();
   setOutputZero(xr_check,xi_check,N);
   end = omp_get_wtime();
-  printf("- setOutputZero1() time: %.10f seconds\n", end-start);
+  printf("setOutputZero1,%.10f\n", end-start);
+
 
   // -- SET OUTPUT ZERO 2--
   double* Xr_o = (double*) malloc (N *sizeof(double));
@@ -46,49 +50,42 @@ int main(int argc, char* argv[]){
   start = omp_get_wtime();
   setOutputZero(Xr_o,Xi_o,N);
   end = omp_get_wtime();
-  printf("- setOutputZero2() time: %.10f seconds\n", end-start);
+  printf("setOutputZero2,%.10f\n", end-start);
 
   // -- DFT --
   int idft = 1;
   start = omp_get_wtime();
   DFT(idft,xr,xi,Xr_o,Xi_o,N);
   end = omp_get_wtime();
-  printf("- DFT() time: %.10f seconds\n", end-start);
+  printf("DFT,%.10f\n", end-start);
 
   // -- IDFT --
   idft = -1;
   start = omp_get_wtime();
   DFT(idft,Xr_o,Xi_o,xr_check,xi_check,N);
   end = omp_get_wtime();
-  printf("- IDFT() time: %.10f seconds\n", end-start);
+  printf("IDFT,%.10f\n", end-start);
 
   // -- CHECK RESULTS --
-  // check the results: easy to make correctness errors with openMP
-  start = omp_get_wtime();
-  checkResults(xr,xi,xr_check,xi_check,Xr_o, Xi_o, N);
-  end = omp_get_wtime();
-  printf("- checkResults() time: %.10f seconds\n", end-start);
+  // Easy to make correctness errors with openMP
+  // checkResults(xr,xi,xr_check,xi_check,Xr_o, Xi_o, N);
 
-  // -- PRINT RESULTS --
-  // print the results of the DFT
+  // -- PRINT RESULTS of the DFT --
 #ifdef DEBUG
   start = omp_get_wtime();
   printResults(Xr_o,Xi_o,N);
   end = omp_get_wtime();
-  printf("- printResults() time: %.10f seconds\n", end-start);
+  printf("printResults,%.10f\n", end-start);
 #endif
 
   // take out the garbage
-  free(xr);
-  free(xi);
-  free(Xi_o);
-  free(Xr_o);
-  free(xr_check);
-  free(xi_check);
+  free(xr); free(xi);
+  free(Xi_o); free(Xr_o);
+  free(xr_check); free(xi_check);
 
-
-  printf("Total time: %.10f seconds\n", end-start_entire_program);
-
+  end = omp_get_wtime();
+  printf("entireProgram,%.10f\n", end-start_entire_program);
+  
   return 1;
 }
 
@@ -98,13 +95,12 @@ int DFT(int idft, double* xr, double* xi, double* Xr_o, double* Xi_o, int N){
   int k, n;
   for (k=0 ; k<N ; k++)
   {
-      for (n=0 ; n<N ; n++)  {
-        // Real part of X[k]
-          Xr_o[k] += xr[n] * cos(n * k * PI2 / N) + idft*xi[n]*sin(n * k * PI2 / N);
-          // Imaginary part of X[k]
-          Xi_o[k] += -idft*xr[n] * sin(n * k * PI2 / N) + xi[n] * cos(n * k * PI2 / N);
-
-      }
+    for (n=0 ; n<N ; n++)  {
+      // Real part of X[k]
+      Xr_o[k] += xr[n] * cos(n * k * PI2 / N) + idft*xi[n]*sin(n * k * PI2 / N);
+      // Imaginary part of X[k]
+      Xi_o[k] += -idft*xr[n] * sin(n * k * PI2 / N) + xi[n] * cos(n * k * PI2 / N);
+    }
   }
 
   // normalize if you are doing IDFT
@@ -114,6 +110,7 @@ int DFT(int idft, double* xr, double* xi, double* Xr_o, double* Xi_o, int N){
       Xi_o[n] /=N;
     }
   }
+  
   return 1;
 }
 
