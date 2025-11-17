@@ -1,7 +1,7 @@
 CC = icx
 
 SRC_FOLDER = src
-SRC_CODE = hotspots_identification.c
+SRC_CODE = sequential_parallel_code_identification.c
 
 BUILD = build
 REPORTS = reports
