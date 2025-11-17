@@ -20,7 +20,7 @@ int printResults(double* xr, double* xi, int N);
 int main(int argc, char* argv[]){
   // size of input array
   int N = 100000;
-  printf("DFTW calculation with N = %d \n",N);
+  //printf("DFTW calculation with N = %d \n",N);
 
   double* xr = (double*) malloc (N *sizeof(double));
   double* xi = (double*) malloc (N *sizeof(double));
@@ -43,16 +43,15 @@ int main(int argc, char* argv[]){
 
   double start = omp_get_wtime();
   DFT(idft,xr,xi,Xr_o,Xi_o,N);
-  printf("DFT %f seconds\n", omp_get_wtime()-start);
 
   // IDFT
   idft = -1;
   DFT(idft,Xr_o,Xi_o,xr_check,xi_check,N);
-  printf("DFT and IDFT %f seconds\n", omp_get_wtime()-start);
 
   // stop timer
   double run_time = omp_get_wtime() - start_time;
-  printf("Total DFTW computation in %f seconds\n",run_time);
+  //printf("Total DFTW computation in %f seconds\n",run_time);
+  printf("%f\n", run_time);
 
   // check the results: easy to make correctness errors with openMP
   // checkResults(xr,xi,xr_check,xi_check,Xr_o, Xi_o, N);

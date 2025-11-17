@@ -1,19 +1,19 @@
 Global optimization report for : main
 
-LOOP BEGIN at src/omp_homework.c (99, 3)
+LOOP BEGIN at src/hotspots_identification.c (123, 3)
     remark #15527: Loop was not vectorized: function call to  cannot be vectorized
     remark #25438: Loop unrolled without remainder by 8
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (101, 3)
+LOOP BEGIN at src/hotspots_identification.c (125, 3)
     remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
     remark #25438: Loop unrolled without remainder by 8
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (72, 3)
+LOOP BEGIN at src/hotspots_identification.c (96, 3)
     remark #15553: loop was not vectorized: outer loop is not an auto-vectorization candidate.
 
-    LOOP BEGIN at src/omp_homework.c (74, 7)
+    LOOP BEGIN at src/hotspots_identification.c (98, 5)
         remark #15300: LOOP WAS VECTORIZED
         remark #15305: vectorization support: vector length 2
         remark #15475: --- begin vector loop cost summary ---
@@ -46,10 +46,10 @@ LOOP BEGIN at src/omp_homework.c (72, 3)
     LOOP END
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (72, 3)
+LOOP BEGIN at src/hotspots_identification.c (96, 3)
     remark #15553: loop was not vectorized: outer loop is not an auto-vectorization candidate.
 
-    LOOP BEGIN at src/omp_homework.c (74, 7)
+    LOOP BEGIN at src/hotspots_identification.c (98, 5)
         remark #15300: LOOP WAS VECTORIZED
         remark #15305: vectorization support: vector length 2
         remark #15475: --- begin vector loop cost summary ---
@@ -82,7 +82,7 @@ LOOP BEGIN at src/omp_homework.c (72, 3)
     LOOP END
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (85, 5)
+LOOP BEGIN at src/hotspots_identification.c (108, 5)
     remark #15300: LOOP WAS VECTORIZED
     remark #15305: vectorization support: vector length 2
     remark #15475: --- begin vector loop cost summary ---
@@ -116,22 +116,22 @@ LOOP END
 
 Global optimization report for : fillInput
 
-LOOP BEGIN at src/omp_homework.c (99, 3)
+LOOP BEGIN at src/hotspots_identification.c (123, 3)
     remark #15527: Loop was not vectorized: function call to  cannot be vectorized
     remark #25438: Loop unrolled without remainder by 8
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (101, 3)
+LOOP BEGIN at src/hotspots_identification.c (125, 3)
 <Multiversioned v2>
     remark #15319: Loop was not vectorized: novector directive used
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (101, 3)
+LOOP BEGIN at src/hotspots_identification.c (125, 3)
 <Multiversioned v2>
     remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (101, 3)
+LOOP BEGIN at src/hotspots_identification.c (125, 3)
 <Multiversioned v1>
 <Multiversioned v1>
     remark #25228: Loop multiversioned for Data Dependence
@@ -141,7 +141,7 @@ LOOP BEGIN at src/omp_homework.c (101, 3)
     remark #25439: Loop unrolled with remainder by 8
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (101, 3)
+LOOP BEGIN at src/hotspots_identification.c (125, 3)
 <Remainder loop>
     remark #25585: Loop converted to switch
 LOOP END
@@ -149,7 +149,7 @@ LOOP END
 
 Global optimization report for : setOutputZero
 
-LOOP BEGIN at src/omp_homework.c (115, 3)
+LOOP BEGIN at src/hotspots_identification.c (139, 3)
 <Multiversioned v1>
 <Multiversioned v1>
     remark #25228: Loop multiversioned for Data Dependence
@@ -158,12 +158,12 @@ LOOP BEGIN at src/omp_homework.c (115, 3)
     remark #25562: The loop has been multiversioned for the small trip count
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (115, 3)
+LOOP BEGIN at src/hotspots_identification.c (139, 3)
 <Multiversioned v2>
     remark #15319: Loop was not vectorized: novector directive used
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (115, 3)
+LOOP BEGIN at src/hotspots_identification.c (139, 3)
 <Multiversioned v2>
     remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
 LOOP END
@@ -171,22 +171,22 @@ LOOP END
 
 Global optimization report for : DFT
 
-LOOP BEGIN at src/omp_homework.c (72, 3)
+LOOP BEGIN at src/hotspots_identification.c (96, 3)
 <Multiversioned v2>
     remark #15319: Loop was not vectorized: novector directive used
 
-    LOOP BEGIN at src/omp_homework.c (74, 7)
+    LOOP BEGIN at src/hotspots_identification.c (98, 5)
         remark #15319: Loop was not vectorized: novector directive used
     LOOP END
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (72, 3)
+LOOP BEGIN at src/hotspots_identification.c (96, 3)
 <Multiversioned v1>
     remark #25228: Loop multiversioned for Data Dependence
     remark #15553: loop was not vectorized: outer loop is not an auto-vectorization candidate.
 
-    LOOP BEGIN at src/omp_homework.c (74, 7)
-        remark #25528: Load/Store of reduction at line 78 sinked after loop
+    LOOP BEGIN at src/hotspots_identification.c (98, 5)
+        remark #25528: Load/Store of reduction at line 102 sinked after loop
         remark #25563: Load hoisted out of the loop
         remark #25564: Store sinked out of the loop
         remark #25583: Number of Array Refs Scalar Replaced In Loop: 2
@@ -220,17 +220,17 @@ LOOP BEGIN at src/omp_homework.c (72, 3)
         remark #25587: Loop has reduction
     LOOP END
 
-    LOOP BEGIN at src/omp_homework.c (74, 7)
+    LOOP BEGIN at src/hotspots_identification.c (98, 5)
     <Remainder loop for vectorization>
     LOOP END
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (85, 5)
+LOOP BEGIN at src/hotspots_identification.c (108, 5)
 <Multiversioned v2>
     remark #15319: Loop was not vectorized: novector directive used
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (85, 5)
+LOOP BEGIN at src/hotspots_identification.c (108, 5)
 <Multiversioned v1>
     remark #25228: Loop multiversioned for Data Dependence
     remark #15300: LOOP WAS VECTORIZED
@@ -262,31 +262,31 @@ LOOP BEGIN at src/omp_homework.c (85, 5)
     remark #15474: --- end vector loop memory reference summary ---
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (85, 5)
+LOOP BEGIN at src/hotspots_identification.c (108, 5)
 <Remainder loop for vectorization>
 LOOP END
 =================================================================
 
 Global optimization report for : checkResults
 
-LOOP BEGIN at src/omp_homework.c (125, 3)
+LOOP BEGIN at src/hotspots_identification.c (149, 3)
     remark #15527: Loop was not vectorized: function call to  cannot be vectorized
     remark #25439: Loop unrolled with remainder by 4
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (125, 3)
+LOOP BEGIN at src/hotspots_identification.c (149, 3)
 <Remainder loop>
 LOOP END
 =================================================================
 
 Global optimization report for : printResults
 
-LOOP BEGIN at src/omp_homework.c (139, 3)
+LOOP BEGIN at src/hotspots_identification.c (163, 3)
     remark #15527: Loop was not vectorized: function call to  cannot be vectorized
     remark #25439: Loop unrolled with remainder by 8
 LOOP END
 
-LOOP BEGIN at src/omp_homework.c (139, 3)
+LOOP BEGIN at src/hotspots_identification.c (163, 3)
 <Remainder loop>
 LOOP END
 =================================================================
@@ -299,127 +299,140 @@ Option Values:
   inlineoptsize-threshold: 15
 
 COMPILE FUNC: main
-   -> EXTERN: printf src/omp_homework.c (23,3)
-   -> EXTERN: malloc src/omp_homework.c (25,26)
-   -> EXTERN: malloc src/omp_homework.c (26,26)
-   -> INLINE: fillInput src/omp_homework.c (27,3) (95<=250)
-      -> EXTERN: time src/omp_homework.c (98,9)
-      -> EXTERN: srand src/omp_homework.c (98,3)
-      -> DELETE: rand src/omp_homework.c (100,5)
-      -> EXTERN: rand src/omp_homework.c (100,5)
-      -> EXTERN: rand src/omp_homework.c (100,5)
-      -> EXTERN: rand src/omp_homework.c (100,5)
-      -> EXTERN: rand src/omp_homework.c (100,5)
-      -> EXTERN: rand src/omp_homework.c (100,5)
-      -> EXTERN: rand src/omp_homework.c (100,5)
-      -> EXTERN: rand src/omp_homework.c (100,5)
-      -> EXTERN: rand src/omp_homework.c (100,5)
-   -> DELETE: malloc src/omp_homework.c (30,32)
-   -> DELETE: malloc src/omp_homework.c (31,32)
-   -> INLINE: setOutputZero src/omp_homework.c (32,3) (-20<=250)
-   -> DELETE: malloc src/omp_homework.c (34,28)
-   -> DELETE: malloc src/omp_homework.c (35,28)
-   -> INLINE: setOutputZero src/omp_homework.c (36,3) (-20<=250)
-   -> EXTERN: omp_get_wtime src/omp_homework.c (39,23)
-   -> INLINE: DFT src/omp_homework.c (43,3) (85<=250)
-      -> DELETE: llvm.cos.f64 src/omp_homework.c (76,30)
-      -> DELETE: llvm.sin.f64 src/omp_homework.c (76,64)
-   -> INLINE: DFT src/omp_homework.c (46,3) (130<=250)
-      -> DELETE: llvm.cos.f64 src/omp_homework.c (76,30)
-      -> DELETE: llvm.sin.f64 src/omp_homework.c (76,64)
-   -> EXTERN: omp_get_wtime src/omp_homework.c (49,21)
-   -> EXTERN: printf src/omp_homework.c (50,3)
-   -> EXTERN: free src/omp_homework.c (61,3)
-   -> EXTERN: free src/omp_homework.c (61,13)
-   -> EXTERN: free src/omp_homework.c (62,3)
-   -> EXTERN: free src/omp_homework.c (62,15)
-   -> EXTERN: free src/omp_homework.c (63,3)
-   -> EXTERN: free src/omp_homework.c (63,19)
-   -> llvm.memset.p0.i64 src/omp_homework.c (107,12)
-   -> EXTERN: calloc src/omp_homework.c (30,32)
-   -> EXTERN: calloc src/omp_homework.c (31,32)
-   -> EXTERN: calloc src/omp_homework.c (34,28)
-   -> EXTERN: calloc src/omp_homework.c (35,28)
-   -> EXTERN: __svml_cos2 src/omp_homework.c (76,30)
-   -> EXTERN: __svml_sin2 src/omp_homework.c (76,64)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (76,19)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (78,19)
-   -> EXTERN: __svml_cos2 src/omp_homework.c (76,30)
-   -> EXTERN: __svml_sin2 src/omp_homework.c (76,64)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (76,19)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (78,19)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (24,26)
+   -> EXTERN: printf src/hotspots_identification.c (28,3)
+   -> EXTERN: malloc src/hotspots_identification.c (31,26)
+   -> EXTERN: malloc src/hotspots_identification.c (32,26)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (33,11)
+   -> INLINE: fillInput src/hotspots_identification.c (34,3) (95<=225)
+      -> EXTERN: time src/hotspots_identification.c (122,9)
+      -> EXTERN: srand src/hotspots_identification.c (122,3)
+      -> DELETE: rand src/hotspots_identification.c (124,5)
+      -> EXTERN: rand src/hotspots_identification.c (124,5)
+      -> EXTERN: rand src/hotspots_identification.c (124,5)
+      -> EXTERN: rand src/hotspots_identification.c (124,5)
+      -> EXTERN: rand src/hotspots_identification.c (124,5)
+      -> EXTERN: rand src/hotspots_identification.c (124,5)
+      -> EXTERN: rand src/hotspots_identification.c (124,5)
+      -> EXTERN: rand src/hotspots_identification.c (124,5)
+      -> EXTERN: rand src/hotspots_identification.c (124,5)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (35,9)
+   -> EXTERN: printf src/hotspots_identification.c (36,3)
+   -> DELETE: malloc src/hotspots_identification.c (39,32)
+   -> DELETE: malloc src/hotspots_identification.c (40,32)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (41,11)
+   -> INLINE: setOutputZero src/hotspots_identification.c (42,3) (-20<=225)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (43,9)
+   -> EXTERN: printf src/hotspots_identification.c (44,3)
+   -> DELETE: malloc src/hotspots_identification.c (48,28)
+   -> DELETE: malloc src/hotspots_identification.c (49,28)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (50,11)
+   -> INLINE: setOutputZero src/hotspots_identification.c (51,3) (-20<=225)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (52,9)
+   -> EXTERN: printf src/hotspots_identification.c (53,3)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (57,11)
+   -> INLINE: DFT src/hotspots_identification.c (58,3) (85<=225)
+      -> DELETE: llvm.cos.f64 src/hotspots_identification.c (100,26)
+      -> DELETE: llvm.sin.f64 src/hotspots_identification.c (100,60)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (59,9)
+   -> EXTERN: printf src/hotspots_identification.c (60,3)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (64,11)
+   -> INLINE: DFT src/hotspots_identification.c (65,3) (130<=225)
+      -> DELETE: llvm.cos.f64 src/hotspots_identification.c (100,26)
+      -> DELETE: llvm.sin.f64 src/hotspots_identification.c (100,60)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (66,9)
+   -> EXTERN: printf src/hotspots_identification.c (67,3)
+   -> EXTERN: free src/hotspots_identification.c (82,3)
+   -> EXTERN: free src/hotspots_identification.c (82,13)
+   -> EXTERN: free src/hotspots_identification.c (83,3)
+   -> EXTERN: free src/hotspots_identification.c (83,15)
+   -> EXTERN: free src/hotspots_identification.c (84,3)
+   -> EXTERN: free src/hotspots_identification.c (84,19)
+   -> EXTERN: omp_get_wtime src/hotspots_identification.c (86,9)
+   -> EXTERN: printf src/hotspots_identification.c (87,3)
+   -> llvm.memset.p0.i64 src/hotspots_identification.c (131,12)
+   -> EXTERN: calloc src/hotspots_identification.c (39,32)
+   -> EXTERN: calloc src/hotspots_identification.c (40,32)
+   -> EXTERN: calloc src/hotspots_identification.c (48,28)
+   -> EXTERN: calloc src/hotspots_identification.c (49,28)
+   -> EXTERN: __svml_cos2 src/hotspots_identification.c (100,26)
+   -> EXTERN: __svml_sin2 src/hotspots_identification.c (100,60)
+   -> llvm.vector.reduce.fadd.v2f64 src/hotspots_identification.c (100,15)
+   -> llvm.vector.reduce.fadd.v2f64 src/hotspots_identification.c (102,15)
+   -> EXTERN: __svml_cos2 src/hotspots_identification.c (100,26)
+   -> EXTERN: __svml_sin2 src/hotspots_identification.c (100,60)
+   -> llvm.vector.reduce.fadd.v2f64 src/hotspots_identification.c (100,15)
+   -> llvm.vector.reduce.fadd.v2f64 src/hotspots_identification.c (102,15)
 
 COMPILE FUNC: fillInput
-   -> EXTERN: time src/omp_homework.c (98,9)
-   -> EXTERN: srand src/omp_homework.c (98,3)
-   -> DELETE: rand src/omp_homework.c (100,5)
-   -> EXTERN: rand src/omp_homework.c (100,5)
-   -> EXTERN: rand src/omp_homework.c (100,5)
-   -> EXTERN: rand src/omp_homework.c (100,5)
-   -> EXTERN: rand src/omp_homework.c (100,5)
-   -> EXTERN: rand src/omp_homework.c (100,5)
-   -> EXTERN: rand src/omp_homework.c (100,5)
-   -> EXTERN: rand src/omp_homework.c (100,5)
-   -> EXTERN: rand src/omp_homework.c (100,5)
-   -> llvm.memset.p0.i64 src/omp_homework.c (107,6)
+   -> EXTERN: time src/hotspots_identification.c (122,9)
+   -> EXTERN: srand src/hotspots_identification.c (122,3)
+   -> DELETE: rand src/hotspots_identification.c (124,5)
+   -> EXTERN: rand src/hotspots_identification.c (124,5)
+   -> EXTERN: rand src/hotspots_identification.c (124,5)
+   -> EXTERN: rand src/hotspots_identification.c (124,5)
+   -> EXTERN: rand src/hotspots_identification.c (124,5)
+   -> EXTERN: rand src/hotspots_identification.c (124,5)
+   -> EXTERN: rand src/hotspots_identification.c (124,5)
+   -> EXTERN: rand src/hotspots_identification.c (124,5)
+   -> EXTERN: rand src/hotspots_identification.c (124,5)
+   -> llvm.memset.p0.i64 src/hotspots_identification.c (131,6)
 
 COMPILE FUNC: setOutputZero
-   -> llvm.memset.p0.i64 src/omp_homework.c (116,6)
-   -> llvm.memset.p0.i64 src/omp_homework.c (117,6)
+   -> llvm.memset.p0.i64 src/hotspots_identification.c (140,6)
+   -> llvm.memset.p0.i64 src/hotspots_identification.c (141,6)
 
 COMPILE FUNC: DFT
-   -> DELETE: llvm.cos.f64 src/omp_homework.c (76,30)
-   -> DELETE: llvm.sin.f64 src/omp_homework.c (76,64)
-   -> DELETE: llvm.sin.f64 src/omp_homework.c (78,36)
-   -> DELETE: llvm.cos.f64 src/omp_homework.c (78,67)
-   -> DELETE: llvm.cos.f64 src/omp_homework.c (76,30)
-   -> DELETE: llvm.sin.f64 src/omp_homework.c (76,64)
-   -> llvm.cos.f64 src/omp_homework.c (76,30)
-   -> llvm.sin.f64 src/omp_homework.c (76,64)
-   -> EXTERN: __svml_cos2 src/omp_homework.c (76,30)
-   -> EXTERN: __svml_sin2 src/omp_homework.c (76,64)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (72,3)
-   -> llvm.vector.reduce.fadd.v2f64 src/omp_homework.c (72,3)
-   -> EXTERN: __svml_cos1 src/omp_homework.c (72,3)
-   -> EXTERN: __svml_sin1 src/omp_homework.c (72,3)
+   -> DELETE: llvm.cos.f64 src/hotspots_identification.c (100,26)
+   -> DELETE: llvm.sin.f64 src/hotspots_identification.c (100,60)
+   -> DELETE: llvm.sin.f64 src/hotspots_identification.c (102,32)
+   -> DELETE: llvm.cos.f64 src/hotspots_identification.c (102,63)
+   -> llvm.cos.f64 src/hotspots_identification.c (100,26)
+   -> llvm.sin.f64 src/hotspots_identification.c (100,60)
+   -> EXTERN: __svml_cos2 src/hotspots_identification.c (100,26)
+   -> EXTERN: __svml_sin2 src/hotspots_identification.c (100,60)
+   -> llvm.vector.reduce.fadd.v2f64 src/hotspots_identification.c (96,3)
+   -> llvm.vector.reduce.fadd.v2f64 src/hotspots_identification.c (96,3)
+   -> EXTERN: __svml_cos1 src/hotspots_identification.c (96,3)
+   -> EXTERN: __svml_sin1 src/hotspots_identification.c (96,3)
 
 COMPILE FUNC: checkResults
-   -> DELETE: llvm.fabs.f64 src/omp_homework.c (126,9)
-   -> DELETE: printf src/omp_homework.c (127,7)
-   -> DELETE: llvm.fabs.f64 src/omp_homework.c (128,11)
-   -> DELETE: printf src/omp_homework.c (129,7)
-   -> EXTERN: printf src/omp_homework.c (132,5)
-   -> llvm.fabs.f64 src/omp_homework.c (126,9)
-   -> EXTERN: printf src/omp_homework.c (127,7)
-   -> llvm.fabs.f64 src/omp_homework.c (128,11)
-   -> EXTERN: printf src/omp_homework.c (129,7)
-   -> llvm.fabs.f64 src/omp_homework.c (126,9)
-   -> EXTERN: printf src/omp_homework.c (127,7)
-   -> llvm.fabs.f64 src/omp_homework.c (128,11)
-   -> EXTERN: printf src/omp_homework.c (129,7)
-   -> llvm.fabs.f64 src/omp_homework.c (126,9)
-   -> EXTERN: printf src/omp_homework.c (127,7)
-   -> llvm.fabs.f64 src/omp_homework.c (128,11)
-   -> EXTERN: printf src/omp_homework.c (129,7)
-   -> llvm.fabs.f64 src/omp_homework.c (126,9)
-   -> EXTERN: printf src/omp_homework.c (127,7)
-   -> llvm.fabs.f64 src/omp_homework.c (128,11)
-   -> EXTERN: printf src/omp_homework.c (129,7)
-   -> llvm.fabs.f64 src/omp_homework.c (126,9)
-   -> EXTERN: printf src/omp_homework.c (127,7)
-   -> llvm.fabs.f64 src/omp_homework.c (128,11)
-   -> EXTERN: printf src/omp_homework.c (129,7)
+   -> DELETE: llvm.fabs.f64 src/hotspots_identification.c (150,9)
+   -> DELETE: printf src/hotspots_identification.c (151,7)
+   -> DELETE: llvm.fabs.f64 src/hotspots_identification.c (152,11)
+   -> DELETE: printf src/hotspots_identification.c (153,7)
+   -> EXTERN: printf src/hotspots_identification.c (156,5)
+   -> llvm.fabs.f64 src/hotspots_identification.c (150,9)
+   -> EXTERN: printf src/hotspots_identification.c (151,7)
+   -> llvm.fabs.f64 src/hotspots_identification.c (152,11)
+   -> EXTERN: printf src/hotspots_identification.c (153,7)
+   -> llvm.fabs.f64 src/hotspots_identification.c (150,9)
+   -> EXTERN: printf src/hotspots_identification.c (151,7)
+   -> llvm.fabs.f64 src/hotspots_identification.c (152,11)
+   -> EXTERN: printf src/hotspots_identification.c (153,7)
+   -> llvm.fabs.f64 src/hotspots_identification.c (150,9)
+   -> EXTERN: printf src/hotspots_identification.c (151,7)
+   -> llvm.fabs.f64 src/hotspots_identification.c (152,11)
+   -> EXTERN: printf src/hotspots_identification.c (153,7)
+   -> llvm.fabs.f64 src/hotspots_identification.c (150,9)
+   -> EXTERN: printf src/hotspots_identification.c (151,7)
+   -> llvm.fabs.f64 src/hotspots_identification.c (152,11)
+   -> EXTERN: printf src/hotspots_identification.c (153,7)
+   -> llvm.fabs.f64 src/hotspots_identification.c (150,9)
+   -> EXTERN: printf src/hotspots_identification.c (151,7)
+   -> llvm.fabs.f64 src/hotspots_identification.c (152,11)
+   -> EXTERN: printf src/hotspots_identification.c (153,7)
 
 COMPILE FUNC: printResults
-   -> DELETE: printf src/omp_homework.c (140,7)
-   -> EXTERN: printf src/omp_homework.c (140,7)
-   -> EXTERN: printf src/omp_homework.c (140,7)
-   -> EXTERN: printf src/omp_homework.c (140,7)
-   -> EXTERN: printf src/omp_homework.c (140,7)
-   -> EXTERN: printf src/omp_homework.c (140,7)
-   -> EXTERN: printf src/omp_homework.c (140,7)
-   -> EXTERN: printf src/omp_homework.c (140,7)
-   -> EXTERN: printf src/omp_homework.c (140,7)
-   -> EXTERN: printf src/omp_homework.c (140,7)
+   -> DELETE: printf src/hotspots_identification.c (164,7)
+   -> EXTERN: printf src/hotspots_identification.c (164,7)
+   -> EXTERN: printf src/hotspots_identification.c (164,7)
+   -> EXTERN: printf src/hotspots_identification.c (164,7)
+   -> EXTERN: printf src/hotspots_identification.c (164,7)
+   -> EXTERN: printf src/hotspots_identification.c (164,7)
+   -> EXTERN: printf src/hotspots_identification.c (164,7)
+   -> EXTERN: printf src/hotspots_identification.c (164,7)
+   -> EXTERN: printf src/hotspots_identification.c (164,7)
+   -> EXTERN: printf src/hotspots_identification.c (164,7)
 
 ---- End Inlining Report ------

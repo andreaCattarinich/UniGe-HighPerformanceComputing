@@ -24,8 +24,8 @@ int main(int argc, char* argv[]){
   start_entire_program = omp_get_wtime();
 
   // size of input array
-  int N = 100000;
-  printf("DFTW calculation with N = %d \n",N);
+  int N = 60000;
+  printf("N,%d\n",N);
 
   // -- FILL INPUT --
   double* xr = (double*) malloc (N *sizeof(double));

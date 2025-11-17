@@ -91,6 +91,7 @@ where $p$ is the number of threads.
 The program was compiled using the Intel compiler \texttt{icx} with the following command (more details are provided in the \texttt{Makefile.seq}):
 \begin{verbatim}
 icx -O2 -vec -g \
+    -fopenmp \
     -qopt-report=max \
     -qopt-report-file=reports/omp_homework.optrpt \
     -o build/omp_homework \
@@ -100,6 +101,7 @@ icx -O2 -vec -g \
 The compilation flags have the following meaning:
 \begin{itemize}
     \item \texttt{-O2}: optimizations for better performance;
+    \item \texttt{-fopenmp}: activates compilation for OpenMP directives;
     \item \texttt{-vec}: activates automatic vectorization of loops using SIMD instructions;
     \item \texttt{-g}: includes debugging information in the executable;
     \item \texttt{-qopt-report=max}: generates a detailed optimization report;
