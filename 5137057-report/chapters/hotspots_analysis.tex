@@ -73,19 +73,12 @@ Fraction of serial code $f_s = \frac{T_\text{ser}}{T_\text{tot}}$ & $\text{0.006
 These values will be used to estimate the theoretical speedup according to Amdahl's Law:
 
 \[
-S(p) = \frac{1}{f_s + \frac{1-f_s}{p}}
+S(p) = \frac{1}{f_s + \frac{1-f_s}{p}} \Big|_{f_s=0.00006} =  \frac{1}{0.00006 + \frac{1-0.00006}{p}} \approx p
 \]
 
-
-where $p$ is the number of threads.
-% TODO aggiungere una tabella/grafico di S(p) con Matlab
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{assets/hotspots/speedup.png}
-    \label{fig:classic_vs_overhead}
-\end{figure}
-
 \paragraph{Note:} the smaller the serial fraction $f_s$, the higher the potential speedup achievable by parallelizing the main loop of the DFT.
+
+\paragraph{Note: in the real case, the speedup is not linear.}
 
 \subsection{Compilation}
 The program was compiled using the Intel compiler \texttt{icx} with the following command (more details are provided in the \texttt{Makefile.seq}):
@@ -153,7 +146,7 @@ The measurements were performed using two methods: \textbf{Manually} (using \tex
 \end{center}
 
 \subsection{Conclusion}
-The main hotspot is the DFT() function and its inverse IDFT(), which together account for over 99\% of the total execution time. All other functions have negligible impact. This indicates that \textbf{parallelization and vectorization efforts should focus on the double loop inside DFT()}.
+The main hotspot is the DFT() function and its inverse IDFT(), which together account for over 99,05\% of the total execution time. All other functions have negligible impact. This indicates that \textbf{parallelization and vectorization efforts should focus on the double loop inside DFT()}.
 
 \begin{figure}[ht]
     \centering
