@@ -1,0 +1,12 @@
+Function Stack,CPU Time: Total,Percentage,CPU Time: Self,Module,Function (Full),Source File,Start Address
+Total,32.4300,100.0000,0,[Unknown],[Unknown],[Unknown],[Unknown]
+ _start,32.4300,100.0000,0,hotspots_identification,_start,[Unknown],0x401460
+  __libc_start_main_impl,32.4300,100.0000,0,libc.so.6,__libc_start_main_impl,libc-start.c,0x27280
+   main,32.4300,100.0000,0,hotspots_identification,main,hotspots_identification.c,0x401550
+    DFT,16.2420,50.0833,4.07589,hotspots_identification,DFT,hotspots_identification.c,0x40171b
+     __svml_cos2,9.3781,28.9180,0.339999,hotspots_identification,__svml_cos2,[Unknown],0x402980
+     __svml_sin2,2.7880,8.5969,0.899993,hotspots_identification,__svml_sin2,[Unknown],0x402cb0
+    DFT,15.8800,48.9670,3.68,hotspots_identification,DFT,hotspots_identification.c,0x401888
+     __svml_cos2,9.7499,30.0645,0.444114,hotspots_identification,__svml_cos2,[Unknown],0x402980
+     __svml_sin2,2.4501,7.5549,0.952001,hotspots_identification,__svml_sin2,[Unknown],0x402cb0
+    fillInput,0.3080,0.9497,0.308,hotspots_identification,fillInput,hotspots_identification.c,0x4015b3
