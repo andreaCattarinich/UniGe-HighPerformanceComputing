@@ -1,9 +1,9 @@
 \newpage
 \section{Hotspot Analysis}
-First step for improving the performance of a program is the profiling.\\
+The first step to improving the performance of a program is profiling. The goal of this analysis is to identify the parts of the program that consume the most execution time. To achieve this, I considered a data size resulting in a sequential execution time of $\sim 30$ seconds, by setting $N = 60'000$.\\
 
 \noindent
-The goal of this analysis is to identify the parts of the program that consume the most execution time. To reach this objective, I have considered data size resulting in sequential time $\sim 30$ seconds, setting $N = 100'000$. Each execution was empirically repeated 10 times
+From this point onward, each executable is empirically measured over 10 runs to obtain reliable results.
 
 \subsection{Code description}
 \begin{lstlisting}[caption={Pseudo code in C}]
@@ -47,8 +47,8 @@ X[k] = \sum_{n=0}^{N-1} x[n] \, e^{-j 2 \pi k n / N}, \quad k = 0,1,\dots,N-1
 
 \subsection{Sequential and Parallel Sections}
 In order to apply Amdahl's Law described in the previous section, we must identify the sequential and parallel parts of the code. 
-I have empirically measured these sections by running the code 10 times, separating the serial and parallel portions.
-More details can be found in the code \texttt{identify\_seq\_par\_code.c}.\\
+I have empirically measured these sections by separating the serial and parallel portions.
+More details of how I obtained these results can be found in the code \texttt{sequential\_parallel\_code\_identification.c}.\\
 
 \noindent
 The results are the following:
