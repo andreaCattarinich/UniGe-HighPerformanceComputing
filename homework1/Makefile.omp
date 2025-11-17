@@ -2,7 +2,7 @@ CC = icx
 BUILD = build
 REPORTS = reports
 SRC_FOLDER = src
-NAME = v1
+NAME = omp2
 CFLAGS = -fopenmp -vec -qopt-report=max -g -O2 -xHost
 
 $(shell mkdir -p $(BUILD) $(REPORTS))
