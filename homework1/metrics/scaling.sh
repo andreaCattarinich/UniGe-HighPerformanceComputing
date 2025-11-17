@@ -4,10 +4,10 @@
 EXEC=../build/hotspots_identification
 
 # Numero di esecuzioni per ciascun test
-RUNS=3
+RUNS=10
 
 # Numero massimo di thread
-MAX_THREADS=2
+MAX_THREADS=1
 
 # File di output
 OUTFILE=hotspots_identification.txt
