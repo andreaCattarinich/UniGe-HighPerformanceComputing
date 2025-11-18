@@ -81,7 +81,8 @@ S(p) = \frac{1}{f_s + \frac{1-f_s}{p}} \Big|_{f_s=0.00006} =  \frac{1}{0.00006 +
 \paragraph{Note: in the real case, the speedup is not linear.}
 
 \subsection{Compilation}
-The program was compiled using the Intel compiler \texttt{icx} with the following command (more details are provided in the \texttt{Makefile.seq}):
+To identify the optimal sequential compilation strategy, I conduced testing across multiple Intel compiler variants (\texttt{ICC} and \texttt{ICX}), focusing on the vectorization report provided by the flag \texttt{-qopt-report}.\\
+The program was compiled using the Intel compiler \texttt{ICX} with the following command (more details are provided in the \texttt{Makefile.seq}):
 \begin{verbatim}
 icx -O2 -vec -g \
     -fopenmp \
@@ -147,10 +148,13 @@ The measurements were performed using two methods: \textbf{Manually} (using \tex
 
 \subsection{Conclusion}
 The main hotspot is the DFT() function and its inverse IDFT(), which together account for over 99,05\% of the total execution time. All other functions have negligible impact. This indicates that \textbf{parallelization and vectorization efforts should focus on the double loop inside DFT()}.
+\\
+\\
+\noindent
+The main hotspot is the loop contained in lines 72-80 (source: \texttt{src/omp\_homework.c}). The dominant operations contributing to the algorithm's computational intensity are the \texttt{sin()} and \texttt{cos()} trigonometric functions, which account for the majority of the execution time, as shown in the figure.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.9\textwidth]{assets/hotspots/vtune_biggest_hotspot_screen.png}
-    \caption{The main hotspot is the loop contained in lines 103-112.}
+    \includegraphics[width=0.9\textwidth]{assets/hotspots/hotspot_code_evidentiation.png}
     \label{fig:vtune_biggest_hotspot_screen}
 \end{figure}
