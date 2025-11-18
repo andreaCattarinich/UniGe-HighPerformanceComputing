@@ -6,7 +6,7 @@ NAME=omp1
 EXEC="$BUILD""$NAME"
 
 # Numero di esecuzioni per ciascun test
-RUNS=5
+RUNS=10
 
 # Numero massimo di thread
 MIN_THREADS=1
@@ -26,7 +26,7 @@ for threads in $(seq $MIN_THREADS $MAX_THREADS); do
     for run in $(seq 1 $RUNS); do
         echo "- Run $run | $threads threads(s)..."
         OMP_NUM_THREADS="$threads" "$EXEC" >> "$OUTFILE"
-        echo >> "$OUTFILE"
+        echo -n >> "$OUTFILE"
     done
 done
 

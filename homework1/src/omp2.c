@@ -20,7 +20,7 @@ int printResults(double* xr, double* xi, int N);
 int main(int argc, char* argv[]){
   // size of input array
   int N = 100000;
-  printf("DFTW calculation with N = %d \n",N);
+  //printf("DFTW calculation with N = %d \n",N);
 
   double* xr = (double*) malloc (N *sizeof(double));
   double* xi = (double*) malloc (N *sizeof(double));
@@ -40,14 +40,18 @@ int main(int argc, char* argv[]){
 
   // DFT
   int idft = 1;
+
+  double start = omp_get_wtime();
   DFT(idft,xr,xi,Xr_o,Xi_o,N);
+  
   // IDFT
   idft = -1;
   DFT(idft,Xr_o,Xi_o,xr_check,xi_check,N);
 
   // stop timer
   double run_time = omp_get_wtime() - start_time;
-  printf("DFTW computation in %f seconds\n",run_time);
+  //printf("Total DFTW computation in %f seconds\n",run_time);
+  printf("%f\n", run_time);
 
   // check the results: easy to make correctness errors with openMP
   // checkResults(xr,xi,xr_check,xi_check,Xr_o, Xi_o, N);
@@ -68,14 +72,13 @@ int main(int argc, char* argv[]){
 // DFT/IDFT routine
 // idft: 1 direct DFT, -1 inverse IDFT (Inverse DFT)
 int DFT(int idft, double* xr, double* xi, double* Xr_o, double* Xi_o, int N){
-  
   int k, n;
   for (k=0 ; k<N ; k++)
   {
     double Xr_temp = 0.0;
     double Xi_temp = 0.0;
 
-    #pragma omp parallel for reduction(+:Xr_temp, Xi_temp) num_threads(3)    
+    #pragma omp parallel for reduction(+:Xr_temp, Xi_temp)    
     for (n=0 ; n<N ; n++)  {
       // Real part of X[k]
       Xr_temp += xr[n] * cos(n * k * PI2 / N) + idft*xi[n]*sin(n * k * PI2 / N);
