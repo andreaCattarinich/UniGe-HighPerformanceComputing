@@ -7,6 +7,7 @@
 *.asv
 *.toc
 .idea
+*.DS_Store
 
 # Escludi i PDF (per adesso)
 *.pdf

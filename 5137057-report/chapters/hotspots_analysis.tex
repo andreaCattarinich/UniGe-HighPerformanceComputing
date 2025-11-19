@@ -1,11 +1,40 @@
 \newpage
 \section{Hotspot Analysis}
-The first step to improving the performance of a program is profiling. The goal of this analysis is to identify the parts of the program that consume the most execution time. To achieve this, I considered a data size resulting in a sequential execution time of $\sim 30$ seconds, by setting $N = 60'000$.\\
+
+The Fourier Transform is a fundamental mathematical tool in digital signal processing. 
+It converts a sequence of values from the \textbf{time domain} into a sequence of values in the \textbf{frequency domain}. 
+This transformation makes it possible to identify which frequencies are present in a signal and with what intensity.\\
 
 \noindent
-From this point onward, each executable is empirically measured over 10 runs to obtain reliable results.
+The continuous-time Fourier Transform is defined as:
+\[
+X(\omega) = \int_{-\infty}^{+\infty} x(t)\, e^{-j \omega t}\, dt
+\]
+
+\noindent
+The example shown in Figure \ref{fig:rectangle_fourier_transform} illustrates the practical and optical interpretation of the Fourier Transform of a rectangular signal, showing how a simple time–domain shape corresponds to a characteristic frequency–domain spectrum.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{assets/hotspots/rectangle_fourier_transform.png}
+    \caption{Fourier Transform of a rectangular signal.}
+    \label{fig:rectangle_fourier_transform}
+\end{figure}
 
 \subsection{Code description}
+The algorithm provided by the course implements both the Discrete Fourier Transform (DFT) and its inverse (IDFT) in C. 
+It computes the transform of a signal and verifies the correctness by applying the IDFT, following the discrete-time Fourier Transform definition:
+
+\[
+X[k] = \sum_{n=0}^{N-1} x[n] \, e^{-j 2 \pi k n / N}, 
+\quad k = 0,1,\dots,N-1
+\]
+
+\noindent
+The DFT is implemented following the standard quadratic-complexity $O(N^2)$ formulation, with two nested loops 
+over the frequency index $k$ and the time index $n$. Each output element can be 
+computed independently, which makes the algorithm naturally parallelisable.
+
 \begin{lstlisting}[caption={Pseudo code in C}]
 int main() {
     int N = 100000;
@@ -39,14 +68,13 @@ void DFT(int idft, double* xr, ..., double* Xi, int N) {
 \end{lstlisting}
 
 \noindent
-The code implements the Discrete Fourier Transform (DFT) and its Inverse (IDFT) in C. It calculates the transform of a signal and verify the correctness through IDFT following the definition:
+The first step to improving the performance of a program is profiling. The goal of this analysis is to identify the parts of the program that consume the most execution time. To achieve this, I considered a data size resulting in a sequential execution time of $\sim 30$ seconds, by setting $N = 60'000$.\\
 
-\[
-X[k] = \sum_{n=0}^{N-1} x[n] \, e^{-j 2 \pi k n / N}, \quad k = 0,1,\dots,N-1
-\]
+\noindent
+From this point onward, each executable is empirically measured over 10 runs to obtain reliable results.
 
 \subsection{Sequential and Parallel Sections}
-In order to apply Amdahl's Law described in the previous section, we must identify the sequential and parallel parts of the code. 
+In order to apply Amdahl's Law (discussed in more detail in the Chapter~\ref{sec:amdahls_law}), we must identify the sequential and parallel parts of the code. 
 I have empirically measured these sections by separating the serial and parallel portions.
 More details of how I obtained these results can be found in the code \texttt{sequential\_parallel\_code\_identification.c}.\\
 
@@ -85,14 +113,14 @@ In particular, from the parallelization examples presented in Chapter~\ref{sec:p
 Since the Intel(R) C++ Compiler Classic (ICC) is deprecated and was removed from product release in the second half of 2023. The Intel(R) oneAPI DPC++/C++ Compiler (ICX) was used to performe the analysis.\\
 \\
 To identify the optimal sequential compilation strategy, I conduced testing across multiple Intel compiler variants (\texttt{ICC} and \texttt{ICX}), focusing on the vectorization report provided by the flag \texttt{-qopt-report}.\\
-The program was compiled using the Intel compiler \texttt{ICX} with the following command (more details are provided in the \texttt{Makefile.seq}):
+The program was compiled using the Intel compiler \texttt{ICX} with the following command (more details in Chapter~\ref{sec:vectorization}):
 \begin{verbatim}
 icx -O2 -vec -g \
     -fopenmp \
     -qopt-report=max \
     -qopt-report-file=reports/omp_homework.optrpt \
     -o build/omp_homework \
-    src/omp_homework.c    
+    src/omp_homework.c
 \end{verbatim}
 
 The compilation flags have the following meaning:
@@ -150,9 +178,8 @@ The measurements were performed using two methods: \textbf{Manually} (using \tex
 \end{center}
 
 \subsection{Conclusions}
-The main hotspot is the DFT() function and its inverse IDFT(), which together account for over 99,05\% of the total execution time. All other functions have negligible impact. This indicates that \textbf{parallelization and vectorization efforts should focus on the double loop inside DFT()}.
-\\
-\\
+The main hotspot is the DFT() function and its inverse IDFT(), which together account for over 99,05\% of the total execution time. All other functions have negligible impact. This indicates that \textbf{parallelization and vectorization efforts should focus on the double loop inside DFT()}.\\
+
 \noindent
 \textbf{The main hotspot is the loop contained in lines 72-80 (source: \texttt{src/omp\_homework.c})}. The dominant operations contributing to the algorithm's computational intensity are the \texttt{sin()} and \texttt{cos()} trigonometric functions, which account for the majority of the execution time, as shown in the following code.
 
