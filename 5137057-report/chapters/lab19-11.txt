@@ -1,3 +1,19 @@
+TODO: SPOSTARE IL CHAPTER 2 (amdahl's law) DOPO LA HOTSPOT IDENTIFICATION, DATO CHE E' UNA CONSEGUENZA DELL'analisi
+
+TODO: DESCRIVERE COME HO PARALLELIZZATO
+
+
+================================
+advixe-gui
+add executable
+add binary folder
+add source folder
+
+select ROOFLINE 
+
+check Trip Counts
+run
+==============
 Ho eseguito l'analisi con l'Advisor sul codice di base (baseline) che si trova qui: src/omp_homework.c 
 
 Mi sono concentrato ad osservare la Roofline Analysis e i report forniti per aumentare il livello di ottimizzazione.
@@ -34,5 +50,18 @@ Tuttavia, abbiamo migliorato rispetto alla configurazione precedente.
 icx -O2 -vec -g -fopenmp -xHost -qopt-report=max -qopt-report-file=reports/omp_homework.optrpt -o build/omp_homework src/omp_homework.c
 
 L'arithmetic intensity rimane la stessa, ma aumenta la Performance (da 10.105 GFLOPS a 34.522 GFLOPS).
+
+
+===== [4 COMPILAZIONE MIGLIORE E PARALLELIZZAZIONE] =====
+Le funzioni di libreria Cos e Sin raggiungono rispettivamente i seguenti risultati nella roofline
+
+Cos
+    Arith intensity: 0.213 
+    Performance: 214,817 GFLOPS
+
+Sin
+    Arith intensity: 0.232
+    Performance: 418,012 GFLOPS
+
 
 ========= FINE ESPERIMENTI =========
