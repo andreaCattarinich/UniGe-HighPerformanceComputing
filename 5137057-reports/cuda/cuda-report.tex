@@ -5,7 +5,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{caption}
 \usepackage{geometry}
 \usepackage{float}
@@ -13,7 +13,7 @@
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{listings}
-\usepackage{xcolor}  % per i colori
+\usepackage{xcolor}
 
 \lstset{
     language=C,
@@ -36,8 +36,10 @@
 
 % --- Title info ---
 \title{
+    \vspace{-2cm}
     \includegraphics[width=8cm]{assets/unige.png} \\[1em]
-    Report High Performance Computing
+    High Performance Computing\\
+    \textbf{Report CUDA}
 }
 \author{Andrea Cattarinich 5137057}
 
@@ -51,9 +53,9 @@
 
 % === Include chapters ===
 \input{chapters/architectures.tex}
-\input{chapters/amdahls_law.tex}
 \input{chapters/hotspots_analysis.tex}
 \input{chapters/vectorization.tex}
 \input{chapters/parallelization.tex}
+\input{chapters/conclusions.tex}
 
 \end{document}
