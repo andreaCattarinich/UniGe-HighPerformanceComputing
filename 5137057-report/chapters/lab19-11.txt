@@ -1,8 +1,3 @@
-TODO: SPOSTARE IL CHAPTER 2 (amdahl's law) DOPO LA HOTSPOT IDENTIFICATION, DATO CHE E' UNA CONSEGUENZA DELL'analisi
-
-TODO: DESCRIVERE COME HO PARALLELIZZATO
-
-
 ================================
 advixe-gui
 add executable
@@ -73,3 +68,5 @@ Ho deciso di tentare questa ottimizzazione in quanto ho notato che il calcolo de
 Pertanto, in linea teorica, il programma risulterebbe piu veloce se il calcolo venisse eseguito soltanto una volta.
 
 Gli esperimenti purtroppo, non hanno portato buoni risultati, in quanto le prestazioni sono rimaste le stesse (se non peggiorate) e la motivazione e dovuta al fatto che il compilatore esegue automaticamente questa ottimizzazione di default.
+
+TODO: DESCRIVERE COME HO PARALLELIZZATO

@@ -16,7 +16,7 @@ The example shown in Figure \ref{fig:rectangle_fourier_transform} illustrates th
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{assets/hotspots/rectangle_fourier_transform.png}
+    \includegraphics[width=0.9\textwidth]{assets/hotspots/rectangle_fourier_transform.png}
     \caption{Fourier Transform of a rectangular signal.}
     \label{fig:rectangle_fourier_transform}
 \end{figure}
@@ -67,11 +67,21 @@ void DFT(int idft, double* xr, ..., double* Xi, int N) {
 }
 \end{lstlisting}
 
+\subsection{Project Description}
+The \texttt{homework1} project is organized into four main directories:
+\begin{itemize}
+    \item \textbf{build}: contains the compiled executables.
+    \item \textbf{reports}: stores the reports generated with the \texttt{-qopt-report} flag.
+    \item \textbf{src}: includes the source code files.
+    \item \textbf{metrics}: scripts that run the executables in \texttt{build} and save performance metrics.
+\end{itemize}
+
 \noindent
 The first step to improving the performance of a program is profiling. The goal of this analysis is to identify the parts of the program that consume the most execution time. To achieve this, I considered a data size resulting in a sequential execution time of $\sim 30$ seconds, by setting $N = 60'000$.\\
 
 \noindent
 From this point onward, each executable is empirically measured over 10 runs to obtain reliable results.
+
 
 \subsection{Sequential and Parallel Sections}
 In order to apply Amdahl's Law (discussed in more detail in the Chapter~\ref{sec:amdahls_law}), we must identify the sequential and parallel parts of the code. 
