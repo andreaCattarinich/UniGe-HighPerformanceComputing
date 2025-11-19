@@ -1,0 +1,38 @@
+Ho eseguito l'analisi con l'Advisor sul codice di base (baseline) che si trova qui: src/omp_homework.c 
+
+Mi sono concentrato ad osservare la Roofline Analysis e i report forniti per aumentare il livello di ottimizzazione.
+Di seguito sono riportati gli esempi di compilazione eseguiti.
+TODO: DESCRIVERE LA ROOFLINE ANALYSIS
+
+
+========= ESPERIMENTI =========
+Ho impostato N = 10000
+
+Da questa analisi (foto lll) ricavo che:
+
+===== [1 COMPILAZIONE SENZA OTTIMIZZAZIONE] =====
+icx -g -fopenmp -qopt-report=max -qopt-report-file=reports/omp_homework.optrpt -o build/omp_homework src/omp_homework.c
+
+Gli hotspot (pallini rossi) si trovano addirittura sono la DRAM.
+Per quanto riguarda la vettorizzazione: la vettorizzazione non viene applicata e per tanto, la roofline analysis evidenzia che non si oltrepassa la 
+linea orizzontale "Scalar Add  Peak: 7.97 GFLOPS".
+
+===== [2 COMPILAZIONE CON OTTIMIZZAZIONE] =====
+icx -O0 -g -fopenmp -qopt-report=max -qopt-report-file=reports/omp_homework.optrpt -o build/omp_homework src/omp_homework.c
+
+L'hotspot, rappresentato dal pallino giallo, invoca la funzione trigonometrica, rappresentata dal pallino rosso.
+
+Il primo evidente cambiamento e' l'aumento del valore dell'artihmetic intensity, che e' passato da 0.054 FLOP/byte a 0.213 FLOP/byte. 
+
+Stiamo usando la DRAM, ma NON riusciamo ad utilizzare bene la CACHE.
+Siamo ancora sotto la soglia L3.
+
+Tuttavia, abbiamo migliorato rispetto alla configurazione precedente.
+
+
+===== [3 COMPILAZIONE CON OTTIMIZZAZIONE PER LA MIA ARCHITETTURA] =====
+icx -O2 -vec -g -fopenmp -xHost -qopt-report=max -qopt-report-file=reports/omp_homework.optrpt -o build/omp_homework src/omp_homework.c
+
+L'arithmetic intensity rimane la stessa, ma aumenta la Performance (da 10.105 GFLOPS a 34.522 GFLOPS).
+
+========= FINE ESPERIMENTI =========
