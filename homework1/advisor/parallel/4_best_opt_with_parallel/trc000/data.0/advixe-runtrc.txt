@@ -1,0 +1,10 @@
+
+=== Start: [2025/11/19 15:38:55] === 
+Peak bandwidth measurement started...
+Peak bandwidth measurement finished.
+Analysis started...
+Result file: /home/Zsf/parallel/e000/trc000/trc000.advixe 
+Application exit code: 1 
+Result file: /home/Zsf/parallel/e000/trc000/trc000.advixe 
+Analysis completed
+=== End: [2025/11/19 15:39:17] === 

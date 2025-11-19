@@ -2,15 +2,15 @@
 
 # Nome del binario da eseguire
 BUILD=../build/
-NAME=omp1
+NAME=omp3
 EXEC="$BUILD""$NAME"
 
 # Numero di esecuzioni per ciascun test
-RUNS=10
+RUNS=1
 
 # Numero massimo di thread
-MIN_THREADS=1
-MAX_THREADS=32
+MIN_THREADS=4
+MAX_THREADS=15
 
 # File di output
 OUTFILE="$NAME"_"$RUNS"runs_"$MIN_THREADS"-"$MAX_THREADS"threads.txt
