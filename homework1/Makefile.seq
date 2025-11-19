@@ -1,0 +1,31 @@
+CC = icx
+
+SRC_FOLDER = src
+SRC_CODE = sequential_parallel_code_identification.c
+
+BUILD = build
+REPORTS = reports
+
+NAME = $(basename $(SRC_CODE))
+
+$(shell mkdir -p $(BUILD) $(REPORTS))
+
+CFLAGS = -fopenmp -qopt-report=max -g
+
+TARGET_O1 = $(BUILD)/$(NAME)_O1
+TARGET_O2 = $(BUILD)/$(NAME)
+TARGET_O3 = $(BUILD)/$(NAME)_O3
+
+all: O1 O2 O3
+
+O1:
+	$(CC) -O1 $(CFLAGS) -qopt-report-file=$(REPORTS)/$(NAME)_O1.optrpt $(SRC_FOLDER)/$(SRC_CODE) -o $(TARGET_O1)
+
+O2:
+	$(CC) -O2 $(CFLAGS) -qopt-report-file=$(REPORTS)/$(NAME).optrpt $(SRC_FOLDER)/$(SRC_CODE) -o $(TARGET_O2)
+
+O3:
+	$(CC) -O3 $(CFLAGS) -qopt-report-file=$(REPORTS)/$(NAME)_O3.optrpt $(SRC_FOLDER)/$(SRC_CODE) -o $(TARGET_O3)
+
+clean:
+	rm -rf $(BUILD) $(REPORTS)

@@ -1,1 +1,61 @@
 # UniGe-HighPerformanceComputing
+
+--- 
+## Homeworks:
+1. [OpenMP](https://2024.aulaweb.unige.it/mod/assign/view.php?id=41695)
+2. [CUDA](https://2024.aulaweb.unige.it/mod/assign/view.php?id=41718)
+3. [MPI](https://2024.aulaweb.unige.it/mod/assign/view.php?id=41746)
+
+
+## Esame
+Scrivere un report (vedere i requirements negli Homeworks) dell'analisi del codice e il processo utilizzato per parallelizzare il codice.
+
+Come scrivere il report:
+- **speedup** 1.1.21
+- **efficienza** 1.1.21
+- **legge di Amdahl** 1.1.22
+- describe always the compute capability of the resource you are using;
+- use ICC/ICX on our workstations, GCC with Colab;
+- use the BEST sequential execution time;
+- always provide the compilation and execution commands (e.g. icc -O3 -xHost...);
+- consider different and meaningful data sizes (i.e. no sequential execution time shorter than a few seconds).  
+
+
+1. Fare gli homework: OpenMP, CUDA (e MPI)
+
+2. Parallelizzare in OpenMP, CUDA (e MPI) il [Mandelbrot program](https://2024.aulaweb.unige.it/pluginfile.php/131000/mod_resource/content/3/mandelbrot.cpp).
+
+3. Parallelizzare un algoritmo (da proporre)
+
+
+
+## Studio
+- Architettura dei calcolatori (pipeling, cache, memoria)
+- Compilatori **gcc**/**g++**, **icc**/**icpc** (Intel), **nvcc** (Invidia CUDA)
+- Parallel computing
+
+### Performance Metrics & Amdahl's Law
+Done
+
+### Parallel concepts
+TODO
+
+### Vectorization
+TODO
+
+# University Workstation
+
+### Homework:
+`cd "Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1"`
+
+### Scaling:
+`cd "Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/metrics"`
+
+### Activate vars:
+`source /opt/intel/oneapi/setvars.sh`
+
+### GitHub
+```bash
+git config --global user.email "andy.cattarinich@gmail.com"
+git config --global user.name "andreaCattarinich"
+```

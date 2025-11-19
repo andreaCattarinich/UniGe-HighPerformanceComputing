@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/home/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/src/omp1.c"
+           line_no="77"
+           routine=".omp_outlined._debug__"
+           is_vectorized="0"
+           self_time="1.200193E-02"
+           total_time="7.047953E+01"
+           trip_counts=""
+           func_instance="9"
+           priority="0"/>
+  <hotspot filename="/home/stud/S5137057/Desktop/Home di rete/UniGe-HighPerformanceComputing/homework1/src/omp1.c"
+           line_no="82"
+           routine=".omp_outlined._debug__"
+           is_vectorized="1"
+           self_time="9.435891E+00"
+           total_time="7.046753E+01"
+           trip_counts=""
+           func_instance="6"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

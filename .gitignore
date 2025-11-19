@@ -1,0 +1,13 @@
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.asv
+*.toc
+.idea
+*.DS_Store
+
+# Escludi i PDF (per adesso)
+*.pdf

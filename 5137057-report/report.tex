@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{article}
+
+% --- Packages (minimal set) ---
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{csvsimple}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    frame=single,
+    breaklines=true,
+    captionpos=b
+}
+
+\geometry{margin=2.5cm}
+
+% --- Title info ---
+\title{
+    \includegraphics[width=8cm]{assets/unige.png} \\[1em]
+    Report High Performance Computing
+}
+\author{Andrea Cattarinich 5137057}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+% === Include chapters ===
+\input{chapters/architectures.tex}
+\input{chapters/hotspots_analysis.tex}
+\input{chapters/amdahls_law.tex}
+\input{chapters/vectorization.tex}
+\input{chapters/parallelization.tex}
+
+\end{document}
