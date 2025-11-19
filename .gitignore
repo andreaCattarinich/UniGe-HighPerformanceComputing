@@ -6,8 +6,8 @@
 *.synctex.gz
 *.asv
 *.toc
-.idea
-*.DS_Store
 
-# Escludi i PDF (per adesso)
-*.pdf
+**/.idea/
+
+# macOS
+**/.DS_Store

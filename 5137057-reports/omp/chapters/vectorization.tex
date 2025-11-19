@@ -4,9 +4,9 @@
 
 The vectorization of the baseline code (\texttt{src/omp\_homework.c}) was analyzed using Intel Advisor, focusing on performance hotspots and Roofline Analysis. The workflow included adding the executable and source folders, selecting \textbf{Roofline Analysis}, checking \textbf{Trip Counts}, and running the analysis.
 
-\section*{Compilation Experiments}
+\subsection{Compilation Experiments}
 
-\subsection*{1. Baseline Compilation (no optimization)}
+\subsubsection*{1. Baseline Compilation (no optimization)}
 \paragraph{Compilation flags:}
 \texttt{-g -fopenmp }\\
 
@@ -20,7 +20,7 @@ Hotspots are memory-bound (DRAM), with no vectorization applied. Roofline shows 
     \label{fig:roofline1}
 \end{figure}
 
-\subsection*{2. Basic Optimization}
+\subsubsection*{2. Basic Optimization}
 \paragraph{Compilation flags:}
 \texttt{-O0 -g -fopenmp }\\
 
@@ -34,7 +34,7 @@ Arithmetic intensity improves from 0.054 to 0.213 FLOP/byte. DRAM-bound, but per
     \label{fig:roofline2}
 \end{figure}
 
-\subsection*{3. Best-Optimized Compilation}
+\subsubsection*{3. Best-Optimized Compilation}
 \paragraph{Compilation flags:}
 \texttt{-O2 -vec -g -fopenmp -xHost }\\
 
@@ -50,7 +50,7 @@ SIMD vectorization applied to critical loops. Performance rises from 10.1 GFLOPS
 
 \subsection*{4. Parallelization with Optimization}
 
-OpenMP parallelization (discussed in Chapter~\ref{sec:parallelization}) further boosts performance. Roofline Analysis indicates:
+OpenMP parallelization over the outer loop (discussed in Chapter~\ref{sec:parallelization}) further boosts performance. Roofline Analysis indicates:
 
 \begin{table}[h!]
     \centering
@@ -73,7 +73,7 @@ OpenMP parallelization (discussed in Chapter~\ref{sec:parallelization}) further 
     \label{fig:roofline4}
 \end{figure}
 
-\section*{Conclusion}
+\subsection{Conclusion}
 
 Roofline Analysis and Intel Advisor guided the optimization process:
 
