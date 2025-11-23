@@ -1,8 +1,3 @@
-# HP Envy
-- GPU: NVIDIA GeForce GTX 950M
-- Driver Version: 572.16
-- CUDA Version: 12.8 (I must install CUDA Toolkit 12.x)
-
 ## Visual Studio Code (2019 or 2022)
 When you compile a `.cu` file, `nvcc` separates:
 - **device code** -> code for GPU 
