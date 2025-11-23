@@ -1,0 +1,7 @@
+Simulation parameters:
+nstep    = 200
+ni       = 10000
+nj       = 10000
+size     = 400000000
+Execute the CPU-only reference version...
+- Elapsed time: 19.345 s

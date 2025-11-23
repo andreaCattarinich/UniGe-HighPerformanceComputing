@@ -83,6 +83,12 @@ int main()
 
     const int size = ni * nj * sizeof(float);
 
+    printf("Simulation parameters:\n");
+	printf("nstep    = %d\n", nstep);
+	printf("ni       = %d\n", ni);
+	printf("nj       = %d\n", nj);
+    printf("size     = %d\n", size);
+
     // Allocate host memory
 #if DEBUG
     printf("Allocate host memory...\n");

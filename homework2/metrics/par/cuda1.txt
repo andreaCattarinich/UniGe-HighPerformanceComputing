@@ -1,0 +1,12 @@
+Simulation parameters:
+nstep    = 200
+ni       = 10000
+nj       = 10000
+size     = 400000000
+Execute the CPU-only reference version...
+- Elapsed time: 14.391 s
+Execute GPU kernel...
+- Elapsed time: 6515.565 ms
+Max Error = 0.000015
+The Max Error of 0.00002 is within ACCEPTABLE bounds.
+- Total elapsed time: 25.814 s
