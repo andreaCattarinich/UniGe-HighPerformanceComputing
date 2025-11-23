@@ -1,28 +1,40 @@
 \section{Architectures}
-For this project I have used two workstation, my personal one and the workstation provided by the University.
+For this project, I used two workstations: my personal laptop and the Google Colab environment
 
-\subsubsection*{HP Envy 17-ae103nl (Laptop)}
+\subsection*{HP Envy 17-ae103nl (Laptop)}
+\textbf{CPU}
 \begin{itemize}
-    \item \textbf{CPU}: Intel Core i7-6500U @ 2.50 GHz
+    \item \textbf{Model}: Intel Core i7-6500U @ 2.50 GHz
     \item \textbf{Architecture}: x86\_64
-    \item \textbf{Core fisici}: 2
-    \item \textbf{Thread logici}: 4 (Hyper-Threading)
+    \item \textbf{Physical cores}: 2
+    \item \textbf{Logical threads}: 4 (Hyper-Threading)
 \end{itemize}
 
-\subsubsection*{University Workstation (Room 210)}
+\noindent
+\textbf{GPU}
 \begin{itemize}
-    \item \textbf{CPU}: Intel Core i9-12900K (12th Gen)
+    \item \textbf{Model}: NVIDIA GeForce GTX 950M
+    \item \textbf{CUDA Compute Capability}: 5.0
+    \item \textbf{Driver version}: 572.16
+    \item \textbf{CUDA Version}: 12.8 (\textit{CUDA Toolkit 12.x})
+\end{itemize}
+
+
+\subsection*{Google Colab}
+\textbf{CPU}
+\begin{itemize}
+    \item \textbf{Model}: Intel(R) Xeon(R) CPU @ 2.20GHz
     \item \textbf{Architecture}: x86\_64
-    \item \textbf{Core(s) per socket}: 16
-    \item \textbf{CPU(s)}: 24
-    \item \textbf{Thread(s) per core}: 2
+    \item \textbf{Physical cores}: 1
+    \item \textbf{Logical threads}: 2 (Hyper-Threading)
     \item \textbf{Socket(s)}: 1
-    \item \textbf{CPU max MHz}: 4.02 GHz
-    \item \textbf{Profiling Tools}: Intel VTune Profiler, Intel Advisor
 \end{itemize}
 
-%\noindent
-To use the Intel oneAPI tools, the environment was loaded with:
-\begin{verbatim}
-        source /opt/intel/oneapi/setvars.sh
-\end{verbatim}
+\noindent
+\textbf{GPU}
+\begin{itemize}
+    \item \textbf{Model}: NVIDIA Tesla T4
+    \item \textbf{CUDA Compute Capability}: 7.5
+    \item \textbf{Driver version}: 550.54.15
+    \item \textbf{CUDA Version}: 12.8 (\textit{CUDA Toolkit 12.x})
+\end{itemize}
