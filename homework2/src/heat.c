@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 // Simple define to index into a 1D array from 2D space
 #define I2D(num, c, r) ((r)*(num)+(c))
@@ -66,6 +67,11 @@ void step_kernel_ref(int ni, int nj, float fact, float* temp_in, float* temp_out
 
 int main()
 {
+  clock_t _start, _end;
+  _start = clock();
+
+  double cpu_time_used;
+
   int istep;
   int nstep = 200; // number of time steps
 
@@ -78,17 +84,26 @@ int main()
 
   const int size = ni * nj * sizeof(float);
 
+  // Allocate host memory
+#if DEBUG
+  printf("Allocate host memory...\n");
+#endif
   temp1_ref = (float*)malloc(size);
   temp2_ref = (float*)malloc(size);
   temp1 = (float*)malloc(size);
   temp2 = (float*)malloc(size);
 
   // Initialize with random data
+#if DEBUG
+  printf("Initialize with random data...\n");
+#endif
   for( int i = 0; i < ni*nj; ++i) {
     temp1_ref[i] = temp2_ref[i] = temp1[i] = temp2[i] = (float)rand()/(float)(RAND_MAX/100.0f);
   }
 
+  // ---- CPU start ----
   // Execute the CPU-only reference version
+  printf("Execute the CPU-only reference version...\n");
   for (istep=0; istep < nstep; istep++) {
     step_kernel_ref(ni, nj, tfac, temp1_ref, temp2_ref);
 
@@ -98,6 +113,12 @@ int main()
     temp2_ref= temp_tmp;
   }
 
+  _end = clock();
+  cpu_time_used = ((double)(_end - _start)) / CLOCKS_PER_SEC;
+  printf("- Elapsed time: %.3f s\n", cpu_time_used);
+  // ---- CPU end ----
+
+  /*
   // Execute the modified version using same data
   for (istep=0; istep < nstep; istep++) {
     step_kernel_mod(ni, nj, tfac, temp1, temp2);
@@ -119,6 +140,8 @@ int main()
     printf("Problem! The Max Error of %.5f is NOT within acceptable bounds.\n", maxError);
   else
     printf("The Max Error of %.5f is within acceptable bounds.\n", maxError);
+
+  */
 
   free( temp1_ref );
   free( temp2_ref );

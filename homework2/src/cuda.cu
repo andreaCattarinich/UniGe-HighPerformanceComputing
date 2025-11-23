@@ -71,11 +71,11 @@ int main()
     auto _start_entire = std::chrono::high_resolution_clock::now();
 
     int istep;
-    int nstep = 5; // number of time steps
+    int nstep = 200; // number of time steps
 
     // Specify our 2D dimensions
-    const int ni = 100;
-    const int nj = 100;
+    const int ni = 10000;
+    const int nj = 10000;
     float tfac = 8.418e-5; // thermal diffusivity of silver
 
     float* temp1_ref, * temp2_ref, * temp1, * temp2, * temp_tmp;

@@ -11,5 +11,7 @@
 
 .vscode
 
+.vs
+
 # macOS
 **/.DS_Store
