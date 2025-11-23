@@ -9,9 +9,10 @@ Heat conduction (or heat diffusion) is the process by which thermal energy sprea
 
 \noindent
 The formula to represent 2D heat conduction is given as follows:
-\[
+
+\begin{equation}
 \frac{\partial T}{\partial t} = \alpha \left( \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} \right)
-\]
+\end{equation}
 
 where:
 \begin{itemize}
@@ -24,13 +25,14 @@ where:
 \noindent
 To solve this problem numerically, one possible finite difference approximation is:
 
-\[
+\begin{equation}
+    \label{eq:approximation}
 \frac{\Delta T}{\Delta t} =
 \frac{T_{i,j}^{n+1} - T_{i,j}^n}{\Delta t} = \alpha \left( 
 \frac{T_{i+1,j}^n - 2T_{i,j}^n + T_{i-1,j}^n}{(\Delta x)^2} + 
 \frac{T_{i,j+1}^n - 2T_{i,j}^n + T_{i,j-1}^n}{(\Delta y)^2} 
 \right)
-\]
+\end{equation}
 
 where:
 \begin{itemize}
@@ -39,9 +41,93 @@ where:
     \item $n$ indicates the current timestep, so $T_{i,j}^n$ is the temperature at point $(i,j)$ at time $t=n \Delta t$, and $T_{i,j}^{n+1}$ is the temperature at the next timestep $t=(n+1) \Delta t$.
 \end{itemize}
 
+\subsection{Code Description}
+This program simulates the diffusion of heat on a two-dimensional plate using the finite difference method. It includes two main implementations:
+\begin{enumerate}
+    \item \textbf{Reference CPU version} - \texttt{step\_kernel\_ref()} - serial implementation
+    \item \textbf{Modified version} - \texttt{step\_kernel\_mod()} - intended for CUDA acceleration
+\end{enumerate}
+
+Both implementations are designed to produce the same results.
+
+\subsubsection*{Data Layout}
+The simulation uses a grid of size \texttt{ni × nj} (columns × rows).
+
 \noindent
-In the beginning, the boundary points of the grid are assigned with initial temperatures, while the inner points update their temperature iteratively according to the formula above.\\
+Temperature values are stored in a \textbf{1D array}. A macro is used to convert 2D indices to linear index:
+
+\begin{lstlisting}
+#define I2D(num, c, r) ((r)*(num)+(c))
+\end{lstlisting}
+
+\subsubsection*{Initialization}
+In the beginning, the boundary points of the grid are assigned with initial \textit{random} temperatures, while the inner points update their temperature iteratively according to the formula above.\\
+
+\begin{lstlisting}
+  for (int i = 0; i < ni * nj; ++i) {
+      t1_ref[i] = t2_ref[i] =
+      t1[i]     = t2[i]     =
+          (float)rand() / (float)(RAND_MAX / 100.0f);
+  }
+\end{lstlisting}
 
 \noindent
 TODO: aggiungere una fonte di calore concentrica al centro della griglia.
+
+\newpage
+
+\subsubsection*{Execution}
+The core of the simulation is inside the \texttt{step\_kernel()} function, which implements the approximation described in formula \eqref{eq:approximation}, shown below.
+
+\begin{lstlisting}
+void step_kernel_mod(int ni, int nj, float fact, float* temp_in, float* temp_out)
+{
+  int i00, im10, ip10, i0m1, i0p1;
+  float d2tdx2, d2tdy2;
+
+  // loop over all points in domain (except boundary)
+  for ( int j=1; j < nj-1; j++ ) {
+    for ( int i=1; i < ni-1; i++ ) {
+      // find indices into linear memory
+      // for central point and neighbours
+      i00 = I2D(ni, i, j);
+      im10 = I2D(ni, i-1, j);
+      ip10 = I2D(ni, i+1, j);
+      i0m1 = I2D(ni, i, j-1);
+      i0p1 = I2D(ni, i, j+1);
+
+      // evaluate derivatives
+      d2tdx2 = temp_in[im10]-2*temp_in[i00]+temp_in[ip10];
+      d2tdy2 = temp_in[i0m1]-2*temp_in[i00]+temp_in[i0p1];
+
+      // update temperatures
+      temp_out[i00] = temp_in[i00]+fact*(d2tdx2 + d2tdy2);
+    }
+  }
+}
+\end{lstlisting}
+\paragraph*{Note:} The formula corresponds \eqref{eq:approximation} to lines 18–23 in the above code.
+
+\subsubsection*{Verification}
+After all timesteps, \texttt{temp1\_ref} holds the CPU reference results, while \texttt{temp1} holds the modified version results. If the error exceed a threeshold (e.g. 0.0005), the simulation is considered correct.
+
+\begin{lstlisting}
+  float maxError = 0;
+
+  for( int i = 0; i < ni*nj; ++i ) {
+    if (abs(temp1[i]-temp1_ref[i]) > maxError) { maxError = abs(temp1[i]-temp1_ref[i]); }
+  }
+
+  // Check and see if our maxError is greater than an error bound
+  if (maxError > 0.0005f)
+    printf("The error is NOT within acceptable bounds.");
+  else
+    printf("The error is within acceptable bounds");
+\end{lstlisting}
+
+
+
+
+
+
 
