@@ -1,0 +1,8 @@
+"Function Stack","CPU Time: Total",Percentage (%),"CPU Time: Self","Module","Function (Full)","Source File","Start Address",,
+"Total","29.4298",100.00%,"0","[Unknown]","[Unknown]","[Unknown]","[Unknown]",,
+" _start","29.4298",100.00%,"0","seq_icx","_start","[Unknown]","0x401180",,
+"  __libc_start_main_impl","29.4298",100.00%,"0","libc.so.6","__libc_start_main_impl","libc-start.c","0x27280",,
+"   main","29.4298",100.00%,"0.563849","seq_icx","main","seq.c","0x402b30",,
+"    step_kernel_ref","23.7179",80.59%,"23.7179","seq_icx","step_kernel_ref","seq.c","0x402c95",,
+"    rand","5.03211",17.10%,"5.03211","libc.so.6","rand","rand.c","0x40790",,
+"    func@0x401160","0.116002",0.39%,"0.116002","seq_icx","func@0x401160","[Unknown]","0x401160",,
