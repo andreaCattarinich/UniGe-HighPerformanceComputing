@@ -76,8 +76,8 @@ int main()
   int nstep = 200; // number of time steps
 
   // Specify our 2D dimensions
-  const int ni = 20000;
-  const int nj = 20000;
+  const int ni = 15000;
+  const int nj = 15000;
   float tfac = 8.418e-5; // thermal diffusivity of silver
 
   float *temp1_ref, *temp2_ref, *temp1, *temp2, *temp_tmp;

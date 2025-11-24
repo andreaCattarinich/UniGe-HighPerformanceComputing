@@ -138,7 +138,14 @@ The \texttt{homework2} project is organized into four main directories:
 For performance profiling, I chose to use the university workstation, using Intel's profiling tools: \textbf{VTune} and \textbf{Advisor}. The code was compiled using the Intel Compiler (\textbf{ICX}) with the following flags: \texttt{-O3 -g -xHost} to enable high optimization, generate debug information, and target the host CPU architecture.
 
 \subsubsection*{Simulation Parameters}
-The analysis was conducted considering data size resulting in a sequential execution time of $\sim 30$ seconds, by setting $nstep = 200$, $ni = 20'000$, $nj = 20'000$ and $size = ni \cdot nj = 400'000'000$ 
+The analysis was conducted considering data size resulting in a sequential execution time of $\sim 30$ seconds, by setting:
+
+\begin{itemize}
+    \item $nstep = 200$
+    \item $ni = 20'000$
+    \item $nj = 20'000$
+    \item $size = ni \times nj = 400'000'000$
+\end{itemize}
 
 \subsubsection*{Compiler Reports}
 In addition to runtime profiling, I also examined the compiler optimization reports generated with the flag \texttt{-qopt-report}. These reports provide insights on which loops and functions the compiler was able to optimize or vectorize.
