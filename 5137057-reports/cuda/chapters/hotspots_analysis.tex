@@ -125,8 +125,39 @@ After all timesteps, \texttt{temp1\_ref} holds the CPU reference results, while 
     printf("The error is within acceptable bounds");
 \end{lstlisting}
 
+\subsection{Project Structure}
+The \texttt{homework2} project is organized into four main directories:
+\begin{itemize}
+    \item \textbf{build}: contains the compiled executables.
+    \item \textbf{reports}: stores the reports generated with the \texttt{-qopt-report} flag.
+    \item \textbf{src}: includes the source code files.
+    \item \textbf{metrics}: scripts that run the executables in \texttt{build} and save performance metrics.
+\end{itemize}
 
+\subsection{Profiling}
+For performance profiling, I chose to use the university workstation, using Intel's profiling tools: \textbf{VTune} and \textbf{Advisor}. The code was compiled using the Intel Compiler (\textbf{ICX}) with the following flags: \texttt{-O3 -g -xHost} to enable high optimization, generate debug information, and target the host CPU architecture.
 
+\subsubsection*{Simulation Parameters}
+The analysis was conducted considering data size resulting in a sequential execution time of $\sim 30$ seconds, by setting $nstep = 200$, $ni = 20'000$, $nj = 20'000$ and $size = ni \cdot nj = 400'000'000$ 
+
+\subsubsection*{Compiler Reports}
+In addition to runtime profiling, I also examined the compiler optimization reports generated with the flag \texttt{-qopt-report}. These reports provide insights on which loops and functions the compiler was able to optimize or vectorize.
+
+\subsubsection*{Advisor Roofline Analysis}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/advisor/seq\_roofline.png}
+    \caption{Roofline analysis of the sequential baseline code.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/advisor/seq\_survey.png}
+    \caption{Advisor Survey.}
+\end{figure}
+
+TODO: aggiungere una breve descrizione di queste due immagini
 
 
 

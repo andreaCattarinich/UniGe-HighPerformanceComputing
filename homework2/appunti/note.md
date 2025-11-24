@@ -5,8 +5,6 @@
 - eseguire esperimenti su Google Colab (GPU) variando configurazioni <<<block,thread>>>
 
 ## TODO List
-- [ ] hotspot identification
-- [ ] discuss possible vectorization issues with the report provided by the Intel compiler
 - [ ] define the BEST sequential time to be used as reference
 - [ ] present the performance using Google colab
 - [ ] provide tables and charts regarding speedup values only
