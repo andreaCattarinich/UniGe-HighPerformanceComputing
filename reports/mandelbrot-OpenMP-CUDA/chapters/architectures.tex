@@ -1,28 +1,78 @@
 \section{Architectures}
-For this project I have used two workstation, my personal one and the workstation provided by the University.
+For this project I have used three workstation, my personal one, the workstation provided by the University and Google Colab.
 
-\subsection*{HP Envy 17-ae103nl (Laptop)}
-\begin{itemize}
-    \item \textbf{CPU}: Intel Core i7-6500U @ 2.50 GHz
-    \item \textbf{Architecture}: x86\_64
-    \item \textbf{Physical cores}: 2
-    \item \textbf{Logical threads}: 4 (Hyper-Threading)
-\end{itemize}
+\subsection{Personal Workstation}
+\textbf{HP Envy 17-ae103nl}
 
-\subsection*{University Workstation (Room 210)}
-\begin{itemize}
-    \item \textbf{CPU}: Intel Core i9-12900K (12th Gen)
-    \item \textbf{Architecture}: x86\_64
-    \item \textbf{CPU(s)}: 24
-    \item \textbf{Thread(s) per core}: 2
-    \item \textbf{Core(s) per socket}: 16
-    \item \textbf{Socket(s)}: 1
-    \item \textbf{CPU max MHz}: 4.02 GHz
-    \item \textbf{Profiling Tools}: Intel VTune Profiler, Intel Advisor
-\end{itemize}
+\begin{table}[h!]
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{lX}
+\multicolumn{2}{l}{\textbf{CPU}} \\ \hline
+Model & Intel Core i7-6500U @ 2.50 GHz \\
+Architecture & x86\_64 \\
+Physical cores & 2 \\
+Logical threads & 4 (Hyper-Threading) \\[6pt]
 
-%\noindent
+\multicolumn{2}{l}{\textbf{GPU}} \\ \hline
+Model & NVIDIA GeForce GTX 950M \\
+CUDA Compute Capability & 5.0 \\
+Driver version & 572.16 \\
+CUDA Version & 12.8 \\[6pt]
+
+\multicolumn{2}{l}{\textbf{Software and Setup}} \\ \hline
+Visual Studio & Visual Studio Community 2022  \\
+                & (C++ Desktop workload) \\ 
+CUDA Toolkit & Installed manually \\
+WSL2 & Enabled \\
+NVIDIA Drivers & Version 572.16 (for WSL2) \\
+\end{tabularx}
+\end{table}
+
+
+\subsection{University Workstation}
+\textbf{Room 210}
+
+\begin{table}[h!]
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{lX}
+
+\multicolumn{2}{l}{\textbf{CPU}} \\ \hline
+Model & Intel Core i9-12900K (12th Gen) \\
+Architecture & x86\_64 \\
+CPU(s) & 24 \\
+Threads per core & 2 \\
+Cores per socket & 16 \\
+Socket(s) & 1 \\
+Max frequency & 4.02 GHz \\
+Profiling tools & Intel VTune Profiler, Intel Advisor \\[6pt]
+
+\end{tabularx}
+\end{table}
+
 To use the Intel oneAPI tools, the environment was loaded with:
 \begin{verbatim}
         source /opt/intel/oneapi/setvars.sh
 \end{verbatim}
+
+
+\subsection{Google Colab}
+
+\begin{table}[h!]
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{lX}
+
+\multicolumn{2}{l}{\textbf{CPU}} \\ \hline
+Model & Intel(R) Xeon(R) CPU @ 2.20GHz \\
+Architecture & x86\_64 \\
+Physical cores & 1 \\
+Logical threads & 2 (Hyper-Threading) \\
+Socket(s) & 1 \\[6pt]
+
+\multicolumn{2}{l}{\textbf{GPU}} \\ \hline
+Model & NVIDIA Tesla T4 \\
+CUDA Compute Capability & 7.5 \\
+Driver version & 550.54.15 \\
+CUDA Version & 12.8 \\[6pt]
+
+\end{tabularx}
+\end{table}
