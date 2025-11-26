@@ -1,0 +1,84 @@
+\newpage
+\section{Vectorization}
+\label{sec:vectorization}
+
+The vectorization of the baseline code (\texttt{src/omp\_homework.c}) was analyzed using Intel Advisor, focusing on performance hotspots and Roofline Analysis. The workflow included adding the executable and source folders, selecting \textbf{Roofline Analysis}, checking \textbf{Trip Counts}, and running the analysis.
+
+\subsection{Compilation Experiments through ICX}
+
+\subsubsection*{1. Baseline Compilation (no optimization)}
+\paragraph{Compilation flags:}
+\texttt{-g -fopenmp }\\
+
+\noindent
+Hotspots are memory-bound (DRAM), with no vectorization applied. Roofline shows performance limited by the Scalar Add Peak ($\sim 7.97$ GFLOPS).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{assets/advixe/1_no_optimization.png}
+    \caption{Roofline Analysis - baseline compilation.}
+    \label{fig:roofline1}
+\end{figure}
+
+\subsubsection*{2. Basic Optimization}
+\paragraph{Compilation flags:}
+\texttt{-O0 -g -fopenmp }\\
+
+\noindent
+Arithmetic intensity improves from 0.054 to 0.213 FLOP/byte. DRAM-bound, but performance increases relative to baseline. Hotspots correspond to trigonometric function calls.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{assets/advixe/2_optimization.png}
+    \caption{Roofline Analysis - basic optimization.}
+    \label{fig:roofline2}
+\end{figure}
+
+\subsubsection*{3. Best-Optimized Compilation}
+\paragraph{Compilation flags:}
+\texttt{-O2 -vec -g -fopenmp -xHost }\\
+
+\noindent
+SIMD vectorization applied to critical loops. Performance rises from 10.1 GFLOPS to 34.5 GFLOPS while arithmetic intensity remains similar.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{assets/advixe/3_best_optimization.png}
+    \caption{Roofline Analysis - best-optimized compilation.}
+    \label{fig:roofline3}
+\end{figure}
+
+\subsection*{4. Parallelization with Optimization}
+
+OpenMP parallelization over the outer loop (discussed in Chapter~\ref{sec:parallelization}) further boosts performance. Roofline Analysis indicates:
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{lcc}
+        \hline
+        Function & Arithmetic Intensity & Performance (GFLOPS) \\
+        \hline
+        cos & 0.213 & 214,817 \\
+        sin & 0.232 & 418,012 \\
+        \hline
+    \end{tabular}
+    \caption{Performance of trigonometric functions with parallelization.}
+    \label{tab:parallelization}
+\end{table}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{assets/advixe/4_best_opt_with_parallel.png}
+    \caption{Roofline Analysis - parallelized and optimized code.}
+    \label{fig:roofline4}
+\end{figure}
+
+\subsection{Conclusion}
+
+Roofline Analysis and Intel Advisor guided the optimization process:
+
+\begin{itemize}
+    \item Baseline code is memory-bound with no vectorization.
+    \item Compiler optimizations and architecture-specific flags increase performance and apply SIMD efficiently.
+    \item Combining vectorization with OpenMP parallelization allows computationally intensive functions to approach hardware limits.
+\end{itemize}

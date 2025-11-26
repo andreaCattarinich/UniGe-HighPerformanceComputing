@@ -1,0 +1,155 @@
+\newpage
+\section{Parallelization}
+\label{sec:parallelization}
+
+\subsection{Parallelization over the outer loop}
+In the first approach (\texttt{src/omp1.c}), the outer loop over the frequency index $k$ is parallelized.
+
+\begin{lstlisting}
+#pragma omp parallel for private(n)
+for (k = 0; k < N; k++) {
+    double Xr_temp = 0.0;
+    double Xi_temp = 0.0;
+    for (n = 0; n < N; n++) {
+        Xr_temp += xr[n] * cos(n * k * PI2 / N) + idft * xi[n] * sin(n * k * PI2 / N);
+        Xi_temp += -idft * xr[n] * sin(n * k * PI2 / N) + xi[n] * cos(n * k * PI2 / N);
+    }
+    Xr_o[k] = Xr_temp;
+    Xi_o[k] = Xi_temp;
+}
+\end{lstlisting}
+
+\noindent
+Here, each thread computes a subset of the output frequencies independently. The temporary variables \texttt{Xr\_temp} and \texttt{Xi\_temp} are private to each thread, ensuring there is no race condition when updating the output arrays.
+
+\subsection{Parallelization over the inner loop with reduction}
+
+In the second approach, the inner loop over the time index $n$ is parallelized using a reduction clause:
+
+\begin{lstlisting}
+for (k = 0; k < N; k++) {
+    double Xr_temp = 0.0;
+    double Xi_temp = 0.0;
+#pragma omp parallel for reduction(+:Xr_temp, Xi_temp)
+    for (n = 0; n < N; n++) {
+        Xr_temp += xr[n] * cos(n * k * PI2 / N) + idft * xi[n] * sin(n * k * PI2 / N);
+        Xi_temp += -idft * xr[n] * sin(n * k * PI2 / N) + xi[n] * cos(n * k * PI2 / N);
+    }
+    Xr_o[k] = Xr_temp;
+    Xi_o[k] = Xi_temp;
+}
+\end{lstlisting}
+
+\noindent
+Here, the computation of each output frequency $X[k]$ is parallelized across the time samples $n$. The \texttt{reduction} clause ensures that each thread accumulates contributions to \texttt{Xr\_temp} and \texttt{Xi\_temp} safely, avoiding race conditions. This method can provide higher parallel efficiency for large $N$, but incurs some overhead from the reduction operation, as shown in the following figures.
+
+\subsection{Results}
+
+\noindent
+\begin{minipage}[t]{0.47\textwidth} % Colonna sinistra
+    %\centering
+
+    Parallelized \texttt{for} loop with OpenMP using \texttt{private(n)} to make each thread independent.
+
+    \begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
+#pragma omp parallel for private(n)
+for (k=0 ; k<N ; k++)
+{
+    double Xr_temp = 0.0;
+    double Xi_temp = 0.0;
+
+    for (n=0 ; n<N ; n++)  {
+        Xr_temp += ...
+        Xi_temp += ...
+    }
+
+    Xr_o[k] = Xr_temp;
+    Xi_o[k] = Xi_temp;
+}
+    \end{lstlisting}
+    
+    \vspace*{0.7cm}
+
+    \centerline{\textbf{Execution time}}
+    \includegraphics[width=\linewidth]{assets/parallelization/omp1_times.png}
+
+    \vspace{0.5cm}
+
+    \centerline{\textbf{Speedup}}
+    \includegraphics[width=\linewidth]{assets/parallelization/omp1_speedups.png}
+    
+    \vspace{0.5cm}
+    
+    \centerline{\textbf{Efficiency}}
+    \includegraphics[width=\linewidth]{assets/parallelization/omp1_efficiencies.png}
+    
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\textwidth} % Colonna destra
+    %\centering
+
+    Parallelized \texttt{for} loop with OpenMP using \texttt{reduction} to combine the results from all threads.
+
+    \begin{lstlisting}[basicstyle=\ttfamily\scriptsize]   
+int k, n;
+for (k=0 ; k<N ; k++)
+{
+    double Xr_temp = 0.0;
+    double Xi_temp = 0.0;
+
+#pragma omp parallel for reduction(+:Xr_temp, Xi_temp)    
+    for (n=0 ; n<N ; n++)  {
+        Xr_temp += ...
+        Xi_temp += ...
+    }
+
+    Xr_o[k] = Xr_temp;
+    Xi_o[k] = Xi_temp;
+}
+    \end{lstlisting}
+
+    \centerline{\textbf{Execution time}}
+    \includegraphics[width=\linewidth]{assets/parallelization/omp2_times.png}
+
+    \vspace{0.5cm}
+
+    \centerline{\textbf{Speedup}}
+    \includegraphics[width=\linewidth]{assets/parallelization/omp2_speedups.png}
+    
+    \vspace{0.5cm}
+    
+    \centerline{\textbf{Efficiency}}
+    \includegraphics[width=\linewidth]{assets/parallelization/omp2_efficiencies.png}
+\end{minipage}
+
+\subsection*{Attempted Optimization}
+
+\paragraph{Precomputation of Trigonometric Functions:}
+in an additional attempt to optimize the DFT computation, I modified the code as in the source \texttt{src/omp3.c}. The idea was to reduce the repeated evaluation of trigonometric functions by computing the sine and cosine values once per iteration:
+
+\begin{lstlisting}
+#pragma omp parallel for private(n)
+for (k=0; k<N; k++) {
+    double Xr_temp = 0.0;
+    double Xi_temp = 0.0;
+
+#pragma omp simd reduction(+:Xr_temp, Xi_temp)
+    for (n=0; n<N; n++) {
+        double angle = n * k * PI2 / N;
+        double c = cos(angle);
+        double s = sin(angle);
+
+        Xr_temp += xr[n]*c + idft*xi[n]*s;
+        Xi_temp += -idft*xr[n]*s + xi[n]*c;
+    }
+
+    Xr_o[k] = Xr_temp;
+    Xi_o[k] = Xi_temp;
+}
+\end{lstlisting}
+
+\noindent
+The motivation behind this modification was that, theoretically, computing the trigonometric functions only once per iteration should reduce the overall workload and improve performance.\\
+
+\noindent
+However, the experiments did not yield significant improvements. Performance remained the same, or in some cases slightly worse. This is likely due to the compiler automatically applying this optimization by default.
