@@ -44,7 +44,6 @@ void step_kernel_ref(int ni, int nj, float fact, float* temp_in, float* temp_out
   int i00, im10, ip10, i0m1, i0p1;
   float d2tdx2, d2tdy2;
 
-
   // loop over all points in domain (except boundary)
   for ( int j=1; j < nj-1; j++ ) {
     for ( int i=1; i < ni-1; i++ ) {
@@ -74,8 +73,8 @@ int main()
     int nstep = 200; // number of time steps
 
     // Specify our 2D dimensions
-    const int ni = 1000;
-    const int nj = 1000;
+    const int ni = 15000;
+    const int nj = 15000;
     float tfac = 8.418e-5; // thermal diffusivity of silver
 
     float* temp1_ref, * temp2_ref, * temp1, * temp2, * temp_tmp;
@@ -128,7 +127,6 @@ int main()
     for (istep = 0; istep < nstep; istep++) {
         step_kernel_ref(ni, nj, tfac, temp1_ref, temp2_ref);
         
-        // swap the temperature pointers
         temp_tmp = temp1_ref;
         temp1_ref = temp2_ref;
         temp2_ref = temp_tmp;
@@ -141,10 +139,6 @@ int main()
 
     dim3 threadsPerBlock(16, 16);
     dim3 numBlocks((ni + 15) / 16, (nj + 15) / 16);
-    //dim3 threadsPerBlock(32, 16);
-    //dim3 numBlocks((ni + 31) / 32, (nj + 7) / 8);
-
-
 
     // ---- CUDA events start ----
     cudaEvent_t start, stop;
@@ -163,7 +157,6 @@ int main()
         if (err != cudaSuccess)
             printf("CUDA Error: %s\n", cudaGetErrorString(err));
         
-        // swap dei puntatori GPU
         float* d_tmp = d_temp1;
         d_temp1 = d_temp2;
         d_temp2 = d_tmp;
@@ -211,9 +204,6 @@ int main()
     free(temp2_ref);
     free(temp1);
     free(temp2);
-
-    //printf("Fine programma, premere invio per uscire...\n");
-    //getchar();
 
     auto _end_entire = std::chrono::high_resolution_clock::now();
     elapsed = _end_entire - _start_entire;

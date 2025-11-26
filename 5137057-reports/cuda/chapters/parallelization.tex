@@ -3,7 +3,10 @@
 \label{sec:parallelization}
 
 \subsection{Sequential section}
-Ho deciso di eseguire i test sul mio PC personale, piuttosto che sulla workstation dell'università o su Google Colab, per evitare limitazioni dovute a sessioni temporanee e risorse limitate. In questo modo ho avuto maggiore controllo sul processo di compilazione e sull'esecuzione dei test.\\
+Ho deciso inizialmente di eseguire i test sul mio PC personale, piuttosto che sulla workstation dell'università o su Google Colab, per evitare limitazioni dovute a sessioni temporanee e risorse limitate. In questo modo ho avuto maggiore controllo sul processo di compilazione e sull'esecuzione dei test.\\
+
+\noindent
+Questa parte del report fa riferimento solo all'analisi eseguita tramite il mio PC personale.
 
 \noindent
 I parametri della simulazione utilizzati sono:
@@ -16,19 +19,22 @@ I parametri della simulazione utilizzati sono:
 \end{itemize}
 
 \noindent
-Ho compilato il codice sequenziale presente in \texttt{src/heat.c} using the following options:
+Ho compilato il codice sequenziale presente in \texttt{src/cuda.c} using the following options:
 
 \begin{verbatim}
-    gcc -O3 src/heat.c -o build/heat
+    gcc -O3 src/cuda.c -o build/cuda
 \end{verbatim}
 
 \noindent
-Il tempo di esecuzione migliore ottenuto TODO:(XX secs) costituisce il riferimento sequenziale per il calcolo dello speedup nella versione GPU.
+Il tempo di esecuzione migliore ottenuto ($37 s$) costituirà il riferimento sequenziale per il calcolo dello speedup nella versione GPU.
 
 \subsection{CUDA}
 
 \subsubsection{Code}
-La parallelizzazione è stata realizzata utilizzando CUDA per eseguire il calcolo dei passi temporali su GPU. Il kernel principale è \texttt{step\_kernel\_mod}, che replica il comportamento della funzione sequenziale \texttt{step\_kernel\_ref}.  
+La parallelizzazione è stata realizzata utilizzando CUDA per eseguire il calcolo dei passi temporali su GPU. Il kernel principale è \texttt{step\_kernel\_mod}, che replica il comportamento della funzione sequenziale \texttt{step\_kernel\_ref}.\\
+
+\noindent
+Il codice si può trovare in \texttt{src/cuda.cu}
 
 \paragraph{Struttura del kernel:}
 \begin{itemize}
@@ -49,6 +55,36 @@ La parallelizzazione è stata realizzata utilizzando CUDA per eseguire il calcol
     \item Viene calcolato l'errore massimo rispetto al riferimento CPU per verificare la correttezza.
 \end{itemize}
 
+\begin{lstlisting}
+__global__ void step_kernel_mod(int ni, int nj, float fact, float* temp_in, float* temp_out)
+{
+  int i00, im10, ip10, i0m1, i0p1;
+  float d2tdx2, d2tdy2;
+
+  int i = threadIdx.x + blockIdx.x * blockDim.x;
+  int j = threadIdx.y + blockIdx.y * blockDim.y;
+
+  if(i > 0 && i < ni-1 && j > 0 && j < nj-1){
+    // find indices into linear memory
+    // for central point and neighbours
+    i00 = I2D(ni, i, j);
+    im10 = I2D(ni, i-1, j);
+    ip10 = I2D(ni, i+1, j);
+    i0m1 = I2D(ni, i, j-1);
+    i0p1 = I2D(ni, i, j+1);
+
+    // evaluate derivatives
+    d2tdx2 = temp_in[im10]-2*temp_in[i00]+temp_in[ip10];
+    d2tdy2 = temp_in[i0m1]-2*temp_in[i00]+temp_in[i0p1];
+
+    // update temperatures
+    temp_out[i00] = temp_in[i00]+fact*(d2tdx2 + d2tdy2);
+  }
+}
+\end{lstlisting}
+
+
+
 \subsubsection{Compilation}
 La compilazione CUDA è stata effettuata con il comando:
 
@@ -68,7 +104,33 @@ Per il kernel CUDA, la scelta di \texttt{threadsPerBlock} e \texttt{numBlocks} �
 
 \begin{lstlisting}
     dim3 threadsPerBlock(16, 16);
-    dim3 numBlocks((ni + 15)/16, (nj + 15)/16);
+    dim3 numBlocks((ni + 15) / 16, (nj + 15) / 16);
+
+    // ---- CUDA events start ----
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+
+    // Execute the modified version using same data
+    printf("Execute GPU kernel...\n");
+    cudaEventRecord(start, 0); // start timing
+
+    for (istep = 0; istep < nstep; istep++) {
+        step_kernel_mod <<<numBlocks, threadsPerBlock>>> (ni, nj, tfac, d_temp1, d_temp2);
+        cudaDeviceSynchronize();
+
+        cudaError_t err = cudaGetLastError();
+        if (err != cudaSuccess)
+            printf("CUDA Error: %s\n", cudaGetErrorString(err));
+        
+        float* d_tmp = d_temp1;
+        d_temp1 = d_temp2;
+        d_temp2 = d_tmp;
+    }
+
+    cudaEventRecord(stop, 0); // stop timing
+    cudaEventSynchronize(stop);
+
 \end{lstlisting}
 
 \noindent
@@ -79,8 +141,9 @@ La temporizzazione è stata eseguita tramite \texttt{cudaEvent\_t} per misurare 
 
 \subsubsection{Results}
 
-Result of the Profiling (command: \texttt{nvprof build/cuda})
+Profiling (command: \texttt{nvprof build/cuda})
 
+\paragraph{950M:}
 {\scriptsize
 \begin{verbatim}
 Execute the CPU-only reference version...
@@ -117,17 +180,58 @@ API:   90.99%  1.69655s         2  848.27ms  699.40us  1.69585s  cudaMalloc
 \end{verbatim}
 }
 
-\noindent
-I risultati della simulazione GPU sono stati confrontati con la versione CPU:
+\paragraph{T4:}
+{\scriptsize
+\begin{verbatim}
+Execute the CPU-only reference version...
+- Elapsed time: 36.761 s
+Execute GPU kernel...
+- Elapsed time: 1741.090 ms
+Max Error = 0.000015
+The Max Error of 0.00002 is within ACCEPTABLE bounds.
+- Total elapsed time: 46.074 s
+==5152== Profiling application: /content/drive/MyDrive/Colab Notebooks/HPC-CUDA/build/cuda
+==5152== Profiling result:
+Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+GPU:   67.30%  1.73103s       200  8.6551ms  8.0181ms  11.542ms  step_kernel_mod(int, int, float, float*, float*)
+       16.79%  431.89ms         2  215.95ms  203.45ms  228.45ms  [CUDA memcpy HtoD]
+       15.91%  409.13ms         2  204.56ms  201.12ms  208.01ms  [CUDA memcpy DtoH]
+API:   62.34%  1.73679s       200  8.6840ms  8.0240ms  11.548ms  cudaDeviceSynchronize
+       30.23%  842.24ms         4  210.56ms  201.46ms  228.69ms  cudaMemcpy
+        7.16%  199.38ms         2  99.688ms  144.08us  199.23ms  cudaMalloc
+        0.13%  3.7350ms       200  18.674us  5.4010us  429.51us  cudaLaunchKernel
+        0.13%  3.6890ms         2  1.8445ms  870.86us  2.8181ms  cudaFree
+        0.01%  168.47us       114  1.4770us     185ns  65.476us  cuDeviceGetAttribute
+        0.00%  67.106us       200     335ns     105ns     674ns  cudaGetLastError
+        0.00%  33.409us         2  16.704us  10.078us  23.331us  cudaEventRecord
+        0.00%  27.898us         2  13.949us  1.1280us  26.770us  cudaEventCreate
+        0.00%  12.296us         1  12.296us  12.296us  12.296us  cuDeviceGetName
+        0.00%  6.8260us         1  6.8260us  6.8260us  6.8260us  cuDeviceGetPCIBusId
+        0.00%  4.4120us         1  4.4120us  4.4120us  4.4120us  cudaEventSynchronize
+        0.00%  3.6190us         1  3.6190us  3.6190us  3.6190us  cudaEventElapsedTime
+        0.00%  3.3080us         2  1.6540us  1.1110us  2.1970us  cudaEventDestroy
+        0.00%  1.6790us         3     559ns     233ns  1.2100us  cuDeviceGetCount
+        0.00%     716ns         2     358ns     179ns     537ns  cuDeviceGet
+        0.00%     529ns         1     529ns     529ns     529ns  cuDeviceTotalMem
+        0.00%     372ns         1     372ns     372ns     372ns  cuModuleGetLoadingMode
+        0.00%     302ns         1     302ns     302ns     302ns  cuDeviceGetUuid
+\end{verbatim}
+}
 
-\begin{itemize}
-    \item Il tempo totale GPU è stato misurato in millisecondi.
-    \item Lo speedup è calcolato come: 
-    \[
-    \text{speedup} = \frac{T_\text{CPU}}{T_\text{GPU}}
-    \]
-    \item L'errore massimo tra GPU e CPU è stato calcolato per verificare la correttezza dei risultati. Nella simulazione corrente, il massimo errore osservato era entro i limiti accettabili (0.0005).
-\end{itemize}
-
 \noindent
-I risultati confermano che la parallelizzazione con CUDA riduce significativamente i tempi di esecuzione rispetto alla versione sequenziale, mantenendo la precisione numerica.
+I risultati della simulazione GPU sono stati confrontati con la versione CPU e lo speedup è calcolato come: 
+\[
+\text{speedup} = \frac{T_\text{CPU}}{T_\text{GPU}}
+\]
+\begin{table}[h!]
+\centering
+\begin{tabular}{lccc}
+\hline
+\textbf{GPU} & $\mathbf{T_{CPU}}$ (ms) & $\mathbf{T_{GPU}}$ (ms) & \textbf{Speedup} \\
+\hline
+950M & 34967 & 15086 & x2.32 \\
+T4   & 37178 & 1645  & x22.60 \\
+\hline
+\end{tabular}
+\caption{Confronto tra tempi CPU e GPU e speedup}
+\end{table}

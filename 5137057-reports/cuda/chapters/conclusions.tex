@@ -1,6 +1,5 @@
 \newpage
 \section{Conclusions}
-
 \subsection{Realistic System Simulation}
 \label{subsec:realistic_system_simulation}
 A seguito delle analisi descritte nel paragrafo precedente, ho voluto integrare il progetto con una simulazione grafica reale, per dimostrare che la simulazione è corretta.
@@ -31,7 +30,7 @@ I parametri della simulazione reale utilizzati sono:
         \includegraphics[width=\textwidth]{assets/conclusions/img2.png}
     \end{subfigure}
 
-    \vspace{0.4cm}
+    \vspace{0.6cm}
 
     % Row 2
     \begin{subfigure}[b]{0.48\textwidth}
@@ -44,7 +43,7 @@ I parametri della simulazione reale utilizzati sono:
         \includegraphics[width=\textwidth]{assets/conclusions/img4.png}
     \end{subfigure}
 
-    \vspace{0.4cm}
+    \vspace{0.6cm}
 
     % Row 3
     \begin{subfigure}[b]{0.48\textwidth}
@@ -58,11 +57,12 @@ I parametri della simulazione reale utilizzati sono:
     \end{subfigure}
 \end{figure}
 
+\newpage
 \subsection{Considerations}
-La parallelizzazione tramite GPU ha permesso di ottenere uno speedup significativo, dimostrando l'efficacia dell'approccio rispetto alla CPU.  
-Eventuali ottimizzazioni future potrebbero includere:
-\begin{itemize}
-    \item Uso della memoria condivisa per ridurre gli accessi globali.
-    \item Tuning della dimensione dei blocchi e dei grid.
-    \item Pipeline di esecuzione per ridurre i tempi di trasferimento host-device.
-\end{itemize}
+La parallelizzazione tramite GPU ha permesso di ottenere uno speedup significativo, dimostrando l'efficacia dell'approccio rispetto alla CPU.\\
+
+\noindent
+L'errore massimo tra GPU e CPU è stato calcolato per verificare la correttezza dei risultati. Nella simulazione corrente, il massimo errore osservato era entro i limiti accettabili (0.0005).\\
+
+\noindent
+I risultati confermano che la parallelizzazione con CUDA riduce significativamente i tempi di esecuzione rispetto alla versione sequenziale, mantenendo la precisione numerica.
