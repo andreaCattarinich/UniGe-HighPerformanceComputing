@@ -71,8 +71,44 @@ In the beginning, the boundary points of the grid are assigned with initial \tex
   }
 \end{lstlisting}
 
+\subsubsection*{Realistic System Inizialization}
+
+In addition to the synthetic configurations used, I also decided to simulate a more realistic scenario in order to visually inspect the physical behavior of the system.  
+Specifically, I initialized the domain by placing a high–temperature square region at the center of the grid, representing a localized heat source. All remaining points were initialized with a low random temperature, mimicking environmental thermal noise.  
+The initialization code is reported below:
+
+\begin{lstlisting}
+// Hot square parameters
+int hot_size = 40;    // side length of the hot square
+int hot_temp = 80;    // temperature of the hot region
+int hot_i0 = ni/2 - hot_size/2;    // center coordinate in i
+int hot_j0 = nj/2 - hot_size/2;    // center coordinate in j
+
+for(int j = 0; j < nj; j++){
+  for(int i = 0; i < ni; i++){
+    int idx = I2D(ni, i, j);
+    
+    if(i >= hot_i0 && i < hot_i0 + hot_size && 
+        j >= hot_j0 && j < hot_j0 + hot_size)
+    {
+      // heat source
+      temp1[idx] = temp2[idx] = (float)hot_temp;
+    }
+    else
+    {
+      // random background
+      temp1[idx] = temp2[idx] = (float)rand()/RAND_MAX*30.0f;
+    }
+  }
+}
+\end{lstlisting}
+
 \noindent
-TODO: aggiungere una fonte di calore concentrica al centro della griglia.
+The source code can be found in \texttt{src/image.cu} and the script used for the visualization was done with Matlab (more details in: \texttt{src/realistic\_simulation.m})\\
+
+\noindent
+The visual outcome of this configuration is discussed in Subsection~\ref{subsec:realistic_system_simulation}.
+
 
 \newpage
 
