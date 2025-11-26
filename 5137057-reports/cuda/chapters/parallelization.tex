@@ -53,7 +53,7 @@ La parallelizzazione è stata realizzata utilizzando CUDA per eseguire il calcol
 La compilazione CUDA è stata effettuata con il comando:
 
 \begin{verbatim}
-nvcc -O3 -arch=sm_50 cuda.cu -o cuda.exe -DDEBUG=0
+    nvcc -O3 -arch=sm_50 cuda.cu -o cuda.exe -DDEBUG=0
 \end{verbatim}
 
 \textbf{Significato dei flag:}
@@ -78,7 +78,44 @@ Ogni blocco di 16x16 thread calcola i punti della griglia, mentre i blocchi sono
 La temporizzazione è stata eseguita tramite \texttt{cudaEvent\_t} per misurare il tempo del kernel GPU.
 
 \subsubsection{Results}
-TODO: aggiungere nvprof\\
+
+Result of the Profiling (command: \texttt{nvprof build/cuda})
+
+{\scriptsize
+\begin{verbatim}
+Execute the CPU-only reference version...
+- Elapsed time: 0.188 s
+Execute GPU kernel...
+- Elapsed time: 140.515 ms
+Max Error = 0.000008
+The Max Error of 0.00001 is within ACCEPTABLE bounds.
+- Total elapsed time: 2.460 s
+==768== Profiling application: build/cuda
+==768== Profiling result:
+Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+GPU:   72.95%  202.16ms         2  101.08ms  2.7665ms  199.40ms  [CUDA memcpy HtoD]
+       24.93%  69.101ms       200  345.50us  342.59us  355.94us  step_kernel_mod(int, int, float, float*, float*)
+        2.12%  5.8774ms         2  2.9387ms  2.5962ms  3.2812ms  [CUDA memcpy DtoH]
+API:   90.99%  1.69655s         2  848.27ms  699.40us  1.69585s  cudaMalloc
+        7.10%  132.39ms       200  661.97us  423.90us  7.6760ms  cudaDeviceSynchronize
+        0.96%  17.932ms         4  4.4831ms  3.1292ms  7.7131ms  cudaMemcpy
+        0.45%  8.4117ms         2  4.2059ms  2.4000us  8.4093ms  cudaEventCreate
+        0.43%  8.0093ms       200  40.046us  9.9000us  1.0583ms  cudaLaunchKernel
+        0.04%  796.50us         2  398.25us  302.30us  494.20us  cudaFree
+        0.01%  213.70us       200  1.0680us     200ns  31.300us  cudaGetLastError
+        0.00%  90.700us         1  90.700us  90.700us  90.700us  cudaEventSynchronize
+        0.00%  81.700us       101     808ns     200ns  31.300us  cuDeviceGetAttribute
+        0.00%  30.100us         2  15.050us  10.700us  19.400us  cudaEventRecord
+        0.00%  5.7000us         2  2.8500us  1.3000us  4.4000us  cudaEventDestroy
+        0.00%  4.3000us         1  4.3000us  4.3000us  4.3000us  cuDeviceGetPCIBusId
+        0.00%  3.9000us         1  3.9000us  3.9000us  3.9000us  cudaEventElapsedTime
+        0.00%  2.3000us         3     766ns     400ns  1.4000us  cuDeviceGetCount
+        0.00%  1.6000us         2     800ns     300ns  1.3000us  cuDeviceGet
+        0.00%  1.5000us         1  1.5000us  1.5000us  1.5000us  cuDeviceGetName
+        0.00%     800ns         1     800ns     800ns     800ns  cuDeviceTotalMem
+        0.00%     400ns         1     400ns     400ns     400ns  cuDeviceGetUuid
+\end{verbatim}
+}
 
 \noindent
 I risultati della simulazione GPU sono stati confrontati con la versione CPU:
