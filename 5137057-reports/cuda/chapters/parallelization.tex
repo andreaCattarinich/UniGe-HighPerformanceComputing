@@ -3,8 +3,9 @@
 \label{sec:parallelization}
 
 \subsection{Sequential section}
-Ho deciso di eseguire i test sul mio PC personale, piuttosto che sulla workstation dell'università o su Google Colab, per evitare limitazioni dovute a sessioni temporanee e risorse limitate. In questo modo ho avuto maggiore controllo sul processo di compilazione e sull'esecuzione dei test.
+Ho deciso di eseguire i test sul mio PC personale, piuttosto che sulla workstation dell'università o su Google Colab, per evitare limitazioni dovute a sessioni temporanee e risorse limitate. In questo modo ho avuto maggiore controllo sul processo di compilazione e sull'esecuzione dei test.\\
 
+\noindent
 I parametri della simulazione utilizzati sono:
 
 \begin{itemize}
@@ -14,12 +15,14 @@ I parametri della simulazione utilizzati sono:
     \item $size = ni \times nj = 900\,000\,000$
 \end{itemize}
 
-Ho compilato il codice sequenziale presente in \texttt{src/heat.c} con GCC usando il comando:
+\noindent
+Ho compilato il codice sequenziale presente in \texttt{src/heat.c} using the following options:
 
 \begin{verbatim}
-gcc -O3 src/heat.c -o build/heat
+    gcc -O3 src/heat.c -o build/heat
 \end{verbatim}
 
+\noindent
 Il tempo di esecuzione migliore ottenuto TODO:(XX secs) costituisce il riferimento sequenziale per il calcolo dello speedup nella versione GPU.
 
 \subsection{CUDA}
@@ -27,22 +30,20 @@ Il tempo di esecuzione migliore ottenuto TODO:(XX secs) costituisce il riferimen
 \subsubsection{Code}
 La parallelizzazione è stata realizzata utilizzando CUDA per eseguire il calcolo dei passi temporali su GPU. Il kernel principale è \texttt{step\_kernel\_mod}, che replica il comportamento della funzione sequenziale \texttt{step\_kernel\_ref}.  
 
-\textbf{Struttura del kernel:}
+\paragraph{Struttura del kernel:}
 \begin{itemize}
     \item Ogni thread gestisce un punto della griglia 2D.
     \item Gli indici globali $i$ e $j$ vengono calcolati a partire dai \texttt{threadIdx} e \texttt{blockIdx}.
-    \item Vengono calcolate le derivate seconde centrali lungo $x$ e $y$ per aggiornare la temperatura.
-    \item La condizione \texttt{if(i>0 \&\& i<ni-1 \&\& j>0 \&\& j<nj-1)} evita di modificare i bordi della griglia.
 \end{itemize}
 
-\textbf{Gestione della memoria:}
+\paragraph{Gestione della memoria:}
 \begin{itemize}
     \item Allocazione della memoria host e device.
     \item Copia dei dati iniziali dal host alla device.
     \item Copia dei risultati dalla device al host al termine della simulazione.
 \end{itemize}
 
-\textbf{Controllo errori:}
+\paragraph{Controllo errori:}
 \begin{itemize}
     \item Dopo ogni chiamata al kernel viene eseguito \texttt{cudaGetLastError()}.
     \item Viene calcolato l'errore massimo rispetto al riferimento CPU per verificare la correttezza.
@@ -58,25 +59,28 @@ nvcc -O3 -arch=sm_50 cuda.cu -o cuda.exe -DDEBUG=0
 \textbf{Significato dei flag:}
 \begin{itemize}
     \item \texttt{-O3}: ottimizzazione massima.
-    \item \texttt{-arch=sm\_50}: architettura target della GPU (Maxwell/Kepler).
+    \item \texttt{-arch=sm\_50}: architettura target della GPU.
     \item \texttt{-DDEBUG=0}: disabilita il debug per migliorare le performance.
 \end{itemize}
 
 \subsubsection{Execution}
 Per il kernel CUDA, la scelta di \texttt{threadsPerBlock} e \texttt{numBlocks} è stata la seguente:
 
-\begin{verbatim}
-dim3 threadsPerBlock(16, 16);
-dim3 numBlocks((ni + 15)/16, (nj + 15)/16);
-\end{verbatim}
+\begin{lstlisting}
+    dim3 threadsPerBlock(16, 16);
+    dim3 numBlocks((ni + 15)/16, (nj + 15)/16);
+\end{lstlisting}
 
+\noindent
 Ogni blocco di 16x16 thread calcola i punti della griglia, mentre i blocchi sono organizzati per coprire l'intera matrice.  
 
+\noindent
 La temporizzazione è stata eseguita tramite \texttt{cudaEvent\_t} per misurare il tempo del kernel GPU.
 
 \subsubsection{Results}
-TODO: aggiungere nvprof
+TODO: aggiungere nvprof\\
 
+\noindent
 I risultati della simulazione GPU sono stati confrontati con la versione CPU:
 
 \begin{itemize}
@@ -88,4 +92,5 @@ I risultati della simulazione GPU sono stati confrontati con la versione CPU:
     \item L'errore massimo tra GPU e CPU è stato calcolato per verificare la correttezza dei risultati. Nella simulazione corrente, il massimo errore osservato era entro i limiti accettabili (0.0005).
 \end{itemize}
 
+\noindent
 I risultati confermano che la parallelizzazione con CUDA riduce significativamente i tempi di esecuzione rispetto alla versione sequenziale, mantenendo la precisione numerica.
