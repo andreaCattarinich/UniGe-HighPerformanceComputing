@@ -1,0 +1,341 @@
+Global optimization report for : main
+
+LOOP BEGIN at src/mandelbrot.cpp (33, 5)
+    remark #25408: memset generated
+    remark #15553: loop was not vectorized: outer loop is not an auto-vectorization candidate.
+
+    LOOP BEGIN at src/mandelbrot.cpp (43, 9)
+        remark #25530: Stmt at line 0 sinked after loop using last value computation
+        remark #15344: Loop was not vectorized: vector dependence prevents vectorization
+        remark #15346: vector dependence: assumed FLOW dependence between z __t __x (1336:13) and z __t __x (1353:13) 
+        remark #15346: vector dependence: assumed FLOW dependence between z __t __x (1336:13) and z __t __x (1353:13) 
+        remark #15346: vector dependence: assumed FLOW dependence between z __t __x (1336:13) and z __t __x (1353:13) 
+        remark #15346: vector dependence: assumed FLOW dependence between z __t __x (1336:13) and z __t __x (1353:13) 
+        remark #15346: vector dependence: assumed FLOW dependence between z __t __x (1336:13) and z __t __x (1353:13) 
+        remark #15346: vector dependence: assumed FLOW dependence between z __t __x (1336:13) and z __t __x (1353:13) 
+        remark #25438: Loop unrolled without remainder by 2
+    LOOP END
+LOOP END
+
+LOOP BEGIN at src/mandelbrot.cpp (76, 5)
+
+    LOOP BEGIN at src/mandelbrot.cpp (78, 9)
+    LOOP END
+LOOP END
+=================================================================
+
+Global optimization report for : __clang_call_terminate
+=================================================================
+
+Global optimization report for : _GLOBAL__sub_I_mandelbrot.cpp
+=================================================================
+
+---- Begin Inlining Report ----
+Option Values:
+  inline-threshold: 225
+  inlinehint-threshold: 325
+  inlinecold-threshold: 45
+  inlineoptsize-threshold: 15
+
+DEAD STATIC FUNC: _ZNKSt13basic_filebufIcSt11char_traitsIcEE7is_openEv
+
+DEAD STATIC FUNC: _ZNKSt5ctypeIcE5widenEc
+
+DEAD STATIC FUNC: _ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv
+
+DEAD STATIC FUNC: _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv
+
+DEAD STATIC FUNC: _ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv
+
+DEAD STATIC FUNC: _ZNKSt7complexIdE5__repEv
+
+DEAD STATIC FUNC: _ZNKSt8ios_base5widthEv
+
+DEAD STATIC FUNC: _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc
+
+DEAD STATIC FUNC: _ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv
+
+DEAD STATIC FUNC: _ZNSoC2Ev
+
+DEAD STATIC FUNC: _ZNSoD2Ev
+
+DEAD STATIC FUNC: _ZNSolsEPFRSoS_E
+
+DEAD STATIC FUNC: _ZNSolsEl
+
+DEAD STATIC FUNC: _ZNSt11char_traitsIcE6lengthEPKc
+
+DEAD STATIC FUNC: _ZNSt12__basic_fileIcED1Ev
+
+DEAD STATIC FUNC: _ZNSt13basic_filebufIcSt11char_traitsIcEEC1Ev
+
+DEAD STATIC FUNC: _ZNSt13basic_filebufIcSt11char_traitsIcEED2Ev
+
+DEAD STATIC FUNC: _ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode
+
+DEAD STATIC FUNC: _ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv
+
+DEAD STATIC FUNC: _ZNSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv
+
+DEAD STATIC FUNC: _ZNSt14basic_ofstreamIcSt11char_traitsIcEED2Ev
+
+DEAD STATIC FUNC: _ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev
+
+DEAD STATIC FUNC: _ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1EEEElS2_ILl1ELl1000000000EEEENSt9enable_ifIXsr13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE
+
+DEAD STATIC FUNC: _ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1EEEES2_ILl1ELl1000000000EElLb1ELb0EE6__castIlS5_EES4_RKNS1_IT_T0_EE
+
+DEAD STATIC FUNC: _ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC2IlvEERKT_
+
+DEAD STATIC FUNC: _ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_
+
+DEAD STATIC FUNC: _ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE
+
+DEAD STATIC FUNC: _ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_
+
+DEAD STATIC FUNC: _ZNSt6localeD1Ev
+
+DEAD STATIC FUNC: _ZNSt7complexIdEC2Edd
+
+DEAD STATIC FUNC: _ZNSt7complexIdEdVIdEERS0_RKS_IT_E
+
+DEAD STATIC FUNC: _ZNSt7complexIdEmLIdEERS0_RKS_IT_E
+
+DEAD STATIC FUNC: _ZNSt7complexIdEpLIdEERS0_RKS_IT_E
+
+DEAD STATIC FUNC: _ZNSt8ios_baseC2Ev
+
+DEAD STATIC FUNC: _ZNSt8ios_baseD2Ev
+
+DEAD STATIC FUNC: _ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E
+
+DEAD STATIC FUNC: _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate
+
+DEAD STATIC FUNC: _ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev
+
+DEAD STATIC FUNC: _ZSt13__check_facetISt5ctypeIcEERKT_PS3_
+
+DEAD STATIC FUNC: _ZSt13__complex_absCd
+
+DEAD STATIC FUNC: _ZSt22__complex_pow_unsignedIdESt7complexIT_ES2_j
+
+DEAD STATIC FUNC: _ZSt3absIdET_RKSt7complexIS0_E
+
+DEAD STATIC FUNC: _ZSt3powIdESt7complexIT_ERKS2_i
+
+DEAD STATIC FUNC: _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+
+DEAD STATIC FUNC: _ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+
+DEAD STATIC FUNC: _ZSt9terminatev
+
+DEAD STATIC FUNC: _ZStdvIdESt7complexIT_ERKS2_S4_
+
+DEAD STATIC FUNC: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+
+DEAD STATIC FUNC: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c
+
+DEAD STATIC FUNC: _ZStorSt12_Ios_IostateS_
+
+DEAD STATIC FUNC: _ZStorSt13_Ios_OpenmodeS_
+
+DEAD STATIC FUNC: _ZStplIdESt7complexIT_ERKS2_S4_
+
+DEAD STATIC FUNC: __clang_call_terminate
+
+DEAD STATIC FUNC: __cxa_begin_catch
+
+DEAD STATIC FUNC: __cxa_end_catch
+
+DEAD STATIC FUNC: __cxx_global_var_init
+
+DEAD STATIC FUNC: __muldc3
+
+DEAD STATIC FUNC: llvm.memcpy.p0.p0.i64
+
+DEAD STATIC FUNC: strlen
+
+COMPILE FUNC: main
+   -> EXTERN: _Znam src/mandelbrot.cpp (30,24)
+   -> EXTERN: _ZNSt6chrono3_V212steady_clock3nowEv src/mandelbrot.cpp (32,24)
+   -> INLINE: _ZNSt7complexIdEC2Edd src/mandelbrot.cpp (39,31) (-45<=337)
+   -> INLINE: _ZNSt7complexIdEC2Edd src/mandelbrot.cpp (42,25) (-15045<=337)
+   -> INLINE: _ZSt3powIdESt7complexIT_ERKS2_i src/mandelbrot.cpp (45,17) (-14945<=325)
+      -> INLINE: _ZNSt7complexIdEC2Edd src/mandelbrot.cpp (1022,4) (-45<=337)
+      -> INLINE: _ZSt22__complex_pow_unsignedIdESt7complexIT_ES2_j src/mandelbrot.cpp (1022,22) (80<=225)
+         -> INLINE: _ZNSt7complexIdEC2Edd src/mandelbrot.cpp (999,42) (-45<=337)
+         -> INLINE: _ZNSt7complexIdEmLIdEERS0_RKS_IT_E src/mandelbrot.cpp (1003,15) (-10<=337)
+            -> INLINE: _ZNKSt7complexIdE5__repEv src/mandelbrot.cpp (1352,30) (-15<=337)
+         -> INLINE: _ZNSt7complexIdEmLIdEERS0_RKS_IT_E src/mandelbrot.cpp (1005,17) (-15010<=337)
+            -> INLINE: _ZNKSt7complexIdE5__repEv src/mandelbrot.cpp (1352,30) (-15<=337)
+      -> INLINE: _ZStdvIdESt7complexIT_ERKS2_S4_ src/mandelbrot.cpp (1022,20) (-14975<=487)
+         -> INLINE: _ZNSt7complexIdEdVIdEERS0_RKS_IT_E src/mandelbrot.cpp (425,11) (-14975<=337)
+            -> INLINE: _ZNKSt7complexIdE5__repEv src/mandelbrot.cpp (1361,30) (-15<=337)
+      -> INLINE: _ZSt22__complex_pow_unsignedIdESt7complexIT_ES2_j src/mandelbrot.cpp (1023,11) (-14920<=225)
+         -> INLINE: _ZNSt7complexIdEC2Edd src/mandelbrot.cpp (999,42) (-45<=337)
+         -> INLINE: _ZNSt7complexIdEmLIdEERS0_RKS_IT_E src/mandelbrot.cpp (1003,15) (-10<=337)
+            -> INLINE: _ZNKSt7complexIdE5__repEv src/mandelbrot.cpp (1352,30) (-15<=337)
+         -> INLINE: _ZNSt7complexIdEmLIdEERS0_RKS_IT_E src/mandelbrot.cpp (1005,17) (-15010<=337)
+            -> INLINE: _ZNKSt7complexIdE5__repEv src/mandelbrot.cpp (1352,30) (-15<=337)
+   -> INLINE: _ZStplIdESt7complexIT_ERKS2_S4_ src/mandelbrot.cpp (45,27) (-15020<=487)
+      -> INLINE: _ZNSt7complexIdEpLIdEERS0_RKS_IT_E src/mandelbrot.cpp (335,11) (-15020<=337)
+         -> INLINE: _ZNKSt7complexIdE5__repEv src/mandelbrot.cpp (1336,20) (-15<=337)
+   -> DELETE: llvm.memcpy.p0.p0.i64 src/mandelbrot.cpp (45,15)
+   -> INLINE: _ZSt3absIdET_RKSt7complexIS0_E src/mandelbrot.cpp (48,17) (-15015<=487)
+      -> INLINE: _ZNKSt7complexIdE5__repEv src/mandelbrot.cpp (626,61) (-15015<=337)
+      -> INLINE: _ZSt13__complex_absCd src/mandelbrot.cpp (626,43) (-15020<=487)
+         -> DELETE: llvm.sqrt.f64 src/mandelbrot.cpp (618,50)
+         -> llvm.sqrt.f64 src/mandelbrot.cpp (618,50)
+         -> llvm.sqrt.f64 src/mandelbrot.cpp (618,50)
+   -> EXTERN: _ZNSt6chrono3_V212steady_clock3nowEv src/mandelbrot.cpp (55,22)
+   -> INLINE: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc src/mandelbrot.cpp (56,10) (40<=487)
+      -> INLINE: _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate src/mandelbrot.cpp (618,8) (10<=337)
+         -> INLINE: _ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv src/mandelbrot.cpp (158,27) (-30<=337)
+         -> INLINE: _ZStorSt12_Ios_IostateS_ src/mandelbrot.cpp (158,37) (-15035<=487)
+         -> DELETE: _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate src/mandelbrot.cpp (158,15)
+      -> INLINE: _ZNSt11char_traitsIcE6lengthEPKc src/mandelbrot.cpp (621,29) (-15000<=337)
+         -> DELETE: strlen src/mandelbrot.cpp (395,9)
+      -> EXTERN: _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l src/mandelbrot.cpp (620,2)
+   -> INLINE: _ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE src/mandelbrot.cpp (57,56) (-15035<=337)
+      -> INLINE: _ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv src/mandelbrot.cpp (1028,22) (-30<=337)
+      -> INLINE: _ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv src/mandelbrot.cpp (1028,49) (-15030<=337)
+      -> INLINE: _ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_ src/mandelbrot.cpp (1028,41) (-15035<=337)
+         -> INLINE: _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv src/mandelbrot.cpp (650,26) (-35<=337)
+         -> INLINE: _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv src/mandelbrot.cpp (650,48) (-35<=337)
+         -> INLINE: _ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC2IlvEERKT_ src/mandelbrot.cpp (650,9) (-15040<=337)
+   -> INLINE: _ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1EEEElS2_ILl1ELl1000000000EEEENSt9enable_ifIXsr13__is_durationIT_EE5valueES7_E4typeERKNS1_IT0_T1_EE src/mandelbrot.cpp (57,13) (-15030<=337)
+      -> INLINE: _ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1EEEES2_ILl1ELl1000000000EElLb1ELb0EE6__castIlS5_EES4_RKNS1_IT_T0_EE src/mandelbrot.cpp (260,9) (-15025<=337)
+         -> INLINE: _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv src/mandelbrot.cpp (212,29) (-15030<=337)
+         -> INLINE: _ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_ src/mandelbrot.cpp (211,13) (-15040<=337)
+   -> INLINE: _ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv src/mandelbrot.cpp (57,65) (-15035<=337)
+   -> INLINE: _ZNSolsEl src/mandelbrot.cpp (57,10) (0<=337)
+      -> EXTERN: _ZNSo9_M_insertIlEERSoT_ src/mandelbrot.cpp (167,16)
+   -> INLINE: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc src/mandelbrot.cpp (58,10) (40<=487)
+      -> INLINE: _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate src/mandelbrot.cpp (618,8) (10<=337)
+         -> INLINE: _ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv src/mandelbrot.cpp (158,27) (-30<=337)
+         -> INLINE: _ZStorSt12_Ios_IostateS_ src/mandelbrot.cpp (158,37) (-15035<=487)
+         -> DELETE: _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate src/mandelbrot.cpp (158,15)
+      -> INLINE: _ZNSt11char_traitsIcE6lengthEPKc src/mandelbrot.cpp (621,29) (-15000<=337)
+         -> DELETE: strlen src/mandelbrot.cpp (395,9)
+      -> EXTERN: _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l src/mandelbrot.cpp (620,2)
+   -> INLINE: _ZNSolsEPFRSoS_E src/mandelbrot.cpp (58,25) (-180<=337)
+      -> INLINE:  src/mandelbrot.cpp (113,9) (175<=325)
+         -> INLINE: _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc src/mandelbrot.cpp (689,34) (85<=225)
+            -> INLINE: _ZSt13__check_facetISt5ctypeIcEERKT_PS3_ src/mandelbrot.cpp (450,16) (-14995<=325)
+               -> EXTERN: _ZSt16__throw_bad_castv src/mandelbrot.cpp (50,2)
+            -> INLINE: _ZNKSt5ctypeIcE5widenEc src/mandelbrot.cpp (450,40) (-14955<=225)
+               -> EXTERN: _ZNKSt5ctypeIcE13_M_widen_initEv src/mandelbrot.cpp (884,8)
+               -> INDIRECT:  src/mandelbrot.cpp (885,15)
+         -> EXTERN: _ZNSo3putEc src/mandelbrot.cpp (689,25)
+         -> INLINE: _ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_ src/mandelbrot.cpp (689,14) (0<=487)
+            -> EXTERN: _ZNSo5flushEv src/mandelbrot.cpp (711,19)
+   -> _ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev src/mandelbrot.cpp (61,14) (285>225)
+   -> INLINE: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc src/mandelbrot.cpp (65,14) (40<=487)
+      -> INLINE: _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate src/mandelbrot.cpp (618,8) (10<=337)
+         -> INLINE: _ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv src/mandelbrot.cpp (158,27) (-30<=337)
+         -> INLINE: _ZStorSt12_Ios_IostateS_ src/mandelbrot.cpp (158,37) (-15035<=487)
+         -> DELETE: _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate src/mandelbrot.cpp (158,15)
+      -> INLINE: _ZNSt11char_traitsIcE6lengthEPKc src/mandelbrot.cpp (621,29) (-15000<=337)
+         -> DELETE: strlen src/mandelbrot.cpp (395,9)
+      -> EXTERN: _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l src/mandelbrot.cpp (620,2)
+   -> INLINE: _ZNSolsEPFRSoS_E src/mandelbrot.cpp (65,66) (-180<=337)
+      -> INLINE:  src/mandelbrot.cpp (113,9) (175<=325)
+         -> INLINE: _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc src/mandelbrot.cpp (689,34) (85<=225)
+            -> INLINE: _ZSt13__check_facetISt5ctypeIcEERKT_PS3_ src/mandelbrot.cpp (450,16) (-14995<=325)
+               -> DELETE: _ZSt16__throw_bad_castv src/mandelbrot.cpp (50,2)
+            -> INLINE: _ZNKSt5ctypeIcE5widenEc src/mandelbrot.cpp (450,40) (-14955<=225)
+               -> EXTERN: _ZNKSt5ctypeIcE13_M_widen_initEv src/mandelbrot.cpp (884,8)
+               -> INDIRECT:  src/mandelbrot.cpp (885,15)
+         -> EXTERN: _ZNSo3putEc src/mandelbrot.cpp (689,25)
+         -> INLINE: _ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_ src/mandelbrot.cpp (689,14) (0<=487)
+            -> EXTERN: _ZNSo5flushEv src/mandelbrot.cpp (711,19)
+   -> INLINE: _ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode src/mandelbrot.cpp (69,16) (120<=225)
+      -> INLINE: _ZStorSt13_Ios_OpenmodeS_ src/mandelbrot.cpp (928,35) (-15035<=487)
+      -> EXTERN: _ZNSt13basic_filebufIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode src/mandelbrot.cpp (928,18)
+      -> INLINE: _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate src/mandelbrot.cpp (929,10) (10<=337)
+         -> INLINE: _ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv src/mandelbrot.cpp (158,27) (-30<=337)
+         -> INLINE: _ZStorSt12_Ios_IostateS_ src/mandelbrot.cpp (158,37) (-15035<=487)
+         -> DELETE: _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate src/mandelbrot.cpp (158,15)
+      -> DELETE: _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate src/mandelbrot.cpp (933,10)
+   -> INLINE: _ZNSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv src/mandelbrot.cpp (70,21) (0<=337)
+      -> INLINE: _ZNKSt13basic_filebufIcSt11char_traitsIcEE7is_openEv src/mandelbrot.cpp (909,27) (0<=337)
+         -> EXTERN: _ZNKSt12__basic_fileIcE7is_openEv src/mandelbrot.cpp (271,24)
+   -> INLINE: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc src/mandelbrot.cpp (72,14) (40<=487)
+      -> INLINE: _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate src/mandelbrot.cpp (618,8) (10<=337)
+         -> INLINE: _ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv src/mandelbrot.cpp (158,27) (-30<=337)
+         -> INLINE: _ZStorSt12_Ios_IostateS_ src/mandelbrot.cpp (158,37) (-15035<=487)
+         -> DELETE: _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate src/mandelbrot.cpp (158,15)
+      -> INLINE: _ZNSt11char_traitsIcE6lengthEPKc src/mandelbrot.cpp (621,29) (-15000<=337)
+         -> DELETE: strlen src/mandelbrot.cpp (395,9)
+      -> EXTERN: _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l src/mandelbrot.cpp (620,2)
+   -> INLINE: _ZNSolsEPFRSoS_E src/mandelbrot.cpp (72,40) (-180<=337)
+      -> INLINE:  src/mandelbrot.cpp (113,9) (175<=325)
+         -> INLINE: _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc src/mandelbrot.cpp (689,34) (85<=225)
+            -> INLINE: _ZSt13__check_facetISt5ctypeIcEERKT_PS3_ src/mandelbrot.cpp (450,16) (-14995<=325)
+               -> DELETE: _ZSt16__throw_bad_castv src/mandelbrot.cpp (50,2)
+            -> INLINE: _ZNKSt5ctypeIcE5widenEc src/mandelbrot.cpp (450,40) (-14955<=225)
+               -> EXTERN: _ZNKSt5ctypeIcE13_M_widen_initEv src/mandelbrot.cpp (884,8)
+               -> INDIRECT:  src/mandelbrot.cpp (885,15)
+         -> EXTERN: _ZNSo3putEc src/mandelbrot.cpp (689,25)
+         -> INLINE: _ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_ src/mandelbrot.cpp (689,14) (0<=487)
+            -> EXTERN: _ZNSo5flushEv src/mandelbrot.cpp (711,19)
+   -> EXTERN: _ZNSolsEi src/mandelbrot.cpp (80,24)
+   -> INLINE: _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c src/mandelbrot.cpp (83,28) (80<=325)
+      -> INLINE: _ZNKSt8ios_base5widthEv src/mandelbrot.cpp (525,17) (-15030<=337)
+      -> EXTERN: _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l src/mandelbrot.cpp (526,9)
+      -> EXTERN: _ZNSo3putEc src/mandelbrot.cpp (527,13)
+   -> INLINE: _ZNSolsEPFRSoS_E src/mandelbrot.cpp (86,24) (-180<=337)
+      -> INLINE:  src/mandelbrot.cpp (113,9) (175<=325)
+         -> INLINE: _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc src/mandelbrot.cpp (689,34) (85<=225)
+            -> INLINE: _ZSt13__check_facetISt5ctypeIcEERKT_PS3_ src/mandelbrot.cpp (450,16) (-14995<=325)
+               -> EXTERN: _ZSt16__throw_bad_castv src/mandelbrot.cpp (50,2)
+            -> INLINE: _ZNKSt5ctypeIcE5widenEc src/mandelbrot.cpp (450,40) (-14955<=225)
+               -> EXTERN: _ZNKSt5ctypeIcE13_M_widen_initEv src/mandelbrot.cpp (884,8)
+               -> INDIRECT:  src/mandelbrot.cpp (885,15)
+         -> EXTERN: _ZNSo3putEc src/mandelbrot.cpp (689,25)
+         -> INLINE: _ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_ src/mandelbrot.cpp (689,14) (0<=487)
+            -> EXTERN: _ZNSo5flushEv src/mandelbrot.cpp (711,19)
+   -> INLINE: _ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv src/mandelbrot.cpp (88,16) (70<=225)
+      -> EXTERN: _ZNSt13basic_filebufIcSt11char_traitsIcEE5closeEv src/mandelbrot.cpp (1000,18)
+      -> INLINE: _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate src/mandelbrot.cpp (1001,10) (10<=337)
+         -> INLINE: _ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv src/mandelbrot.cpp (158,27) (-30<=337)
+         -> INLINE: _ZStorSt12_Ios_IostateS_ src/mandelbrot.cpp (158,37) (-15035<=487)
+         -> EXTERN: _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate src/mandelbrot.cpp (158,15)
+   -> EXTERN: _ZdaPv src/mandelbrot.cpp (90,5)
+   -> _ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev src/mandelbrot.cpp (93,1) (250>225)
+   -> _ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev src/mandelbrot.cpp (93,1) (250>45 [EE:65>45])
+   -> llvm.memset.p0.i64 src/mandelbrot.cpp (35,9)
+   -> EXTERN: _ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate src/mandelbrot.cpp
+   -> EXTERN: _ZSt16__throw_bad_castv src/mandelbrot.cpp (50,2)
+
+COMPILE FUNC: _ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev
+   -> INLINE: _ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev src/mandelbrot.cpp (784,7) (25<=337)
+      -> DELETE: _ZNSt8ios_baseC2Ev src/mandelbrot.cpp (461,9)
+      -> DELETE: llvm.memset.p0.i64 src/mandelbrot.cpp (462,2)
+   -> INLINE: _ZNSoC2Ev src/mandelbrot.cpp (784,25) (35<=337)
+      -> DELETE: _ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E src/mandelbrot.cpp (385,15)
+   -> DELETE: _ZNSt13basic_filebufIcSt11char_traitsIcEEC1Ev src/mandelbrot.cpp (784,43)
+   -> DELETE: _ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E src/mandelbrot.cpp (785,15)
+   -> DELETE: _ZNSt13basic_filebufIcSt11char_traitsIcEED2Ev src/mandelbrot.cpp (785,34)
+   -> INLINE: _ZNSoD2Ev src/mandelbrot.cpp (785,34) (-40<=45)
+   -> DELETE: _ZNSt8ios_baseD2Ev src/mandelbrot.cpp (785,34)
+
+COMPILE FUNC: _ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev
+   -> INLINE: _ZNSt14basic_ofstreamIcSt11char_traitsIcEED2Ev src/mandelbrot.cpp (868,7) (210<=225)
+      -> INLINE: _ZNSt13basic_filebufIcSt11char_traitsIcEED2Ev src/mandelbrot.cpp (868,9) (190<=225)
+         -> DELETE: _ZNSt13basic_filebufIcSt11char_traitsIcEE5closeEv src/mandelbrot.cpp (254,12)
+         -> DELETE: __cxa_begin_catch src/mandelbrot.cpp (254,21)
+         -> DELETE: __cxa_end_catch src/mandelbrot.cpp (256,6)
+         -> DELETE: _ZNSt12__basic_fileIcED1Ev src/mandelbrot.cpp (257,7)
+         -> INLINE: _ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev src/mandelbrot.cpp (257,7) (5<=337)
+            -> DELETE: _ZNSt6localeD1Ev src/mandelbrot.cpp (203,9)
+         -> DELETE: __clang_call_terminate src/mandelbrot.cpp (256,6)
+      -> INLINE: _ZNSoD2Ev src/mandelbrot.cpp (868,9) (-40<=337)
+   -> DELETE: _ZNSt8ios_baseD2Ev src/mandelbrot.cpp (868,7)
+
+COMPILE FUNC: _GLOBAL__sub_I_mandelbrot.cpp
+   -> INLINE: __cxx_global_var_init src/mandelbrot.cpp (-14950<=337)
+      -> EXTERN: _ZNSt8ios_base4InitC1Ev src/mandelbrot.cpp (74,25)
+      -> EXTERN: __cxa_atexit src/mandelbrot.cpp
+
+---- End Inlining Report ------

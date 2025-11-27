@@ -1,8 +1,0 @@
-﻿Function,Time (s),Percentage (%)
-fillInput,0.0053,0.03%
-setOutputZero1,0.0005,0.00%
-setOutputZero2,0.0005,0.00%
-DFT,8.0331,49.97%
-IDFT,8.0345,49.99%
-checkResults,0.0000,0.00%
-Total,16.0741,100.00%

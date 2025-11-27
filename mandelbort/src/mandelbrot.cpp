@@ -14,7 +14,7 @@
 #define RATIO_Y (MAX_Y - MIN_Y)
 
 // Image size
-#define RESOLUTION 1000
+#define RESOLUTION 10000
 #define WIDTH (RATIO_X * RESOLUTION)
 #define HEIGHT (RATIO_Y * RESOLUTION)
 
@@ -89,4 +89,5 @@ int main(int argc, char **argv)
 
     delete[] image; // It's here for coding style, but useless
     return 0;
+
 }
