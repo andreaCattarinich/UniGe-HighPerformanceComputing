@@ -16,7 +16,7 @@ The example shown in Figure \ref{fig:rectangle_fourier_transform} illustrates th
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.9\textwidth]{assets/hotspots/rectangle_fourier_transform.png}
+    \includegraphics[width=0.9\textwidth]{assets/hotspots/hotspots.png}
     \caption{Fourier Transform of a rectangular signal.}
     \label{fig:rectangle_fourier_transform}
 \end{figure}
@@ -146,43 +146,23 @@ The compilation flags have the following meaning:
 
 
 \subsection{Hotspot Identification}
-The measurements were performed using two methods: \textbf{Manually} (using \texttt{omp\_get\_wtime()}) and \textbf{Profiler} (using \texttt{Intel VTune})
-
-\begin{table}[htbp]
-\centering
-\begin{minipage}{0.48\textwidth}
-    \centering
-    \caption{Manually}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{lrr}
-        \toprule
-        Function & Time (s) & Percentage (\%) \\
-        \midrule
-        \csvreader[late after line=\\]{assets/hotspots/hotspots_identification.csv}{}
-        {\csvcoli & \csvcolii & \csvcoliii} 
-        \bottomrule
-    \end{tabular}%
-    }
-\end{minipage}%
-\hfill
-\begin{minipage}{0.48\textwidth}
-    \centering
-    \caption{Intel VTune Profiler}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{lrr}
-        \toprule
-        Function Stack & CPU Time: Total & Percentage (\%) \\
-        \midrule
-        \csvreader[late after line=\\]{assets/hotspots/top-down-tree.csv}{}
-        {\csvcoli & \csvcolii & \csvcoliii} 
-        \bottomrule
-    \end{tabular}%
-    }
-\end{minipage}
-\end{table}
+The measurements were performed using Intel VTune Profiler.\\
 
 \begin{center}
-    \includegraphics[width=0.8\textwidth]{assets/hotspots/top_hotspots_vtune.png}
+
+    \csvreader[
+        tabular= l r r,
+        table head=\hline Function Stack & Total & Percentage (\%) \\ \hline,
+        late after line=\\,
+        late after last line=\\\hline
+    ]{assets/hotspots/top-down-tree.csv}{}{%
+        \csvcoli & \csvcolii & \csvcoliii
+    }
+\end{center}
+
+
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{assets/hotspots/hotspots.png}
 \end{center}
 
 \subsection{Conclusions}
@@ -193,6 +173,6 @@ The main hotspot is the DFT() function and its inverse IDFT(), which together ac
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.9\textwidth]{assets/hotspots/hotspot_code_evidentiation.png}
+    \includegraphics[width=0.9\textwidth]{assets/hotspots/hotspots.png}
     \label{fig:vtune_biggest_hotspot_screen}
 \end{figure}

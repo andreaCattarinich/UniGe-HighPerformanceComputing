@@ -1,9 +1,9 @@
-"Function Stack","CPU Time: Total",Percentage (%),"CPU Time: Self","Module","Function (Full)","Source File","Start Address"
-"Total","69.97",100.00%,"0","[Unknown]","[Unknown]","[Unknown]","[Unknown]"
-" _start","69.97",100.00%,"0","mandelbrot-O0","_start","[Unknown]","0x4011e0"
-"  __libc_start_main_impl","69.97",100.00%,"0","libc.so.6","__libc_start_main_impl","libc-start.c","0x27280"
-"   main","69.97",100.00%,"4.38979","mandelbrot-O0","main","mandelbrot.cpp","0x4012d0"
-"    std::abs<double>","41.2121",58.90%,"40.8541","mandelbrot-O0","std::abs<double>(std::complex<double> const&)","complex","0x401610"
-"    std::operator+<double>","13.6361",19.49%,"13.6361","mandelbrot-O0","std::operator+<double>(std::complex<double> const&, std::complex<double> const&)","complex","0x401510"
-"    std::pow<double>","10.712",15.31%,"10.712","mandelbrot-O0","std::pow<double>(std::complex<double> const&, int)","complex","0x401550"
-"    std::complex<double>::complex","0.0199997",0.03%,"0.0199997","mandelbrot-O0","std::complex<double>::complex(double, double)","complex","0x4014e0"
+Function Stack,CPU Time: Total,Percentage (%)
+Total,69.97,100.00%
+\_start,69.97,100.00%
+\_\_libc\_start\_main\_impl,69.97,100.00%
+-- main,69.97,100.00%
+---\- std::abs\textless double\textgreater ,41.2121,58.90%
+---\- std::operator+\textless double\textgreater ,13.6361,19.49%
+---\- std::pow\textless double\textgreater ,10.712,15.31%
+---\- std::complex\textless double\textgreater ::complex,0.0199997,0.03%
