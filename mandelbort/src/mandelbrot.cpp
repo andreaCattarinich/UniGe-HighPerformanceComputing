@@ -10,8 +10,8 @@
 #define MAX_Y 1
 
 // Image ratio
-#define RATIO_X (MAX_X - MIN_X)
-#define RATIO_Y (MAX_Y - MIN_Y)
+#define RATIO_X (MAX_X - MIN_X) // 3
+#define RATIO_Y (MAX_Y - MIN_Y) // 2
 
 // Image size
 #define RESOLUTION 10000
@@ -20,8 +20,8 @@
 
 #define STEP ((double)RATIO_X / WIDTH)
 
-#define DEGREE 2        // Degree of the polynomial
-#define ITERATIONS 1000 // Maximum number of iterations
+#define DEGREE 2       // Degree of the polynomial
+#define ITERATIONS 100 // Maximum number of iterations
 
 using namespace std;
 
@@ -57,7 +57,8 @@ int main(int argc, char **argv)
          << chrono::duration_cast<chrono::seconds>(end - start).count()
          << " seconds." << endl;
 
-    // Write the result to a file
+    // WRITE THE RESULT TO A FILE
+    /*
     ofstream matrix_out;
 
     if (argc < 2)
@@ -86,8 +87,8 @@ int main(int argc, char **argv)
             matrix_out << endl;
     }
     matrix_out.close();
+    */
 
     delete[] image; // It's here for coding style, but useless
     return 0;
-
 }
