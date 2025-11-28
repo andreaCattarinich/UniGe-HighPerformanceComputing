@@ -41,3 +41,5 @@ RESOLUTION 2000, `/O2`, 301 s (5 min 1 s)
 RESOLUTION 2000, `/O2 /EHsc`, 101 s (1 min 41 s)
 RESOLUTION 2000, `/O2 /arch:AVX2 /fp:fast /EHsc`, 103 s (1 min 43 s)
 
+Conclusioni:
+L'istruzione `z = pow(z, 2) + c` non viene ottimizzata da MSVC

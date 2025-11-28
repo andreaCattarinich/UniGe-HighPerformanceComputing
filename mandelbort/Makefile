@@ -1,32 +1,20 @@
-# Compiler and folders
 CC = icpx
 SRC = src/mandelbrot.cpp
-BUILD = build
-REPORTS = reports
+BUILD = build210
 
-# Optimization flags to generate executables for
-ITER_FLAGS = -O2
+FLAGS = -O2 -march=native -fopenmp
 
-# Extract base name without extension
 NAME = $(basename $(notdir $(SRC)))
 
-# Produce list of executables: build/mandelbrot-O2 ecc.
-TARGETS = $(addprefix $(BUILD)/$(NAME), $(ITER_FLAGS))
+TARGET = $(BUILD)/$(NAME)
 
-# Default target
-all: $(TARGETS)
+all: $(TARGET)
 
-# Rule to build each optimized executable
-$(BUILD)/$(NAME)%: $(SRC) | $(BUILD) $(REPORTS)
-	$(CC) $* -fopenmp -g -xHost \
-		-qopt-report=max \
-		-qopt-report-file=$(REPORTS)/$(NAME)$*.optrpt \
-		$< -o $@
+$(TARGET): $(SRC) | $(BUILD)
+	$(CC) $(FLAGS) $< -o $@
 
-# Create directories
-$(BUILD) $(REPORTS):
-	mkdir -p $@
+$(BUILD):
+	mkdir -p $(BUILD)
 
-# Clean
 clean:
-	rm -rf $(BUILD) $(REPORTS)
+	rm -rf $(BUILD)
