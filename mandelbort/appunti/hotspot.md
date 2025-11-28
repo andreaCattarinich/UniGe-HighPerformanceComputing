@@ -26,13 +26,18 @@ Compilation: `g++ -o build/mandelbrot src/mandelbrot.cp`
 
 Execution: `./build/mandelbrot`
 
-RESOLUTION 1000, 15 secs
-RESOLUTION 10000,  secs
+RESOLUTION 1000, `-O0`, 15 s
+RESOLUTION 2000, `-O0`, 64 s (1 min 4 s)
+RESOLUTION 2000, `-O2`, 9 s
 
 ### Windows
 Compilation (open x64 Native Tools Command Prompt VS 2022) and run `cl src\mandelbrot.cpp /Fe:build\mandelbrot.exe`
 
 Execution: `build\mandelbrot`
 
-RESOLUTION 1000, 74 secs
-RESOLUTION 10000,  secs
+RESOLUTION 1000, 74 s (1 min 24 s)
+RESOLUTION 2000, 301 s (5 min 1 s)
+RESOLUTION 2000, `/O2`, 301 s (5 min 1 s)
+RESOLUTION 2000, `/O2 /EHsc`, 101 s (1 min 41 s)
+RESOLUTION 2000, `/O2 /arch:AVX2 /fp:fast /EHsc`, 103 s (1 min 43 s)
+
