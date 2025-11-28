@@ -14,7 +14,7 @@
 #define RATIO_Y (MAX_Y - MIN_Y) // 2
 
 // Image size
-#define RESOLUTION 10000
+#define RESOLUTION 2000
 #define WIDTH (RATIO_X * RESOLUTION)
 #define HEIGHT (RATIO_Y * RESOLUTION)
 
@@ -28,6 +28,7 @@ using namespace std;
 int main(int argc, char **argv)
 {
     cout << "RESOLUTION   = " << RESOLUTION << endl;
+    cout << "ITERATION    = " << ITERATIONS << endl;
     cout << "HEIGHT*WIDTH = " << HEIGHT*WIDTH << endl;
     
     int *const image = new int[HEIGHT * WIDTH];

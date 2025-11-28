@@ -1,13 +1,77 @@
 \newpage
 \section{Hotspot Analysis}
 
-\subsection{Vectorization}
-Questa istruzione non e' vettorizzabile con MSVC, e per tanto, l'esecuzione  risulta essere poco performante.
+\subsection{Optimization Problems}
+Questa istruzione non e' vettorizzabile con MSVC, e per tanto, l'esecuzione  risulta essere poco performante.\\
 
+\noindent
 Mentre con Linux G++, l'operazione sembra ottimizzare \texttt{std::complex}.
 \begin{lstlisting}
     z = pow(z, 2) + c;
 \end{lstlisting}
+
+\noindent
+L'operazione \texttt{std::complex} utilizza l'overloading, in particolare \texttt{operator+} e \texttt{operator*}, creando un overhead e un conseguente carico sulla CPU. Inoltre, l'operazione \texttt{abs(z)} calcola la radice quadrata ogni volta.\\
+
+\noindent
+Per rimuovere questa dipendenza dovuta dai numeri complessi, ho realizzato un miglioramento nel codice che mi consente di usare solamente numeri reali. Infatti, sfruttando la seguente relazione
+
+\[
+z^2 = (a, b)^2 = (a^2 - b^2, \; 2ab)
+\]
+
+\noindent
+Ho implementato:
+
+\[
+z^2 = \big(\operatorname{Re}(z), \operatorname{Im}(z)\big)^2 
+      = \big(\operatorname{Re}(z)^2 - \operatorname{Im}(z)^2, \; 2\,\operatorname{Re}(z)\operatorname{Im}(z)\big)
+\]
+
+\noindent
+Come segue:
+\begin{lstlisting}
+    double zRe = 0, zIm = 0;
+    for (int i = 1; i <= ITERATIONS; i++)
+    {
+        double oldRe = zRe;
+        double zRe2 = zRe*zRe; // Re(z)^2
+        double zIm2 = zIm*zIm; // Im(z)^2
+
+        zRe = (zRe2 - zIm2) + cRe;
+        zIm = 2*oldRe*zIm + cIm;
+
+        if(zRe2 + zIm2 >= 4)
+        {
+            image[pos] = i;
+            break;
+        }
+    }
+\end{lstlisting}
+
+\subsubsection{Solution and Results}
+I risultati, come ci aspettavamo sono più performanti.
+
+\noindent
+\textbf{MSVC} \\
+\verb|  cl /O2 /arch:AVX2 /fp:fast /EHsc src\*.cpp /Fe:build\*.exe|
+
+\noindent
+\textbf{WSL} \\
+\verb|  g++ -O2 -o build/* src/*.cpp|\\
+
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+ & mandelbrot & opt1 & opt2\\
+\hline
+WSL & 96s & 30s (x3.2) & 36s (x2.7)\\
+Windows & - & 40s & 36 s \\
+\hline
+\end{tabular}\\
+
+\noindent
+Utilizzeremo questo codice come baseline per lo sviluppo della restante parte del progetto.
+
 
 \subsection{Hotspot Identification}
 The measurements were performed using Intel VTune Profiler and the analysis was performed using Intel Advisor.\\

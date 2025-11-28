@@ -44,16 +44,17 @@ int main(int argc, char **argv)
         double cRe = col * STEP + MIN_X;
         double cIm = row * STEP + MIN_Y;
 
-        // z = z^2 + c
         double zRe = 0, zIm = 0;
         for (int i = 1; i <= ITERATIONS; i++)
         {
             double oldRe = zRe;
-            zRe = (zRe*zRe - zIm*zIm) + cRe;
+            double zRe2 = zRe*zRe; // Re(z)^2
+            double zIm2 = zIm*zIm; // Im(z)^2
+
+            zRe = (zRe2 - zIm2) + cRe;
             zIm = 2*oldRe*zIm + cIm;
 
-            // If it is convergent
-            if(zRe*zRe + zIm*zIm >= 4)
+            if(zRe2 + zIm2 >= 4)
             {
                 image[pos] = i;
                 break;

@@ -22,10 +22,11 @@ icpx -O2 -fopenmp -g -xHost \
 
 ## Test over HP envy
 ### WSL:
-Compilation: `g++ -o build/mandelbrot src/mandelbrot.cp`
+Compilation: `g++ -o build/mandelbrot src/mandelbrot.cpp`
 
 Execution: `./build/mandelbrot`
 
+ITERATION 100
 RESOLUTION 1000, `-O0`, 15 s
 RESOLUTION 2000, `-O0`, 64 s (1 min 4 s)
 RESOLUTION 2000, `-O2`, 9 s
