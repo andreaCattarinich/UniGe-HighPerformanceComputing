@@ -1,6 +1,6 @@
 \newpage
-\section{Parallelization}
-\label{sec:parallelization}
+\section{OpenMP}
+\label{sec:OpenMP}
 
 \subsection{Parallelization over the outer loop}
 In the first approach (\texttt{src/omp1.c}), the outer loop over the frequency index $k$ is parallelized.
@@ -122,7 +122,6 @@ for (k=0 ; k<N ; k++)
     \includegraphics[width=\linewidth]{assets/parallelization/omp2_efficiencies.png}
 \end{minipage}
 
-\subsection*{Attempted Optimization}
 
 \paragraph{Precomputation of Trigonometric Functions:}
 in an additional attempt to optimize the DFT computation, I modified the code as in the source \texttt{src/omp3.c}. The idea was to reduce the repeated evaluation of trigonometric functions by computing the sine and cosine values once per iteration:
