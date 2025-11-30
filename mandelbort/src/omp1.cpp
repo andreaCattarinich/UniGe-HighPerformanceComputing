@@ -13,7 +13,7 @@
 #define RATIO_Y (MAX_Y - MIN_Y) // 2
 
 // Image size
-#define RESOLUTION 1000
+#define RESOLUTION 2000
 #define WIDTH (RATIO_X * RESOLUTION)
 #define HEIGHT (RATIO_Y * RESOLUTION)
 
@@ -25,16 +25,16 @@
 using namespace std;
 
 int main(int argc, char **argv)
-{   
-    const auto start_entire = chrono::steady_clock::now();
-    
+{
     cout << "RESOLUTION   = " << RESOLUTION << endl;
     cout << "ITERATION    = " << ITERATIONS << endl;
     cout << "HEIGHT*WIDTH = " << HEIGHT*WIDTH << endl;
     
     int *const image = new int[HEIGHT * WIDTH];
 
-    const auto start_par = chrono::steady_clock::now();
+    const auto start = chrono::steady_clock::now();
+    
+    #pragma omp parallel for
     for (int pos = 0; pos < HEIGHT * WIDTH; pos++)
     {
         image[pos] = 0;
@@ -61,22 +61,11 @@ int main(int argc, char **argv)
             }
         }
     }
-    const auto end_par = chrono::steady_clock::now();    
+    const auto end = chrono::steady_clock::now();
+    cout << "Time elapsed: "
+         << chrono::duration_cast<chrono::seconds>(end - start).count()
+         << " seconds." << endl;
 
     delete[] image;
-    const auto end_entire = chrono::steady_clock::now();    
-
-    auto Ts = chrono::duration_cast<chrono::milliseconds>(end_entire - start_entire).count() -
-                   chrono::duration_cast<chrono::milliseconds>(end_par - start_par).count();
-    
-    auto Tp = chrono::duration_cast<chrono::milliseconds>(end_par - start_par).count();
-    auto Ttot = chrono::duration_cast<chrono::milliseconds>(end_entire - start_entire).count();
-    
-    double Fs = (double)Ts / Ttot;
-    double Fp = (double)Tp / Ttot;
-    
-    cout << "Tp = " << Tp << " ms | Fp = " << Fp << endl;
-    cout << "Ts = " << Ts << " ms | Fs = " << Fs << endl;
-
     return 0;
 }
