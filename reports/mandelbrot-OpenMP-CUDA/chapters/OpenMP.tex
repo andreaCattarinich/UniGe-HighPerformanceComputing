@@ -35,6 +35,12 @@ In the first approach (\texttt{src/omp1.cpp}), the outer loop over was paralleli
     }
 \end{lstlisting}
 
+\includegraphics[width=0.3\textwidth]{assets/openmp/omp2_execution.png} \hfill
+\includegraphics[width=0.3\textwidth]{assets/openmp/omp2_speedup.png} \hfill
+\includegraphics[width=0.3\textwidth]{assets/openmp/omp2_efficiency.png}
+
+
+
 \subsection{Guided Scheduling}
 The following scheduling policy dynamically balances workload distribution. It is essential for handling the computational irregularity of the Mandelbrot set algorithm because different pixels requires different amount of iterations.
 
