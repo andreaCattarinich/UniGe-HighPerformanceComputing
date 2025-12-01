@@ -1,5 +1,5 @@
 CC = icpx
-SRC = src/mandelbrot.cpp
+SRC = src/omp3.cpp
 BUILD = build210
 
 FLAGS = -O2 -march=native -fopenmp
