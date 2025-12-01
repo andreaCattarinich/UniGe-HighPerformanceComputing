@@ -35,10 +35,13 @@ In the first approach (\texttt{src/omp1.cpp}), the outer loop over was paralleli
     }
 \end{lstlisting}
 
-\includegraphics[width=0.3\textwidth]{assets/openmp/omp2_execution.png} \hfill
-\includegraphics[width=0.3\textwidth]{assets/openmp/omp2_speedup.png} \hfill
-\includegraphics[width=0.3\textwidth]{assets/openmp/omp2_efficiency.png}
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_execution.png}
 
+    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_speedup.png}
+
+    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_efficiency.png}    
+\end{center}
 
 
 \subsection{Guided Scheduling}
@@ -52,6 +55,15 @@ The following scheduling policy dynamically balances workload distribution. It i
     }
 \end{lstlisting}
 
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_execution.png}
+
+    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_speedup.png}
+
+    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_efficiency.png}    
+\end{center}
+
+
 \subsection{Guided + SIMD}
 Maximum optimization combining multi-thread parallelism with SIMD vectorization.
 
@@ -63,6 +75,13 @@ Maximum optimization combining multi-thread parallelism with SIMD vectorization.
     }
 \end{lstlisting}
 
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_execution.png}
+
+    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_speedup.png}
+
+    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_efficiency.png}    
+\end{center}
 
 
 
@@ -74,7 +93,6 @@ Maximum optimization combining multi-thread parallelism with SIMD vectorization.
 \noindent
 Here, each thread computes a subset of the output frequencies independently. The temporary variables \texttt{Xr\_temp} and \texttt{Xi\_temp} are private to each thread, ensuring there is no race condition when updating the output arrays.
 
-\subsection{Parallelization over the inner loop with reduction}
 
 In the second approach, the inner loop over the time index $n$ is parallelized using a reduction clause:
 
@@ -95,7 +113,6 @@ for (k = 0; k < N; k++) {
 \noindent
 Here, the computation of each output frequency $X[k]$ is parallelized across the time samples $n$. The \texttt{reduction} clause ensures that each thread accumulates contributions to \texttt{Xr\_temp} and \texttt{Xi\_temp} safely, avoiding race conditions. This method can provide higher parallel efficiency for large $N$, but incurs some overhead from the reduction operation, as shown in the following figures.
 
-\subsection{Results}
 
 \noindent
 \begin{minipage}[t]{0.47\textwidth} % Colonna sinistra
