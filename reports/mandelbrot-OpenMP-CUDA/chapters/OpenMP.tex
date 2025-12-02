@@ -1,6 +1,15 @@
 \newpage
 \section{OpenMP}
 \label{sec:OpenMP}
+All results were obtained by compiling with the following command (see \texttt{Makefile})
+
+\begin{verbatim}
+    icpx -O2 -march=native -fopenmp 
+\end{verbatim}
+
+\noindent
+Running each version 10 times, and computing the average runtime.
+
 
 \subsection{Parallel For}
 In the first approach (\texttt{src/omp1.cpp}), the outer loop over was parallelized by the directive using default static scheduling (\texttt{schedule(static)}). Evenly divides pixels among available threads.
@@ -39,12 +48,17 @@ In the first approach (\texttt{src/omp1.cpp}), the outer loop over was paralleli
     \includegraphics[width=0.9\textwidth]{assets/openmp/omp1.png}
 \end{center}
 
+\noindent
+Execution times decrease monotonically as the number of threads increases, and the corresponding speedup grows accordingly. As expected, it remains below the theoretical Amdahl limit (considering an almost negligible sequential fraction). Efficiency is high only for the first few threads (1 up to 2), after which load imbalance becomes noticeable.
+
+
+
 
 \subsection{Guided Scheduling}
 The following scheduling policy dynamically balances workload distribution. It is essential for handling the computational irregularity of the Mandelbrot set algorithm because different pixels requires different amount of iterations.
 
 \begin{lstlisting}
-    #pragma omp parallel schedule(guided)
+    #pragma omp parallel for schedule(guided)
     for (int pos = 0; pos < HEIGHT * WIDTH; pos++)
     {
         // ... same content ...
@@ -54,6 +68,11 @@ The following scheduling policy dynamically balances workload distribution. It i
 \begin{center}
     \includegraphics[width=0.9\textwidth]{assets/openmp/omp2.png}
 \end{center}
+
+\noindent
+For omp2, guided scheduling provides clear improvements in both speedup and efficiency. The measured speedup remains close to the theoretical value up to 16 threads (theoretical speedup 16, observed ≈13), corresponding to an efficiency of about 80\%. This demonstrates that guided scheduling effectively mitigates the workload irregularity.
+
+
 
 \subsection{Guided + SIMD}
 Maximum optimization combining multi-thread parallelism with SIMD vectorization.
@@ -70,141 +89,8 @@ Maximum optimization combining multi-thread parallelism with SIMD vectorization.
     \includegraphics[width=0.9\textwidth]{assets/openmp/omp3.png}
 \end{center}
 
+The \texttt{simd} clause suggests vectorization, but the Mandelbrot loop includes divergent control flow, which may hinder full vectorization. This is reflected in the results: performance remains essentially unchanged compared to the guided-only version, confirming the difficulty of achieving meaningful SIMD gains in this context.
 
 
-
-
-
-
-
-\noindent
-Here, each thread computes a subset of the output frequencies independently. The temporary variables \texttt{Xr\_temp} and \texttt{Xi\_temp} are private to each thread, ensuring there is no race condition when updating the output arrays.
-
-
-In the second approach, the inner loop over the time index $n$ is parallelized using a reduction clause:
-
-\begin{lstlisting}
-for (k = 0; k < N; k++) {
-    double Xr_temp = 0.0;
-    double Xi_temp = 0.0;
-#pragma omp parallel for reduction(+:Xr_temp, Xi_temp)
-    for (n = 0; n < N; n++) {
-        Xr_temp += xr[n] * cos(n * k * PI2 / N) + idft * xi[n] * sin(n * k * PI2 / N);
-        Xi_temp += -idft * xr[n] * sin(n * k * PI2 / N) + xi[n] * cos(n * k * PI2 / N);
-    }
-    Xr_o[k] = Xr_temp;
-    Xi_o[k] = Xi_temp;
-}
-\end{lstlisting}
-
-\noindent
-Here, the computation of each output frequency $X[k]$ is parallelized across the time samples $n$. The \texttt{reduction} clause ensures that each thread accumulates contributions to \texttt{Xr\_temp} and \texttt{Xi\_temp} safely, avoiding race conditions. This method can provide higher parallel efficiency for large $N$, but incurs some overhead from the reduction operation, as shown in the following figures.
-
-
-\noindent
-\begin{minipage}[t]{0.47\textwidth} % Colonna sinistra
-    %\centering
-
-    Parallelized \texttt{for} loop with OpenMP using \texttt{private(n)} to make each thread independent.
-
-    \begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
-#pragma omp parallel for private(n)
-for (k=0 ; k<N ; k++)
-{
-    double Xr_temp = 0.0;
-    double Xi_temp = 0.0;
-
-    for (n=0 ; n<N ; n++)  {
-        Xr_temp += ...
-        Xi_temp += ...
-    }
-
-    Xr_o[k] = Xr_temp;
-    Xi_o[k] = Xi_temp;
-}
-    \end{lstlisting}
-    
-    \vspace*{0.7cm}
-
-    \centerline{\textbf{Execution time}}
-    \includegraphics[width=\linewidth]{assets/parallelization/omp1_times.png}
-
-    \vspace{0.5cm}
-
-    \centerline{\textbf{Speedup}}
-    \includegraphics[width=\linewidth]{assets/parallelization/omp1_speedups.png}
-    
-    \vspace{0.5cm}
-    
-    \centerline{\textbf{Efficiency}}
-    \includegraphics[width=\linewidth]{assets/parallelization/omp1_efficiencies.png}
-    
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.47\textwidth} % Colonna destra
-    %\centering
-
-    Parallelized \texttt{for} loop with OpenMP using \texttt{reduction} to combine the results from all threads.
-
-    \begin{lstlisting}[basicstyle=\ttfamily\scriptsize]   
-int k, n;
-for (k=0 ; k<N ; k++)
-{
-    double Xr_temp = 0.0;
-    double Xi_temp = 0.0;
-
-#pragma omp parallel for reduction(+:Xr_temp, Xi_temp)    
-    for (n=0 ; n<N ; n++)  {
-        Xr_temp += ...
-        Xi_temp += ...
-    }
-
-    Xr_o[k] = Xr_temp;
-    Xi_o[k] = Xi_temp;
-}
-    \end{lstlisting}
-
-    \centerline{\textbf{Execution time}}
-    \includegraphics[width=\linewidth]{assets/parallelization/omp2_times.png}
-
-    \vspace{0.5cm}
-
-    \centerline{\textbf{Speedup}}
-    \includegraphics[width=\linewidth]{assets/parallelization/omp2_speedups.png}
-    
-    \vspace{0.5cm}
-    
-    \centerline{\textbf{Efficiency}}
-    \includegraphics[width=\linewidth]{assets/parallelization/omp2_efficiencies.png}
-\end{minipage}
-
-
-\paragraph{Precomputation of Trigonometric Functions:}
-in an additional attempt to optimize the DFT computation, I modified the code as in the source \texttt{src/omp3.c}. The idea was to reduce the repeated evaluation of trigonometric functions by computing the sine and cosine values once per iteration:
-
-\begin{lstlisting}
-#pragma omp parallel for private(n)
-for (k=0; k<N; k++) {
-    double Xr_temp = 0.0;
-    double Xi_temp = 0.0;
-
-#pragma omp simd reduction(+:Xr_temp, Xi_temp)
-    for (n=0; n<N; n++) {
-        double angle = n * k * PI2 / N;
-        double c = cos(angle);
-        double s = sin(angle);
-
-        Xr_temp += xr[n]*c + idft*xi[n]*s;
-        Xi_temp += -idft*xr[n]*s + xi[n]*c;
-    }
-
-    Xr_o[k] = Xr_temp;
-    Xi_o[k] = Xi_temp;
-}
-\end{lstlisting}
-
-\noindent
-The motivation behind this modification was that, theoretically, computing the trigonometric functions only once per iteration should reduce the overall workload and improve performance.\\
-
-\noindent
-However, the experiments did not yield significant improvements. Performance remained the same, or in some cases slightly worse. This is likely due to the compiler automatically applying this optimization by default.
+\subsection{Conclusions}
+The static scheduling strategy is not ideal for the Mandelbrot computation because the workload is highly irregular: different pixels require significantly different iteration counts. Guided scheduling, instead, adapts more effectively to this variability and leads to better load balancing.

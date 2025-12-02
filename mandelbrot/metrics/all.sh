@@ -1,23 +1,23 @@
 #!/bin/bash
 
 # Lista dei nomi dei binari
-BINARIES=("omp1" "omp2" "omp3")
+BINARIES=("omp3")
 
 # Numero di esecuzioni per ciascun test
-RUNS=10
+RUNS=1
 
 # Range delle potenze di due (2^MIN_POW ... 2^MAX_POW)
 MIN_POW=0    # 2^0 = 1 thread
 MAX_POW=7    # 2^7 = 128 thread
 
 for NAME in "${BINARIES[@]}"; do
-    BUILD="../build210/"
+    BUILD="build210/"
     EXEC="$BUILD$NAME"
 
     # Calcolo reale dei thread per nome del file
     MIN_THREADS=$((2**MIN_POW))
     MAX_THREADS=$((2**MAX_POW))
-    OUTFILE="${NAME}_${RUNS}runs_${MIN_THREADS}-${MAX_THREADS}threads.txt"
+    OUTFILE="metrics/${NAME}_${RUNS}runs_${MIN_THREADS}-${MAX_THREADS}threads.txt"
 
     # Svuoto il file
     : > "$OUTFILE"
