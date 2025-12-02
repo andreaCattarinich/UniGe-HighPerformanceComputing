@@ -1,15 +1,7 @@
 \newpage
 \section{OpenMP}
 \label{sec:OpenMP}
-All results were obtained by compiling with the following command (see \texttt{Makefile})
-
-\begin{verbatim}
-    icpx -O2 -march=native -fopenmp 
-\end{verbatim}
-
-\noindent
-Running each version 10 times, and computing the average runtime.
-
+All results were obtained by compiling with the following command (see \texttt{Makefile}) running each version 10 times, and computing the average runtime: \texttt{icpx -O2 -march=native -fopenmp}
 
 \subsection{Parallel For}
 In the first approach (\texttt{src/omp1.cpp}), the outer loop over was parallelized by the directive using default static scheduling (\texttt{schedule(static)}). Evenly divides pixels among available threads.
@@ -19,14 +11,10 @@ In the first approach (\texttt{src/omp1.cpp}), the outer loop over was paralleli
     for (int pos = 0; pos < HEIGHT * WIDTH; pos++)
     {
         image[pos] = 0;
-
         const int row = pos / WIDTH;
         const int col = pos % WIDTH;
-
         double cRe = col * STEP + MIN_X;
         double cIm = row * STEP + MIN_Y;
-
-        // z = z^2 + c
         double zRe = 0, zIm = 0;
         for (int i = 1; i <= ITERATIONS; i++)
         {
@@ -34,7 +22,6 @@ In the first approach (\texttt{src/omp1.cpp}), the outer loop over was paralleli
             zRe = (zRe*zRe - zIm*zIm) + cRe;
             zIm = 2*oldRe*zIm + cIm;
 
-            // If it is convergent
             if(zRe*zRe + zIm*zIm >= 4)
             {
                 image[pos] = i;
@@ -45,7 +32,7 @@ In the first approach (\texttt{src/omp1.cpp}), the outer loop over was paralleli
 \end{lstlisting}
 
 \begin{center}
-    \includegraphics[width=0.9\textwidth]{assets/openmp/omp1.png}
+    \includegraphics[width=0.85\textwidth]{assets/openmp/omp1.png}
 \end{center}
 
 \noindent
@@ -70,10 +57,10 @@ The following scheduling policy dynamically balances workload distribution. It i
 \end{center}
 
 \noindent
-For omp2, guided scheduling provides clear improvements in both speedup and efficiency. The measured speedup remains close to the theoretical value up to 16 threads (theoretical speedup 16, observed ≈13), corresponding to an efficiency of about 80\%. This demonstrates that guided scheduling effectively mitigates the workload irregularity.
+Guided scheduling provides clear improvements in both speedup and efficiency. The measured speedup remains close to the theoretical value up to 16 threads (theoretical speedup 16, observed $\approx 13$), corresponding to an efficiency of about 80\%. This demonstrates that guided scheduling effectively mitigates the workload irregularity.
 
 
-
+\newpage
 \subsection{Guided + SIMD}
 Maximum optimization combining multi-thread parallelism with SIMD vectorization.
 
@@ -89,6 +76,7 @@ Maximum optimization combining multi-thread parallelism with SIMD vectorization.
     \includegraphics[width=0.9\textwidth]{assets/openmp/omp3.png}
 \end{center}
 
+\noindent
 The \texttt{simd} clause suggests vectorization, but the Mandelbrot loop includes divergent control flow, which may hinder full vectorization. This is reflected in the results: performance remains essentially unchanged compared to the guided-only version, confirming the difficulty of achieving meaningful SIMD gains in this context.
 
 

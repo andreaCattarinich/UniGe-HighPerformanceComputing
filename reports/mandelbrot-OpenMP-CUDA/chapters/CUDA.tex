@@ -2,35 +2,7 @@
 \section{CUDA}
 \label{sec:CUDA}
 
-\subsection{Sequential section}
-Ho deciso inizialmente di eseguire i test sul mio PC personale, piuttosto che sulla workstation dell'università o su Google Colab, per evitare limitazioni dovute a sessioni temporanee e risorse limitate. In questo modo ho avuto maggiore controllo sul processo di compilazione e sull'esecuzione dei test.\\
-
-\noindent
-Questa parte del report fa riferimento solo all'analisi eseguita tramite il mio PC personale.
-
-\noindent
-I parametri della simulazione utilizzati sono:
-
-\begin{itemize}
-    \item $nstep = 200$
-    \item $ni = 15000$
-    \item $nj = 15000$
-    \item $size = ni \times nj = 900\,000\,000$
-\end{itemize}
-
-\noindent
-Ho compilato il codice sequenziale presente in \texttt{src/cuda.c} using the following options:
-
-\begin{verbatim}
-    gcc -O3 src/cuda.c -o build/cuda
-\end{verbatim}
-
-\noindent
-Il tempo di esecuzione migliore ottenuto ($37 s$) costituirà il riferimento sequenziale per il calcolo dello speedup nella versione GPU.
-
-\subsection{CUDA}
-
-\subsubsection{Code}
+\subsection{Code}
 La parallelizzazione è stata realizzata utilizzando CUDA per eseguire il calcolo dei passi temporali su GPU. Il kernel principale è \texttt{step\_kernel\_mod}, che replica il comportamento della funzione sequenziale \texttt{step\_kernel\_ref}.\\
 
 \noindent
@@ -85,7 +57,7 @@ __global__ void step_kernel_mod(int ni, int nj, float fact, float* temp_in, floa
 
 
 
-\subsubsection{Compilation}
+\subsection{Compilation}
 La compilazione CUDA è stata effettuata con il comando:
 
 \begin{verbatim}
@@ -99,7 +71,7 @@ La compilazione CUDA è stata effettuata con il comando:
     \item \texttt{-DDEBUG=0}: disabilita il debug per migliorare le performance.
 \end{itemize}
 
-\subsubsection{Execution}
+\subsection{Execution}
 Per il kernel CUDA, la scelta di \texttt{threadsPerBlock} e \texttt{numBlocks} è stata la seguente:
 
 \begin{lstlisting}
@@ -139,7 +111,7 @@ Ogni blocco di 16x16 thread calcola i punti della griglia, mentre i blocchi sono
 \noindent
 La temporizzazione è stata eseguita tramite \texttt{cudaEvent\_t} per misurare il tempo del kernel GPU.
 
-\subsubsection{Results}
+\subsection{Results}
 
 Profiling (command: \texttt{nvprof build/cuda})
 
