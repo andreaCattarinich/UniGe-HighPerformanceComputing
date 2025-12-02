@@ -5,7 +5,7 @@
 \subsection{Parallel For}
 In the first approach (\texttt{src/omp1.cpp}), the outer loop over was parallelized by the directive using default static scheduling (\texttt{schedule(static)}). Evenly divides pixels among available threads.
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
     #pragma omp parallel for
     for (int pos = 0; pos < HEIGHT * WIDTH; pos++)
     {
@@ -36,11 +36,7 @@ In the first approach (\texttt{src/omp1.cpp}), the outer loop over was paralleli
 \end{lstlisting}
 
 \begin{center}
-    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_execution.png}
-
-    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_speedup.png}
-
-    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_efficiency.png}    
+    \includegraphics[width=0.9\textwidth]{assets/openmp/omp1.png}
 \end{center}
 
 
@@ -56,13 +52,8 @@ The following scheduling policy dynamically balances workload distribution. It i
 \end{lstlisting}
 
 \begin{center}
-    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_execution.png}
-
-    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_speedup.png}
-
-    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_efficiency.png}    
+    \includegraphics[width=0.9\textwidth]{assets/openmp/omp2.png}
 \end{center}
-
 
 \subsection{Guided + SIMD}
 Maximum optimization combining multi-thread parallelism with SIMD vectorization.
@@ -76,11 +67,7 @@ Maximum optimization combining multi-thread parallelism with SIMD vectorization.
 \end{lstlisting}
 
 \begin{center}
-    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_execution.png}
-
-    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_speedup.png}
-
-    \includegraphics[width=0.65\textwidth]{assets/openmp/omp2_efficiency.png}    
+    \includegraphics[width=0.9\textwidth]{assets/openmp/omp3.png}
 \end{center}
 
 
