@@ -111,7 +111,7 @@ int main()
     // dim3 block(16,16);
     // dim3 grid((WIDTH + block.x - 1)/block.x, (HEIGHT + block.y - 1)/block.y);
 
-    // 1D | 2D
+    // Choose between 1D | 2D
     mandelbrot_kernel_1D<<<grid, block>>>(
         image_dev, WIDTH, HEIGHT, STEP, ITERATIONS, MIN_X, MIN_Y
     );
