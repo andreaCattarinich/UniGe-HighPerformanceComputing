@@ -43,26 +43,19 @@ int main(int argc, char **argv)
 
         // z = z^2 + c
         double zRe = 0, zIm = 0;
-        int escape = ITERATIONS;
-        bool active = true;
-
         for (int i = 1; i <= ITERATIONS; i++)
         {
-            if(active)
-            {
-                double oldRe = zRe;
-                zRe = zRe*zRe - zIm*zIm + cRe;
-                zIm = 2*oldRe*zIm + cIm;
+            double oldRe = zRe;
+            zRe = (zRe*zRe - zIm*zIm) + cRe;
+            zIm = 2*oldRe*zIm + cIm;
 
-                if(zRe*zRe + zIm*zIm >= 4.0)
-                {
-                    escape = i;
-                    active = false;
-                }
+            // If it is convergent
+            if(zRe*zRe + zIm*zIm >= 4)
+            {
+                image[pos] = i;
+                break;
             }
         }
-
-        image[pos] = escape;
     }
     const auto end_par = chrono::steady_clock::now();    
 
