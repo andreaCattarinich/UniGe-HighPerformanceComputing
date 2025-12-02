@@ -105,9 +105,11 @@ int main()
     // inizio misurazione
     cudaEventRecord(start);
 
+    // ==== 1D ====
     dim3 block(256);
     dim3 grid((N + block.x - 1) / block.x);
 
+    // ==== 2D ==== 
     // dim3 block(16,16);
     // dim3 grid((WIDTH + block.x - 1)/block.x, (HEIGHT + block.y - 1)/block.y);
 
