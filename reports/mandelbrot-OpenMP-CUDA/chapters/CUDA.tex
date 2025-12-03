@@ -1,10 +1,9 @@
 \newpage
 \section{CUDA}
 \label{sec:CUDA}
-I implemented a CUDA version of the Mandelbrot computation and compared it with a CPU baseline, based on the results obtained with my PC.\\
-
+I implemented a CUDA version of the Mandelbrot computation and compared it with a CPU baseline, based on the results obtained with my PC.
 \noindent
-I defined the parameters as follows: $RESOLUTION = 5000$ and $ITERATIONS = 100$, resulting in an image of $15{,}000 \times 10{,}000$ pixels (approximately 150 million points).\\
+I defined the parameters as follows: $RESOLUTION = 5000$ and $ITERATIONS = 100$, resulting in an image of $15{,}000 \times 10{,}000$ pixels (approximately 150 million points).
 
 \subsection{Code}
 
@@ -34,29 +33,23 @@ I defined the parameters as follows: $RESOLUTION = 5000$ and $ITERATIONS = 100$,
 \begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
 __global__ void mandelbrot_kernel_1D(int *image, int width, int height,
                                   double step, int iterations,
-                                  double min_x, double min_y)
-{
+                                  double min_x, double min_y) {
     int pos = blockIdx.x * blockDim.x + threadIdx.x;
     int size = width * height;
-
     if (pos >= size) return;
 
     int row = pos / width;
     int col = pos % width;
-
     double cRe = col * step + min_x;
     double cIm = row * step + min_y;
-
     double zRe = 0, zIm = 0;
 
-    for (int i = 1; i <= iterations; i++)
-    {
+    for (int i = 1; i <= iterations; i++) {
         double oldRe = zRe;
         zRe = (zRe*zRe - zIm*zIm) + cRe;
         zIm = 2 * oldRe * zIm + cIm;
 
-        if (zRe*zRe + zIm*zIm >= 4.0)
-        {
+        if (zRe*zRe + zIm*zIm >= 4.0) {
             image[pos] = i;
             return;
         }
@@ -79,8 +72,8 @@ The compilation commands used for the different architectures were the following
 
 \paragraph{Personal PC:}
 \begin{verbatim}
-    CPU: g++ -O2 -o buildHP/opt1 src/opt1.cpp
-    GPU: nvcc -O2 -arch=sm_50 src/*.cu -o buildHP/*
+    CPU: g++ -O2 -o build/opt1 src/opt1.cpp
+    GPU: nvcc -O2 -arch=sm_50 src/*.cu -o build/*
 \end{verbatim}
 \paragraph{Google Colab:}
 \begin{verbatim}

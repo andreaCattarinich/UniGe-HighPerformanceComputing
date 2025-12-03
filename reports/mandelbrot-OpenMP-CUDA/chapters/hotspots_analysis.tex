@@ -1,27 +1,57 @@
 \newpage
 \section{Hotspot Analysis}
 
-\subsection{Optimization Problems}
-Questa istruzione non e' vettorizzabile con MSVC, e per tanto, l'esecuzione  risulta essere poco performante.\\
+\subsection{Hotspot Identification}
+The performance measurements were conducted using Intel VTune Profiler, and the analysis was performed with Intel Advisor.\\
+
+\begin{center}
+    \csvreader[
+        tabular= l r r,
+        table head=\hline Function Stack & Total & Percentage (\%) \\ \hline,
+        late after line=\\,
+        late after last line=\\\hline
+    ]{assets/hotspots/top-down-tree.csv}{}{%
+        \csvcoli & \csvcolii & \csvcoliii
+    }
+\end{center}
 
 \noindent
-Mentre con Linux G++, l'operazione sembra ottimizzare \texttt{std::complex}.
+The two main hotspots in the program correspond to the following instructions (lines 45 and 48), which account for the largest fraction of execution time:
+
+\begin{lstlisting}
+    z = pow(z, 2) + c;
+\end{lstlisting}
+
+\begin{lstlisting}
+    if (abs(z) >= 2)
+\end{lstlisting}
+
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{assets/hotspots/hotspots.png}
+\end{center}
+
+\subsection{Algorithm Optimization}
+The first instruction is not vectorizable under MSVC, resulting in suboptimal performance.\\
+
+\noindent
+Under Linux with G++, however, the \texttt{std::complex} operations appear to be better optimized:
+
 \begin{lstlisting}
     z = pow(z, 2) + c;
 \end{lstlisting}
 
 \noindent
-L'operazione \texttt{std::complex} utilizza l'overloading, in particolare \texttt{operator+} e \texttt{operator*}, creando un overhead e un conseguente carico sulla CPU. Inoltre, l'operazione \texttt{abs(z)} calcola la radice quadrata ogni volta.\\
+The \texttt{std::complex} implementation relies on operator overloading (\texttt{operator+} and \texttt{operator*}), which introduces additional overhead on the CPU. Furthermore, the \texttt{abs(z)} function computes a square root every iteration.\\
 
 \noindent
-Per rimuovere questa dipendenza dovuta dai numeri complessi, ho realizzato un miglioramento nel codice che mi consente di usare solamente numeri reali. Infatti, sfruttando la seguente relazione
+To remove this dependency on complex numbers, the code was refactored to use only real numbers. By exploiting the relation:
 
 \[
 z^2 = (a, b)^2 = (a^2 - b^2, \; 2ab)
 \]
 
 \noindent
-Ho implementato:
+we implemented:
 
 \[
 z^2 = \big(\operatorname{Re}(z), \operatorname{Im}(z)\big)^2 
@@ -29,7 +59,8 @@ z^2 = \big(\operatorname{Re}(z), \operatorname{Im}(z)\big)^2
 \]
 
 \noindent
-Come segue:
+as follows:
+
 \begin{lstlisting}
     double zRe = 0, zIm = 0;
     for (int i = 1; i <= ITERATIONS; i++)
@@ -49,72 +80,24 @@ Come segue:
     }
 \end{lstlisting}
 
-\subsubsection{Solution and Results}
-I risultati, come ci aspettavamo sono più performanti.
-
 \noindent
-\textbf{MSVC} \\
-\verb|  cl /O2 /arch:AVX2 /fp:fast /EHsc src\*.cpp /Fe:build\*.exe|
+As expected, this optimization significantly improves performance.
 
-\noindent
-\textbf{WSL} \\
-\verb|  g++ -O2 -o build/* src/*.cpp|\\
-
-\begin{tabular}{|l|c|c|c|c|}
+\begin{table}[h!]
+\centering
+\begin{tabular}{lccc}
 \hline
- & mandelbrot & opt1 & opt2\\
+\textbf{Platform} & \textbf{mandelbrot.cpp} & \textbf{opt.cpp} & \textbf{opt2.cpp} \\
 \hline
-WSL & 96s & 30s (x3.2) & 36s (x2.7)\\
-Windows & - & 40s & 36 s \\
+WSL(1)     & 96 s        & 30 s (3.2x) & 36 s (2.7x) \\
+MSVC(2)& -           & 40 s         & 36 s         \\
 \hline
-\end{tabular}\\
+\end{tabular}
+\end{table}
+
+(1) \texttt{g++ -O2 -o build/* src/*.cpp}
+
+(2) \texttt{cl /O2 /arch:AVX2 /fp:fast /EHsc src\*.cpp /Fe:build\*.exe}\\
 
 \noindent
-Utilizzeremo questo codice come baseline per lo sviluppo della restante parte del progetto.
-
-
-\subsection{Hotspot Identification}
-The measurements were performed using Intel VTune Profiler and the analysis was performed using Intel Advisor.\\
-
-\begin{center}
-
-    \csvreader[
-        tabular= l r r,
-        table head=\hline Function Stack & Total & Percentage (\%) \\ \hline,
-        late after line=\\,
-        late after last line=\\\hline
-    ]{assets/hotspots/top-down-tree.csv}{}{%
-        \csvcoli & \csvcolii & \csvcoliii
-    }
-\end{center}
-
-The two main hotspots are the following instructions which takes the most fraction of the program execution.\\
-
-\paragraph{Line 48}
-\begin{lstlisting}
-    z = pow(z, 2) + c;
-\end{lstlisting}
-
-\paragraph{Line 51}
-\begin{lstlisting}
-    if (abs(z) >= 2)
-\end{lstlisting}
-
-
-
-
-\begin{center}
-    \includegraphics[width=0.8\textwidth]{assets/hotspots/hotspots.png}
-\end{center}
-
-\subsection{Conclusions}
-The main hotspot is the DFT() function and its inverse IDFT(), which together account for over 99,05\% of the total execution time. All other functions have negligible impact. This indicates that \textbf{parallelization and vectorization efforts should focus on the double loop inside DFT()}.\\
-
-\noindent
-\textbf{The main hotspot is the loop contained in lines 72-80 (source: \texttt{src/omp\_homework.c})}. The dominant operations contributing to the algorithm's computational intensity are the \texttt{sin()} and \texttt{cos()} trigonometric functions, which account for the majority of the execution time, as shown in the following code.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.9\textwidth]{assets/hotspots/hotspots.png}
-    \label{fig:vtune_biggest_hotspot_screen}
-\end{figure}
+The optimized version \texttt{src/opt1.cpp} will be used as the baseline for the development of the remaining parts of the project.
