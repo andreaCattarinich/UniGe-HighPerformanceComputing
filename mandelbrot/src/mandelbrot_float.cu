@@ -2,18 +2,23 @@
 #include <fstream>
 #include <cuda_runtime.h>
 
+// Ranges of the set
 #define MIN_X -2
 #define MAX_X 1
 #define MIN_Y -1
 #define MAX_Y 1
 
+// Image ratio
 #define RATIO_X (MAX_X - MIN_X)
 #define RATIO_Y (MAX_Y - MIN_Y)
 
-#define RESOLUTION 10000
+// Image size
+#define RESOLUTION 5000
 #define WIDTH (RATIO_X * RESOLUTION)
 #define HEIGHT (RATIO_Y * RESOLUTION)
-#define STEP ((double)RATIO_X / WIDTH)
+
+#define STEP ((float)RATIO_X / WIDTH)
+
 
 #define ITERATIONS 100
 
@@ -21,8 +26,8 @@ using namespace std;
 
 // Kernel Mandelbrot 1D
 __global__ void mandelbrot_kernel_1D(int *image, int width, int height,
-                                  double step, int iterations,
-                                  double min_x, double min_y)
+                                  float step, int iterations,
+                                  float min_x, float min_y)
 {
     int pos = blockIdx.x * blockDim.x + threadIdx.x;
     int size = width * height;
@@ -32,18 +37,18 @@ __global__ void mandelbrot_kernel_1D(int *image, int width, int height,
     int row = pos / width;
     int col = pos % width;
 
-    double cRe = col * step + min_x;
-    double cIm = row * step + min_y;
+    float cRe = float(col) * step + min_x;
+    float cIm = float(row) * step + min_y;
 
-    double zRe = 0, zIm = 0;
+    float zRe = 0.f, zIm = 0.f;
 
     for (int i = 1; i <= iterations; i++)
     {
-        double oldRe = zRe;
+        float oldRe = zRe;
         zRe = (zRe*zRe - zIm*zIm) + cRe;
         zIm = 2 * oldRe * zIm + cIm;
 
-        if (zRe*zRe + zIm*zIm >= 4.0)
+        if (zRe*zRe + zIm*zIm >= 4.f)
         {
             image[pos] = i;
             return;
@@ -52,47 +57,16 @@ __global__ void mandelbrot_kernel_1D(int *image, int width, int height,
 
     image[pos] = 0;
 }
-
-// Kernel Mandelbrot 2D
-__global__ void mandelbrot_kernel_2D(int *image, int width, int height,
-                                     double step, int iterations,
-                                     double min_x, double min_y)
-{
-    // coordinate globali del thread
-    int col = threadIdx.x + blockIdx.x * blockDim.x;
-    int row = threadIdx.y + blockIdx.y * blockDim.y;
-
-    if (col >= width || row >= height) return;
-
-    int pos = row * width + col;
-
-    double cRe = col * step + min_x;
-    double cIm = row * step + min_y;
-
-    double zRe = 0, zIm = 0;
-
-    for (int i = 1; i <= iterations; i++)
-    {
-        double oldRe = zRe;
-        zRe = zRe * zRe - zIm * zIm + cRe;
-        zIm = 2 * oldRe * zIm + cIm;
-
-        if (zRe * zRe + zIm * zIm >= 4.0)
-        {
-            image[pos] = i;
-            return;
-        }
-    }
-
-    image[pos] = 0;
-}
-
 
 int main()
 {
-    const int N = WIDTH * HEIGHT;
-    cout << "WIDTH=" << WIDTH << " HEIGHT=" << HEIGHT << endl;
+    cout << "RESOLUTION   = " << RESOLUTION << endl;
+    cout << "ITERATION    = " << ITERATIONS << endl;
+    cout << "HEIGHT       = " << HEIGHT << endl;
+    cout << "WIDTH        = " << WIDTH << endl;
+    cout << "HEIGHT*WIDTH = " << HEIGHT*WIDTH << endl;
 
+    const int N = WIDTH * HEIGHT;
     int *image_host = new int[N];
     int *image_dev;
 
@@ -109,15 +83,16 @@ int main()
     dim3 block(256);
     dim3 grid((N + block.x - 1) / block.x);
 
-    // ==== 2D ==== 
-    // dim3 block(16,16);
-    // dim3 grid((WIDTH + block.x - 1)/block.x, (HEIGHT + block.y - 1)/block.y);
-
-    // Choose between 1D | 2D
     mandelbrot_kernel_1D<<<grid, block>>>(
-        image_dev, WIDTH, HEIGHT, STEP, ITERATIONS, MIN_X, MIN_Y
+        image_dev, WIDTH, HEIGHT, STEP, ITERATIONS, (float)MIN_X, (float)MIN_Y
     );
     
+    cudaError_t err = cudaGetLastError();
+    if (err != cudaSuccess) {
+        cout << "CUDA ERROR: " << cudaGetErrorString(err) << endl;
+        return 1;
+    }
+
     // fine misurazione
     cudaEventRecord(stop);
     cudaDeviceSynchronize();
