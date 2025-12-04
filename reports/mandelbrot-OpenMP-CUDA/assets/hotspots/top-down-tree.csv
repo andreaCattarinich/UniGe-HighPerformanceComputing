@@ -1,12 +1,9 @@
-Function Stack,CPU Time: Total,Percentage (%),CPU Time: Self,Module,Function (Full),Source File,Start Address
-Total,32.4300,100.0000%,0,[Unknown],[Unknown],[Unknown],[Unknown]
-\_start,32.4300,100.0000%,0,omp\_homework\_hotspots\_v2,\_start,[Unknown],0x4011b0
-\_\_libc\_start\_main\_impl,32.4300,100.0000%,0,libc.so.6,\_\_libc\_start\_main\_impl,libc-start.c,0x27280
--- main,32.4300,100.0000%,0,omp\_homework\_hotspots\_v2,main,omp\_homework\_hotspots\_v2.c,0x4012a0
----\- DFT,16.2420,50.0833%,2.28223,omp\_homework\_hotspots\_v2,DFT,omp\_homework\_hotspots\_v2.c,0x4016d1
------ \_\_svml\_sincos2,9.3781,28.9180%,0.275878,omp\_homework\_hotspots\_v2,\_\_svml\_sincos2,[Unknown],0x403430
------ \_\_svml\_sincos2\_l9,2.7880,8.5969%,5.47389,omp\_homework\_hotspots\_v2,\_\_svml\_sincos2\_l9,[Unknown],0x4045e0
----\- DFT,15.8800,48.9670%,2.25204,omp\_homework\_hotspots\_v2,DFT,omp\_homework\_hotspots\_v2.c,0x401a15
------ \_\_svml\_sincos2,9.7499,30.0645%,0.247992,omp\_homework\_hotspots\_v2,\_\_svml\_sincos2,[Unknown],0x403430
------ \_\_svml\_sincos2\_l9,2.4501,7.5549%,5.52797,omp\_homework\_hotspots\_v2,\_\_svml\_sincos2\_l9,[Unknown],0x4045e0
----\- fillInput,0.3080,0.9497%,2.25204,omp\_homework\_hotspots\_v2,DFT,omp\_homework\_hotspots\_v2.c,0x401a15
+Function Stack,CPU Time: Total,Percentage (%)
+Total,69.97,100.00%
+\_start,69.97,100.00%
+\_\_libc\_start\_main\_impl,69.97,100.00%
+-- main,69.97,100.00%
+---\- std::abs\textless double\textgreater ,41.2121,58.90%
+---\- std::operator+\textless double\textgreater ,13.6361,19.49%
+---\- std::pow\textless double\textgreater ,10.712,15.31%
+---\- std::complex\textless double\textgreater ::complex,0.0199997,0.03%

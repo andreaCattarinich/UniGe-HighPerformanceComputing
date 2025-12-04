@@ -1,2 +1,0 @@
-# Hotspots Analysis
-

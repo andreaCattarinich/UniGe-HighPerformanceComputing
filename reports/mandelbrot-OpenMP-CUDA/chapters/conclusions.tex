@@ -1,4 +1,24 @@
+\newpage
 \section{Conclusions}
-Both parallelization approaches exhibit near-linear scaling with an efficiency of approximately 100\% up to 8 cores. 
-The first parallelization strategy demonstrated the best performance, achieving a maximum speedup of 7.87 on 8 cores. 
-Beyond 24 cores, additional cores provided no significant improvement.
+\subsection{CUDA vs OpenMP}
+
+For completeness, I also compared the CUDA results with the CPU OpenMP implementation. The GPU implementations, especially the float kernel, which is the faster implementation, provide the following speedup.
+
+
+\subsection{Visualizing the Results}
+The following images show the distribution of the data obtained using Matlab, with different resolutions and variable ranges.
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{assets/conclusions/image1000.png}
+        \caption{Distribution for $x \in [-2, 1]$ and $y \in [-1, 1]$, resolution 1000.}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{assets/conclusions/image1000_2bis.png}
+        \caption{Zoomed-in view for $x \in [-1.5, -1]$ and $y \in [-0.5, 0.5]$, resolution 5000.}
+    \end{minipage}
+\end{figure}

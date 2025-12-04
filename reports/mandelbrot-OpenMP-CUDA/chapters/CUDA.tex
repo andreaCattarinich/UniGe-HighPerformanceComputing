@@ -1,0 +1,99 @@
+\newpage
+\section{CUDA}
+\label{sec:CUDA}
+I implemented a CUDA version of the Mandelbrot computation and compared it with a CPU baseline, based on the results obtained with my PC.
+\noindent
+I defined the parameters as follows: $RESOLUTION = 5000$ and $ITERATIONS = 100$, resulting in an image of $15{,}000 \times 10{,}000$ pixels (approximately 150 million points).
+
+\subsection{Code}
+
+\paragraph{Memory allocation:} this step prepares the memory needed for the Mandelbrot output.
+\begin{lstlisting}
+    const int N = WIDTH * HEIGHT;
+    int *image_host = new int[N];
+    int *image_dev;
+
+    cudaMalloc(&image_dev, N * sizeof(int));
+\end{lstlisting}
+
+\paragraph{Kernel configuration and execution:} the code defines the CUDA execution parameters: a block of 256 threads and a 1D grid large enough to cover all $N$ pixels.
+\begin{lstlisting}
+    dim3 block(256);
+    dim3 grid((N + block.x - 1) / block.x);
+
+    mandelbrot_kernel_1D<<<grid, block>>>(
+        image_dev, WIDTH, HEIGHT, STEP, ITERATIONS, MIN_X, MIN_Y
+    );
+    
+    cudaDeviceSynchronize();
+\end{lstlisting}
+
+\paragraph{Kernel Mandelbrot 1D:} the \texttt{mandelbrot\_kernel\_1D()} is a GPU kernel that parallelizes the Mandelbrot computation by assigning one thread per pixel.
+
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
+__global__ void mandelbrot_kernel_1D(int *image, int width, int height,
+                                  double step, int iterations,
+                                  double min_x, double min_y) {
+    int pos = blockIdx.x * blockDim.x + threadIdx.x;
+    int size = width * height;
+    if (pos >= size) return;
+
+    int row = pos / width;
+    int col = pos % width;
+    double cRe = col * step + min_x;
+    double cIm = row * step + min_y;
+    double zRe = 0, zIm = 0;
+
+    for (int i = 1; i <= iterations; i++) {
+        double oldRe = zRe;
+        zRe = (zRe*zRe - zIm*zIm) + cRe;
+        zIm = 2 * oldRe * zIm + cIm;
+
+        if (zRe*zRe + zIm*zIm >= 4.0) {
+            image[pos] = i;
+            return;
+        }
+    }
+
+    image[pos] = 0;
+}
+\end{lstlisting}
+
+\paragraph{Copy-back and cleanup:} After the GPU finishes, the results are copied from device to host using:
+\begin{lstlisting}
+    cudaMemcpy(image_host, image_dev, N * sizeof(int), cudaMemcpyDeviceToHost);
+
+    cudaFree(image_dev);
+\end{lstlisting}
+
+\subsection{Compilation}
+
+The compilation commands used for the different architectures were the following:
+
+\paragraph{Personal PC:}
+\begin{verbatim}
+    CPU: g++ -O2 -o build/opt1 src/opt1.cpp
+    GPU: nvcc -O2 -arch=sm_50 src/*.cu -o build/*
+\end{verbatim}
+\paragraph{Google Colab:}
+\begin{verbatim}
+    !nvcc -O2 -arch=sm_75 -o "$ROOT/build/*" "$ROOT/src/*.cu"
+\end{verbatim}
+
+\subsection{Results}
+Both 1D and 2D CUDA kernels were tested, but they produced identical results, so I considered only the 1D version.\\
+
+\noindent
+Additionally, a version of the kernel using \textbf{float precision} (code in: \texttt{src/mandelbrot\_float.cu}) was tested, providing a significant speedup on GPU. The float kernel uses \textit{float} instead of \textit{double} for all real-number calculations, reducing memory usage and improving throughput on the GPU.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lccc}
+\hline
+\textbf{Kernel} & \textbf{CPU} & \textbf{GPU 950M} & \textbf{GPU T4} \\
+\hline
+1D        & 24668 ms & 1768 ms (13x) & 506 ms (48x) \\
+Float     & -        & 194 ms (127x) & 27.8 ms (887x) \\
+\hline
+\end{tabular}
+\end{table}

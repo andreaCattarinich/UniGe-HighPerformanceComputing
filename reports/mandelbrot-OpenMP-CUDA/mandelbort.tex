@@ -14,6 +14,7 @@
 \usepackage{caption}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{tabularx}
 
 \lstset{
     language=C,
@@ -36,7 +37,7 @@
 
 % --- Title info ---
 \title{
-    \vspace{-2cm}
+    \vspace{-3cm}
     \includegraphics[width=8cm]{assets/unige.png} \\[1em]
     High Performance Computing\\
     \textbf{Report Mandelbrot Algorithm}
@@ -53,10 +54,13 @@
 
 % === Include chapters ===
 \input{chapters/architectures.tex}
+\input{chapters/mandelbrot_set.tex}
 \input{chapters/hotspots_analysis.tex}
-\input{chapters/amdahls_law.tex}
-\input{chapters/vectorization.tex}
-\input{chapters/parallelization.tex}
+
+\input{chapters/OpenMP.tex}
+\input{chapters/CUDA.tex}
+
 \input{chapters/conclusions.tex}
+\include{chapters/bibliography}
 
 \end{document}
