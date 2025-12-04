@@ -1,11 +1,14 @@
 \newpage
 \section{OpenMP}
 \label{sec:OpenMP}
-All results were obtained by compiling with the following command (see \texttt{Makefile}) running each version 10 times, and computing the average runtime: \texttt{icpx -O2 -march=native -fopenmp}
+The tests related to the OpenMP studies are carried out on the University Workstation.
+\noindent
+All results were obtained by compiling with the following command (see \texttt{Makefile}) running each version 10 times, and computing the average runtime: \texttt{icpx -O2 -march=native -fopenmp}.
+\noindent
+I defined the parameters as follows: $RESOLUTION = 10000$ and $ITERATIONS = 100$
 
 \subsection{Parallel For}
-In the first approach (\texttt{src/omp1.cpp}), the outer loop over was parallelized by the directive using default static scheduling (\texttt{schedule(static)}). Evenly divides pixels among available threads.
-
+In the first approach (\texttt{src/omp1.cpp}), the outer loop over was parallelized by the directive using default static scheduling (\texttt{schedule(static)}).
 \begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
     #pragma omp parallel for
     for (int pos = 0; pos < HEIGHT * WIDTH; pos++)
