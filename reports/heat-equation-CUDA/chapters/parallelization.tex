@@ -1,15 +1,12 @@
 \newpage
-\section{Parallelization}
+\section{CUDA Parallelization}
 \label{sec:parallelization}
 
 \subsection{Sequential section}
-Ho deciso inizialmente di eseguire i test sul mio PC personale, piuttosto che sulla workstation dell'università o su Google Colab, per evitare limitazioni dovute a sessioni temporanee e risorse limitate. In questo modo ho avuto maggiore controllo sul processo di compilazione e sull'esecuzione dei test.\\
+I initially decided to run the tests on my personal PC rather than on the university workstation or on Google Colab, in order to avoid limitations related to temporary sessions and restricted computational resources. This allowed me to maintain full control over the compilation process and the execution of the tests during the initial experiments with CUDA.\\
 
 \noindent
-Questa parte del report fa riferimento solo all'analisi eseguita tramite il mio PC personale.
-
-\noindent
-I parametri della simulazione utilizzati sono:
+The simulation parameters used are:
 
 \begin{itemize}
     \item $nstep = 200$
@@ -19,40 +16,35 @@ I parametri della simulazione utilizzati sono:
 \end{itemize}
 
 \noindent
-Ho compilato il codice sequenziale presente in \texttt{src/cuda.c} using the following options:
+I compiled the sequential code located in \texttt{src/cuda.c} using the following options:
 
 \begin{verbatim}
     gcc -O3 src/cuda.c -o build/cuda
 \end{verbatim}
 
 \noindent
-Il tempo di esecuzione migliore ottenuto ($37 s$) costituirà il riferimento sequenziale per il calcolo dello speedup nella versione GPU.
+The best execution time obtained (37 s) is used as the sequential baseline for computing the speedup of the GPU implementation.
 
-\subsection{CUDA}
+\subsection{Code}
+The parallelization was implemented using CUDA to execute the time-step computations on the GPU. The main kernel is \texttt{step\_kernel\_mod}, which replicates the behavior of the sequential function \texttt{step\_kernel\_ref}. You can find the code in \texttt{src/cuda.cu}.
 
-\subsubsection{Code}
-La parallelizzazione è stata realizzata utilizzando CUDA per eseguire il calcolo dei passi temporali su GPU. Il kernel principale è \texttt{step\_kernel\_mod}, che replica il comportamento della funzione sequenziale \texttt{step\_kernel\_ref}.\\
-
-\noindent
-Il codice si può trovare in \texttt{src/cuda.cu}
-
-\paragraph{Struttura del kernel:}
+\paragraph{Kernel structure:}
 \begin{itemize}
-    \item Ogni thread gestisce un punto della griglia 2D.
-    \item Gli indici globali $i$ e $j$ vengono calcolati a partire dai \texttt{threadIdx} e \texttt{blockIdx}.
+    \item Each thread processes one point of the 2D grid.
+    \item The global indices $i$ and $j$ are computed from \texttt{threadIdx} and \texttt{blockIdx}.
 \end{itemize}
 
-\paragraph{Gestione della memoria:}
+\paragraph{Memory management:}
 \begin{itemize}
-    \item Allocazione della memoria host e device.
-    \item Copia dei dati iniziali dal host alla device.
-    \item Copia dei risultati dalla device al host al termine della simulazione.
+    \item Allocation of host and device memory.
+    \item Transfer of the initial data from host to device.
+    \item Transfer of the results from device to host at the end of the simulation.
 \end{itemize}
 
-\paragraph{Controllo errori:}
+\paragraph{Error checking:}
 \begin{itemize}
-    \item Dopo ogni chiamata al kernel viene eseguito \texttt{cudaGetLastError()}.
-    \item Viene calcolato l'errore massimo rispetto al riferimento CPU per verificare la correttezza.
+    \item After each kernel launch, \texttt{cudaGetLastError()} is invoked.
+    \item The maximum error relative to the CPU reference is computed to check correctness.
 \end{itemize}
 
 \begin{lstlisting}
@@ -83,10 +75,8 @@ __global__ void step_kernel_mod(int ni, int nj, float fact, float* temp_in, floa
 }
 \end{lstlisting}
 
-
-
-\subsubsection{Compilation}
-La compilazione CUDA è stata effettuata con il comando:
+\subsection{Compilation}
+CUDA compilation was executed with the command:
 
 \begin{verbatim}
     nvcc -O3 -arch=sm_50 cuda.cu -o cuda.exe -DDEBUG=0
@@ -94,13 +84,13 @@ La compilazione CUDA è stata effettuata con il comando:
 
 \textbf{Significato dei flag:}
 \begin{itemize}
-    \item \texttt{-O3}: ottimizzazione massima.
-    \item \texttt{-arch=sm\_50}: architettura target della GPU.
-    \item \texttt{-DDEBUG=0}: disabilita il debug per migliorare le performance.
+    \item \texttt{-O3}: maximum optimization.
+    \item \texttt{-arch=sm\_50}: target GPU architecture.
+    \item \texttt{-DDEBUG=0}: disables the DEBUG directives.
 \end{itemize}
 
-\subsubsection{Execution}
-Per il kernel CUDA, la scelta di \texttt{threadsPerBlock} e \texttt{numBlocks} è stata la seguente:
+\subsection{Execution}
+For the CUDA kernel, the chosen values for \texttt{threadsPerBlock} and \texttt{numBlocks} were the following.
 
 \begin{lstlisting}
     dim3 threadsPerBlock(16, 16);
@@ -134,16 +124,17 @@ Per il kernel CUDA, la scelta di \texttt{threadsPerBlock} e \texttt{numBlocks} �
 \end{lstlisting}
 
 \noindent
-Ogni blocco di 16x16 thread calcola i punti della griglia, mentre i blocchi sono organizzati per coprire l'intera matrice.  
+Each 16×16 thread block computes a portion of the grid, while the blocks are arranged to cover the entire matrix.
 
 \noindent
-La temporizzazione è stata eseguita tramite \texttt{cudaEvent\_t} per misurare il tempo del kernel GPU.
+Timing was performed using \texttt{cudaEvent\_t} to measure the execution time of the GPU kernel.
 
-\subsubsection{Results}
+\subsection{Profiling}
+Command: \texttt{nvprof build/cuda}
 
-Profiling (command: \texttt{nvprof build/cuda})
+\hrule
 
-\paragraph{950M:}
+\subsubsection*{950M:}
 {\scriptsize
 \begin{verbatim}
 Execute the CPU-only reference version...
@@ -180,7 +171,9 @@ API:   90.99%  1.69655s         2  848.27ms  699.40us  1.69585s  cudaMalloc
 \end{verbatim}
 }
 
-\paragraph{T4:}
+\hrule
+
+\subsubsection*{T4:}
 {\scriptsize
 \begin{verbatim}
 Execute the CPU-only reference version...
@@ -218,20 +211,23 @@ API:   62.34%  1.73679s       200  8.6840ms  8.0240ms  11.548ms  cudaDeviceSynch
 \end{verbatim}
 }
 
-\noindent
-I risultati della simulazione GPU sono stati confrontati con la versione CPU e lo speedup è calcolato come: 
+\hrule
+
+\newpage
+\subsection{Results}
+The GPU simulation results were compared with the CPU version, and the speedup was calculated as:
 \[
 \text{speedup} = \frac{T_\text{CPU}}{T_\text{GPU}}
 \]
+
 \begin{table}[h!]
-\centering
-\begin{tabular}{lccc}
-\hline
-\textbf{GPU} & $\mathbf{T_{CPU}}$ (ms) & $\mathbf{T_{GPU}}$ (ms) & \textbf{Speedup} \\
-\hline
-950M & 34967 & 15086 & x2.32 \\
-T4   & 37178 & 1645  & x22.60 \\
-\hline
-\end{tabular}
-\caption{Confronto tra tempi CPU e GPU e speedup}
+    \centering
+    \begin{tabular}{lccc}
+    \hline
+    \textbf{GPU} & $\mathbf{T_{CPU}}$ (ms) & $\mathbf{T_{GPU}}$ (ms) & \textbf{Speedup} \\
+    \hline
+    950M & 34967 & 15086 & x2.32 \\
+    T4   & 37178 & 1645  & x22.60 \\
+    \hline
+    \end{tabular}
 \end{table}
